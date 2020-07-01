@@ -22,7 +22,19 @@ class DateController extends Controller
     public function actionIndex()
     {
         $model = Date::all();
-        return $this->render('date/index.tpl');
+        $options = [
+            'serial' => '#',
+            'fields' => [
+                'tour_id' => 'Тур',
+                'dates' => 'Даты',
+                'remaining_places' => 'Оставшиеся места',
+            ],
+            'baseUri' => 'date',
+            'pagination' => [
+                'per_page' => 10,
+            ],
+        ];
+        return $this->render('date/index.tpl', ['h1' => 'Даты', 'model' => $model, 'options' => $options]);
     }
 
     public function actionStore()

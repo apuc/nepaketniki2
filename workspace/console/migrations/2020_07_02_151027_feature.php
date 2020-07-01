@@ -18,7 +18,7 @@ class Feature extends Migration
             $table->increments('id');
             $table->integer('tour_id')->unsigned();
             $table->foreign('tour_id')->references('id')->on('tour');
-            $table->string('feature');
+            $table->text('feature');
             $table->string('type');
             $table->timestamps();
         });

@@ -31,31 +31,31 @@ class Tour extends Model
         $query = self::query();
 
         if ($request->name)
-            $query->where('username', 'LIKE', "%$request->name%");
+            $query->where('name', 'LIKE', "%$request->name%");
 
         if ($request->main_description)
-            $query->where('email', 'LIKE', "%$request->main_description%");
+            $query->where('main_description', 'LIKE', "%$request->main_description%");
 
         if ($request->front_description)
-            $query->where('role', 'LIKE', "$request->front_description");
+            $query->where('front_description', 'LIKE', "$request->front_description");
 
         if ($request->front_date)
-            $query->where('role', 'LIKE', "$request->front_date");
+            $query->where('front_date', 'LIKE', "$request->front_date");
 
         if ($request->front_places_remaining)
-            $query->where('role', 'LIKE', "$request->front_places_remaining");
+            $query->where('front_places_remaining', 'LIKE', "$request->front_places_remaining");
 
         if ($request->price)
-            $query->where('role', 'LIKE', "$request->price");
+            $query->where('price', 'LIKE', "$request->price");
 
         if ($request->difficulties_and_weather)
-            $query->where('role', 'LIKE', "$request->difficulties_and_weather");
+            $query->where('difficulties_and_weather', 'LIKE', "$request->difficulties_and_weather");
 
         if ($request->amount_of_places)
-            $query->where('role', 'LIKE', "$request->amount_of_places");
+            $query->where('amount_of_places', 'LIKE', "$request->amount_of_places");
 
         if ($request->reservation_title)
-            $query->where('role', 'LIKE', "$request->reservation_title");
+            $query->where('reservation_title', 'LIKE', "$request->reservation_title");
 
         if ($request->img) {
             $query->whereHas('image', function ($q) use ($request){
@@ -63,7 +63,7 @@ class Tour extends Model
             });
         }
         if ($request->image_id)
-            $query->where('role', 'LIKE', "$request->image_id");
+            $query->where('image_id', 'LIKE', "$request->image_id");
 
         return $query->get();
     }

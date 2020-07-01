@@ -19,7 +19,7 @@ class Date extends Migration
             $table->integer('tour_id')->unsigned();
             $table->foreign('tour_id')->references('id')->on('tour');
             $table->string('dates');
-            $table->integer('remaining_places');
+            $table->string('remaining_places');
             $table->timestamps();
         });
     }
