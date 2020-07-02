@@ -45,6 +45,10 @@
             <input type="text" name="amount_of_places" id="amount_of_places" class="form-control" />
         </div>
         <div class="form-group">
+            <label for="visa">Виза:</label>
+            <input type="text" name="visa" id="visa" class="form-control" />
+        </div>
+        <div class="form-group">
             <label for="reservation_title">Заголовок бронирования:</label>
             <input type="text" name="reservation_title" id="reservation_title" class="form-control" />
         </div>

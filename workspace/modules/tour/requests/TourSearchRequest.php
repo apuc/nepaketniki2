@@ -19,8 +19,12 @@ use core\RequestSearch;
  * @property string $difficulties_and_weather
  * @property string $amount_of_places
  * @property string $reservation_title
+ * @property string $visa
+ * @property string $activities_title
  * @property string $image_id
  * @property string $img
+ * @property string $title_image_id
+ * @property string $title_img
  */
 
 class TourSearchRequest extends RequestSearch
@@ -34,8 +38,12 @@ class TourSearchRequest extends RequestSearch
     public $difficulties_and_weather;
     public $amount_of_places;
     public $reservation_title;
+    public $visa;
+    public $activities_title;
     public $image_id;
     public $img;
+    public $title_image_id;
+    public $title_img;
 
     public function rules()
     {

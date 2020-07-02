@@ -13,6 +13,7 @@ use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
 use workspace\models\User;
+use workspace\modules\feature\models\Feature;
 use workspace\modules\tour\models\Tour;
 use workspace\requests\LoginRequest;
 use workspace\requests\RegistrationRequest;
@@ -39,7 +40,9 @@ class MainController extends Controller
 
         $model = Tour::where('id', $id)->first();
 
-        return $this->render('nepaketniki/tour.tpl', ['model' => $model]);
+        $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
+
+        return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities]);
     }
 
     public function actionLanguage()

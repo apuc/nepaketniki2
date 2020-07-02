@@ -12,12 +12,18 @@ class Tour extends Model
     protected $table = "tour";
 
     public $fillable = ['name', 'main_description', 'front_description', 'front_date', 'front_places_remaining',
-        'price', 'difficulties_and_weather', 'amount_of_places', 'reservation_title', 'image_id'];
+        'price', 'difficulties_and_weather', 'amount_of_places', 'reservation_title', 'visa', 'image_id',
+        'title_image_id', 'activities_title'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function image()
+    {
+        return $this->belongsTo('workspace\modules\image\models\Image');
+    }
+
+    public function title_image()
     {
         return $this->belongsTo('workspace\modules\image\models\Image');
     }
@@ -57,14 +63,56 @@ class Tour extends Model
         if ($request->reservation_title)
             $query->where('reservation_title', 'LIKE', "$request->reservation_title");
 
+        if ($request->visa)
+            $query->where('visa', 'LIKE', "$request->visa");
+
+        if ($request->activities_title)
+            $query->where('activities_title', 'LIKE', "$request->activities_title");
+
         if ($request->img) {
             $query->whereHas('image', function ($q) use ($request){
                 $q->where('image', 'LIKE', "%$request->img%");
             });
         }
-        if ($request->image_id)
-            $query->where('image_id', 'LIKE', "$request->image_id");
+
+        if ($request->title_img) {
+            $query->whereHas('title_image', function ($q) use ($request){
+                $q->where('image', 'LIKE', "%$request->title_img%");
+            });
+        }
 
         return $query->get();
+    }
+
+    public function _save()
+    {
+        if(isset($_POST['name']))
+            $this->name = $_POST['name'];
+        if(isset($_POST['main_description']))
+            $this->main_description = $_POST['main_description'];
+        if(isset($_POST['front_description']))
+            $this->front_description = $_POST['front_description'];
+        if(isset($_POST['front_date']))
+            $this->front_date = $_POST['front_date'];
+        if(isset($_POST['front_places_remaining']))
+            $this->front_places_remaining = $_POST['front_places_remaining'];
+        if(isset($_POST['price']))
+            $this->price = $_POST['price'];
+        if(isset($_POST['difficulties_and_weather']))
+            $this->difficulties_and_weather = $_POST['difficulties_and_weather'];
+        if(isset($_POST['amount_of_places']))
+            $this->amount_of_places = $_POST['amount_of_places'];
+        if(isset($_POST['visa']))
+            $this->visa = $_POST['visa'];
+        if(isset($_POST['activities_title']))
+            $this->activities_title = $_POST['activities_title'];
+        if(isset($_POST['reservation_title']))
+            $this->reservation_title = $_POST['reservation_title'];
+        if(isset($_POST['image_id']))
+            $this->image_id = (int)$_POST['image_id'];
+        if(isset($_POST['title_image_id']))
+            $this->title_image_id = (int)$_POST['title_image_id'];
+
+        $this->save();
     }
 }

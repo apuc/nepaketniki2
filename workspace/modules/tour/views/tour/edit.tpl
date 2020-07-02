@@ -27,13 +27,24 @@
         </div>
         <div class="form-group">
             <label for="image_id">Картинка тура на главной странице:</label>
-            {*            <input type="text" name="image_id" id="image_id" class="form-control" />*}
             <select class="form-control" name="image_id" id="image_id">
                 {foreach from=$images item=item}
                     {if $item->id == $model->image_id}
                     <option selected value="{$item->id}">{$item->image}</option>
                     {else}
                     <option value="{$item->id}">{$item->image}</option>
+                    {/if}
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title_image_id">Картинка заголовка тура:</label>
+            <select class="form-control" name="title_image_id" id="title_image_id">
+                {foreach from=$images item=item}
+                    {if $item->id == $model->title_image_id}
+                        <option selected value="{$item->id}">{$item->image}</option>
+                    {else}
+                        <option value="{$item->id}">{$item->image}</option>
                     {/if}
                 {/foreach}
             </select>
@@ -49,6 +60,14 @@
         <div class="form-group">
             <label for="amount_of_places">Количество мест:</label>
             <input type="text" name="amount_of_places" id="amount_of_places" class="form-control" value="{$model->amount_of_places}" />
+        </div>
+        <div class="form-group">
+            <label for="visa">Виза:</label>
+            <input type="text" name="visa" id="visa" class="form-control" value="{$model->visa}" />
+        </div>
+        <div class="form-group">
+            <label for="activities_title">Заголовок активностей:</label>
+            <input type="text" name="activities_title" id="activities_title" class="form-control" value="{$model->activities_title}" />
         </div>
         <div class="form-group">
             <label for="reservation_title">Заголовок бронирования:</label>
