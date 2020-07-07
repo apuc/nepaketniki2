@@ -48,6 +48,7 @@ class Controller
 
         $this->view->tpl->template_dir = $layoutPath;
 
+//        Debug::dd($this->layout);
         return $this->view->tpl->fetch($this->layout, ['content' => $view]);
     }
 
@@ -68,9 +69,13 @@ class Controller
         $this->tpl->template_dir = WORKSPACE_DIR . $dir;
     }
 
+    protected function setLayout($layout)
+    {
+        $this->layout = $layout;
+    }
+
     protected function init()
     {
 
     }
-
 }

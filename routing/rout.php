@@ -16,3 +16,9 @@ App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], functio
         App::$collector->get('/', [workspace\controllers\MainController::class, 'actionIndex'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
     });
 });
+
+App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], function($router) {
+    App::$collector->group(['before' => 'next'], function($router) {
+        App::$collector->get('/tour/{id}', [workspace\controllers\MainController::class, 'actionTour'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
+    });
+});

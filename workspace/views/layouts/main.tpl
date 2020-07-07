@@ -1,10 +1,9 @@
 <html>
-{include file="{$workspace_dir}/assets/resources.tpl"}
+{include file="{$workspace_dir}/assets/main.tpl"}
 <head>
     {$smarty.capture.meta}
     <title>{$title}</title>
     {$meta}
-{*    <title>{$smarty.capture.title}</title>*}
     {$smarty.capture.css}
     {$css}
     {$smarty.capture.js_head}

@@ -6,6 +6,6 @@ destination.db
 frontend/web/proxy.txt
 frontend/web/time.txt
 frontend/web/test.txt
-resources/img
+resources/images
 vendor/
 config/local

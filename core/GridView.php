@@ -85,32 +85,32 @@ class GridView extends Widget
         if ($end > $this->pagination->getAmountOfData())
             $end = $this->pagination->getAmountOfData();
 
-        if ($this->options['filters']) {
+        if ($this->options['filters'])
             $table .= $this->createFilters($this->options);
-        }
 
-        for ($i = $start; $i < $end; $i++) {
-            $table .= '<tr>';
+        if($this->pagination->getAmountOfData() > 0) {
+            for ($i = $start; $i < $end; $i++) {
+                $table .= '<tr>';
 
-            (isset($this->options['serial'])) ? $table .= '<td>' . ($i + 1) . '</td>' : $table .= '';
+                (isset($this->options['serial'])) ? $table .= '<td>' . ($i + 1) . '</td>' : $table .= '';
 
-            if (!empty($this->actionsBtn)) {
-                $table .= '<td>';
-                foreach ((array)$this->actionsBtn as $item)
-                    $table .= $this->createBtn($item, $this->options['baseUri'], $this->model[$i]->id);
-                $table .= '</td>';
+                if (!empty($this->actionsBtn)) {
+                    $table .= '<td>';
+                    foreach ((array)$this->actionsBtn as $item)
+                        $table .= $this->createBtn($item, $this->options['baseUri'], $this->model[$i]->id);
+                    $table .= '</td>';
+                }
+                foreach ($this->options['fields'] as $key => $option)
+                    if(isset($this->model[$i]->$key))
+                        $table .= '<td>' . $this->model[$i]->$key . '</td>';
+                    elseif(isset($this->options['fields'][$key]['label']))
+                        $table .= '<td>' . call_user_func($this->options['fields'][$key]['value'], $this->model[$i])
+                            . '</td>';
+                    else
+                        $table .= '<td></td>';
+
+                $table .= '</tr>';
             }
-
-            foreach ($this->options['fields'] as $key => $option)
-                if(isset($this->model[$i]->$key))
-                    $table .= '<td>' . $this->model[$i]->$key . '</td>';
-                elseif(isset($this->options['fields'][$key]['label']))
-                    $table .= '<td>' . call_user_func($this->options['fields'][$key]['value'], $this->model[$i])
-                        . '</td>';
-                else
-                    $table .= '<td></td>';
-
-            $table .= '</tr>';
         }
         $table .= '</table>';
 

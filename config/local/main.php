@@ -2,14 +2,14 @@
 
 return [
     'db' => [
-        'driver' => 'sqlite',
-        'host' => '',
-        'user' => '',
-        'pass' => '',
-        'db_name' => ROOT_DIR . '/default.db',
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'user' => 'root',
+        'pass' => 'root',
+        'db_name' => 'nepaketniki',
         'charset' => 'utf8',
-        'collation' => 'utf8_unicode_ci',
+        'collation' => 'utf8_general_ci',
         'prefix' => '',
     ],
-    'baseUrl' => 'placement-site.craft-group.xyz'
+    'baseUrl' => ''
 ];

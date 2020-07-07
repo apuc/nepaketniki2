@@ -8,10 +8,12 @@ use core\component_manager\lib\Config;
 use core\component_manager\lib\Mod;
 use core\Controller;
 
+use core\Debug;
 use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
 use workspace\models\User;
+use workspace\modules\tour\models\Tour;
 use workspace\requests\LoginRequest;
 use workspace\requests\RegistrationRequest;
 use workspace\widgets\Language;
@@ -22,17 +24,22 @@ class MainController extends Controller
 
     public function actionIndex()
     {
-        $this->view->setTitle('Main Page');
-        $this->view->addMeta('keywords', 'главная', ['some' => 'text']);
-        $this->view->registerJs('/resources/js/bodyScript.js', [], true);
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Nepaketniki');
 
-        $buttons[0] = '<a href="/modules" class="btn btn-dark">Модули</a>';
+        $model = Tour::all();
 
-        $mod = new Mod();
-        if($mod->getModInfo('adminlte')['status'] == 'active')
-            $buttons[1] = '<a href="/admin/adminlte" class="btn btn-dark">AdminLTE</a>';
+        return $this->render('nepaketniki/index.tpl', ['model' => $model]);
+    }
 
-        return $this->render('main/index.tpl', ['h1' => App::$config['app_name'], 'buttons' => $buttons]);
+    public function actionTour($id)
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Nepaketniki');
+
+        $model = Tour::where('id', $id)->first();
+
+        return $this->render('nepaketniki/tour.tpl', ['model' => $model]);
     }
 
     public function actionLanguage()
@@ -55,7 +62,7 @@ class MainController extends Controller
             $_SESSION['role'] = $model->role;
             $_SESSION['username'] = $model->username;
 
-            $this->redirect('');
+            $this->redirect('admin/tour');
         }
 
         return $this->render('main/sign-up.tpl', ['errors' => $request->getMessagesArray()]);
@@ -80,7 +87,7 @@ class MainController extends Controller
                     $_SESSION['role'] = $model->role;
                     $_SESSION['username'] = $model->username;
 
-                    $this->redirect('');
+                    $this->redirect('admin/tour');
                 }
             }
 
