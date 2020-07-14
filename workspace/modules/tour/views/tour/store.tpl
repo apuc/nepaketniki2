@@ -25,8 +25,23 @@
         </div>
         <div class="form-group">
             <label for="image_id">Картинка тура на главной странице:</label>
-{*            <input type="text" name="image_id" id="image_id" class="form-control" />*}
             <select class="form-control" name="image_id" id="image_id">
+                {foreach from=$images item=item}
+                    <option value="{$item->id}">{$item->image}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title_image_id">Картинка заголовка тура:</label>
+            <select class="form-control" name="title_image_id" id="title_image_id">
+                {foreach from=$images item=item}
+                    <option value="{$item->id}">{$item->image}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bg_image_id">Картинка фона тура:</label>
+            <select class="form-control" name="bg_image_id" id="bg_image_id">
                 {foreach from=$images item=item}
                     <option value="{$item->id}">{$item->image}</option>
                 {/foreach}
@@ -47,6 +62,18 @@
         <div class="form-group">
             <label for="visa">Виза:</label>
             <input type="text" name="visa" id="visa" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="activities_title">Заголовок активностей:</label>
+            <input type="text" name="activities_title" id="activities_title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="amount_activities_items_1">Количество активностей в левом столбце:</label>
+            <input type="text" name="amount_activities_items_1" id="amount_activities_items_1" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="amount_activities_items_2">Количество активностей в правом столбце:</label>
+            <input type="text" name="amount_activities_items_2" id="amount_activities_items_2" class="form-control" />
         </div>
         <div class="form-group">
             <label for="reservation_title">Заголовок бронирования:</label>

@@ -1,5 +1,3 @@
-{assign var="url" value="{'tour/'}{$model->id}"}
-{core\App::$breadcrumbs->addItem(['text' => $model->name, 'url' => $url])}
-<div class="h1">{$model->name}</div>
+{assign var="url" value="{'feature/'}{$model->id}"}
 
 {core\DetailView::widget()->setParams($model, $options)->run()}

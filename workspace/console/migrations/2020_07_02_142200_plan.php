@@ -19,6 +19,8 @@ class Plan extends Migration
             $table->integer('tour_id')->unsigned();
             $table->foreign('tour_id')->references('id')->on('tour');
             $table->string('dates');
+            $table->string('info');
+            $table->integer('day');
             $table->text('description');
             $table->timestamps();
         });

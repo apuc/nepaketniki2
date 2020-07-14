@@ -25,6 +25,7 @@ use core\RequestSearch;
  * @property string $img
  * @property string $title_image_id
  * @property string $title_img
+ * @property string $bg_img
  */
 
 class TourSearchRequest extends RequestSearch
@@ -44,6 +45,7 @@ class TourSearchRequest extends RequestSearch
     public $img;
     public $title_image_id;
     public $title_img;
+    public $bg_img;
 
     public function rules()
     {

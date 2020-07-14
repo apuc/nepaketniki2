@@ -29,7 +29,6 @@ class MainController extends Controller
         $this->view->setTitle('Nepaketniki');
 
         $model = Tour::all();
-
         return $this->render('nepaketniki/index.tpl', ['model' => $model]);
     }
 

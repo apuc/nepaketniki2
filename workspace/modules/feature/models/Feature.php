@@ -43,4 +43,16 @@ class Feature extends Model
 
         return $query->get();
     }
+
+    public function _save()
+    {
+        if(isset($_POST['feature']))
+            $this->feature = $_POST['feature'];
+        if(isset($_POST['tour_id']))
+            $this->tour_id = $_POST['tour_id'];
+        if(isset($_POST['type']))
+            $this->type = $_POST['type'];
+
+        $this->save();
+    }
 }

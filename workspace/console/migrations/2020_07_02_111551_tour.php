@@ -29,6 +29,9 @@ class Tour extends Migration
             $table->integer('image_id')->unsigned();
             $table->foreign('image_id')->references('id')->on('image');
             $table->integer('title_image_id')->unsigned();
+            $table->integer('amount_activities_items_1');
+            $table->integer('amount_activities_items_2');
+            $table->integer('bg_image_id')->unsigned();
             $table->timestamps();
         });
     }

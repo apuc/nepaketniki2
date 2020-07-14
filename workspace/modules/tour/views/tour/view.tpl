@@ -1,5 +1,5 @@
-{assign var="url" value="{'users/'}{$model->id}"}
+{assign var="url" value="{'tour/'}{$model->id}"}
 {core\App::$breadcrumbs->addItem(['text' => $model->username, 'url' => $url])}
-<div class="h1">{$model->username}</div>
+<div class="h1">{$model->name}</div>
 
 {core\DetailView::widget()->setParams($model, $options)->run()}

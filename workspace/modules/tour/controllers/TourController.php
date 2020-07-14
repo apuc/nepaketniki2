@@ -39,7 +39,7 @@ class TourController extends Controller
     {
         if(isset($_POST['name'])) {
             $model = new Tour();
-            $$model->_save();
+            $model->_save();
 
             $this->redirect('admin/tour');
         } else {
@@ -71,6 +71,8 @@ class TourController extends Controller
     {
         return [
             'serial' => '#',
+            'tr_class' => 'fixed-height',
+            'td_class' => 'fixed-height',
             'fields' => [
                 'name' => 'Название',
                 'front_date' => 'Даты тура на главной странице',
@@ -80,19 +82,28 @@ class TourController extends Controller
                 'img' => [
                     'label' => 'Картинка тура на главной странице',
                     'value' => function($model) {
-                        return '<img src="../../../resources/images/' . $model->image->image . '" />';
+                        return $model->image->image;
                     }
                 ],
                 'title_img' => [
-                    'label' => 'Картинка тура на главной странице',
+                    'label' => 'Картинка заголовка тура',
                     'value' => function($model) {
                         return $model->title_image->image;
+                    }
+                ],
+                'bg_img' => [
+                    'label' => 'Картинка фона тура',
+                    'value' => function($model) {
+                        return $model->bg_image->image;
                     }
                 ],
                 'main_description' => 'Описание на странице просмотра тура',
                 'difficulties_and_weather' => 'Сложности и погода',
                 'amount_of_places' => 'Количество мест',
                 'visa' => 'Виза',
+                'activities_title' => 'Заголовок активностей',
+                'amount_activities_items_1' => 'Количество активностей в левом столбце',
+                'amount_activities_items_2' => 'Количество активностей в правом столбце',
                 'reservation_title' => 'Заголовок бронирования',
             ],
             'baseUri' => 'tour',

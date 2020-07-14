@@ -27,7 +27,48 @@ class FeatureController extends Controller
         $request = new FeatureSearchRequest();
         $model = Feature::search($request);
 
-        $options = [
+        return $this->render('feature/index.tpl', ['h1' => 'Особенности', 'model' => $model, 'options' => $this->getOptions()]);
+    }
+
+    public function actionStore()
+    {
+        if(isset($_POST['feature'])) {
+            $model = new Feature();
+            $model->_save();
+
+            $this->redirect('admin/feature');
+        } else {
+            $tours = Tour::all();
+
+            return $this->render('feature/store.tpl', ['tours' => $tours]);
+        }
+    }
+
+    public function actionView($id)
+    {
+        $model = Feature::where('id', $id)->first();
+
+        return $this->render('feature/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
+    }
+
+    public function actionEdit($id)
+    {
+        $model = Feature::where('id', $id)->first();
+
+        if(isset($_POST['feature'])) {
+            $model->_save();
+
+            $this->redirect('admin/feature');
+        } else {
+            $tours = Tour::all();
+
+            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => $tours]);
+        }
+    }
+
+    public function getOptions()
+    {
+       return [
             'serial' => '#',
             'fields' => [
                 '_tour' => [
@@ -43,54 +84,6 @@ class FeatureController extends Controller
             'pagination' => [
                 'per_page' => 20,
             ],
-        ];
-        return $this->render('feature/index.tpl', ['h1' => 'Особенности', 'model' => $model, 'options' => $options]);
-    }
-
-    public function actionStore()
-    {
-        if(isset($_POST['feature'])) {
-            $model = new Feature();
-
-            $model->feature = $_POST['feature'];
-            if(isset($_POST['tour_id']))
-                $model->tour_id = $_POST['tour_id'];
-            if(isset($_POST['type']))
-                $model->type = $_POST['type'];
-
-            $model->save();
-
-            $this->redirect('admin/feature');
-        } else {
-            $tours = Tour::all();
-
-            return $this->render('feature/store.tpl', ['tours' => $tours]);
-        }
-    }
-
-    public function actionView()
-    {
-
-    }
-
-    public function actionEdit($id)
-    {
-        $model = Feature::where('id', $id)->first();
-
-        if(isset($_POST['feature'])) {
-            $model->feature = $_POST['feature'];
-            if(isset($_POST['tour_id']))
-                $model->tour_id = $_POST['tour_id'];
-            if(isset($_POST['type']))
-                $model->type = $_POST['type'];
-
-            $model->save();
-
-            $this->redirect('admin/feature');
-        } else {
-            $tours = Tour::all();
-
-            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => $tours]);
-        }
+       ];
     }
 }

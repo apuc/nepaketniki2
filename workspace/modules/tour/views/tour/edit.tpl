@@ -50,6 +50,18 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="bg_image_id">Картинка фона тура:</label>
+            <select class="form-control" name="bg_image_id" id="bg_image_id">
+                {foreach from=$images item=item}
+                    {if $item->id == $model->bg_image_id}
+                        <option selected value="{$item->id}">{$item->image}</option>
+                    {else}
+                        <option value="{$item->id}">{$item->image}</option>
+                    {/if}
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
             <div class="form-group">
                 <label for="main_description">Описание на странице просмотра тура:</label>
                 <textarea rows="7" name="main_description" id="main_description" class="form-control">{$model->main_description}</textarea>
@@ -68,6 +80,14 @@
         <div class="form-group">
             <label for="activities_title">Заголовок активностей:</label>
             <input type="text" name="activities_title" id="activities_title" class="form-control" value="{$model->activities_title}" />
+        </div>
+        <div class="form-group">
+            <label for="amount_activities_items_1">Количество активностей в левом столбце:</label>
+            <input type="text" name="amount_activities_items_1" id="amount_activities_items_1" class="form-control" value="{$model->amount_activities_items_1}" />
+        </div>
+        <div class="form-group">
+            <label for="amount_activities_items_2">Количество активностей в правом столбце:</label>
+            <input type="text" name="amount_activities_items_2" id="amount_activities_items_2" class="form-control" value="{$model->amount_activities_items_2}" />
         </div>
         <div class="form-group">
             <label for="reservation_title">Заголовок бронирования:</label>

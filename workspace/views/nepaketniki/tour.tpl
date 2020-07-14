@@ -54,21 +54,21 @@
             </div>
             <h2 class="-single-tour-header__title">Там где детская мечта может стать явью</h2>
             <img class="-single-tour-header__balloon" src="../../../resources/images/balloon.png" alt=""/>
-            <img class="-single-tour-header__logo" src="../../../resources/images/{$model->title_image->image}" alt=""/>
-            <p class="-single-tour-header__description">
-                {$model->main_description}
-            </p>
         </div>
+        <div class="-single-tour-header__logo">
+            <img src="../../../resources/images/{$model->title_image->image}" alt=""/>
+        </div>
+        <p class="-single-tour-header__description">
+            {$model->main_description}
+        </p>
     </div>
 </div>
 <div class="-single-tour-info">
     <div class="-single-tour-info__dates">
-        <div class="-single-tour-info__date">26-27 сентября</div>
-        <div class="-single-tour-info__placesLeft">осталось 5 мест</div>
-        <div class="-single-tour-info__date">1-4 октября</div>
-        <div class="-single-tour-info__placesLeft">осталось 5 мест</div>
-        <div class="-single-tour-info__date">8-11 октября</div>
-        <div class="-single-tour-info__placesLeft">осталось 5 мест</div>
+        {foreach from=$model->dates item=item}
+            <div class="-single-tour-info__date">{$item->dates}</div>
+            <div class="-single-tour-info__placesLeft">{$item->remaining_places}</div>
+        {/foreach}
     </div>
     <div class="-single-tour-info__text">
         <div class="-tours-visa"><img class="-tours-visa__image" src="../../../resources/images/visa.png" alt=""/>
@@ -82,11 +82,13 @@
     </div>
 </div>
 <div class="-single-tour-schedule">
+    <img src="../../../resources/images/{$model->bg_image->image}" alt="" class="-single-tour-schedule__bg" />
+{*    <img src="../../../resources/images/-single-tour-schedule-min-bg.png" alt="" class="-single-tour-schedule__bg--min" />*}
     <div class="-single-tour-schedule__column -single-tour-schedule__column--left">
         <div class="-single-tour-schedule__title--mobile">
             {$model->activities_title}
         </div>
-        {for $i=0 to 3}
+        {for $i=0 to $model->amount_activities_items_1 - 1}
             <div class="-single-tour-schedule-item baselined">
                 <img class="-single-tour-schedule__point"
                      src="../../../resources/images/-single-tour-schedule-point.png" alt=""/>
@@ -98,7 +100,7 @@
         <div class="-single-tour-schedule__title">
             {$model->activities_title}
         </div>
-        {for $i=4 to 5}
+        {for $i=$model->amount_activities_items_1 to $model->amount_activities_items_1 + $model->amount_activities_items_2 - 1}
             <div class="-single-tour-schedule-item baselined">
                 <img class="-single-tour-schedule__point"
                      src="../../../resources/images/-single-tour-schedule-point.png" alt=""/>

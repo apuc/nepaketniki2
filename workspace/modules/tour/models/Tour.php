@@ -13,7 +13,7 @@ class Tour extends Model
 
     public $fillable = ['name', 'main_description', 'front_description', 'front_date', 'front_places_remaining',
         'price', 'difficulties_and_weather', 'amount_of_places', 'reservation_title', 'visa', 'image_id',
-        'title_image_id', 'activities_title'];
+        'title_image_id', 'activities_title', 'amount_activities_items_1', 'amount_activities_items_2', 'bg_image_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
@@ -26,6 +26,19 @@ class Tour extends Model
     public function title_image()
     {
         return $this->belongsTo('workspace\modules\image\models\Image');
+    }
+
+    public function bg_image()
+    {
+        return $this->belongsTo('workspace\modules\image\models\Image');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dates()
+    {
+        return $this->hasMany('workspace\modules\date\models\Date');
     }
 
     /**
@@ -81,6 +94,13 @@ class Tour extends Model
             });
         }
 
+        if ($request->bg_img) {
+            $query->whereHas('bg_img', function ($q) use ($request){
+                $q->where('image', 'LIKE', "%$request->bg_img%");
+            });
+        }
+
+
         return $query->get();
     }
 
@@ -112,6 +132,12 @@ class Tour extends Model
             $this->image_id = (int)$_POST['image_id'];
         if(isset($_POST['title_image_id']))
             $this->title_image_id = (int)$_POST['title_image_id'];
+        if(isset($_POST['bg_image_id']))
+            $this->bg_image_id = (int)$_POST['bg_image_id'];
+        if(isset($_POST['amount_activities_items_1']))
+            $this->amount_activities_items_1 = (int)$_POST['amount_activities_items_1'];
+        if(isset($_POST['amount_activities_items_2']))
+            $this->amount_activities_items_2 = (int)$_POST['amount_activities_items_2'];
 
         $this->save();
     }

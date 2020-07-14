@@ -90,24 +90,24 @@ class GridView extends Widget
 
         if($this->pagination->getAmountOfData() > 0) {
             for ($i = $start; $i < $end; $i++) {
-                $table .= '<tr>';
+                $table = $this->setTableSettings($table, 'tr', 'tr_class', '');
 
-                (isset($this->options['serial'])) ? $table .= '<td>' . ($i + 1) . '</td>' : $table .= '';
+                (isset($this->options['serial'])) ? $table = $this->setTableSettings($table, 'td', 'td_class', '') . ($i + 1) . '</td>' : $table .= '';
 
                 if (!empty($this->actionsBtn)) {
-                    $table .= '<td>';
+                    $table = $this->setTableSettings($table, 'td', 'td_class', '');
                     foreach ((array)$this->actionsBtn as $item)
                         $table .= $this->createBtn($item, $this->options['baseUri'], $this->model[$i]->id);
                     $table .= '</td>';
                 }
                 foreach ($this->options['fields'] as $key => $option)
                     if(isset($this->model[$i]->$key))
-                        $table .= '<td>' . $this->model[$i]->$key . '</td>';
+                        $table = $this->setTableSettings($table, 'td', 'td_class', '') . $this->model[$i]->$key . '</td>';
                     elseif(isset($this->options['fields'][$key]['label']))
-                        $table .= '<td>' . call_user_func($this->options['fields'][$key]['value'], $this->model[$i])
+                        $table = $this->setTableSettings($table, 'td', 'td_class', '') . call_user_func($this->options['fields'][$key]['value'], $this->model[$i])
                             . '</td>';
                     else
-                        $table .= '<td></td>';
+                        $table = $this->setTableSettings($table, 'td', 'td_class', '') . '</td>';
 
                 $table .= '</tr>';
             }
