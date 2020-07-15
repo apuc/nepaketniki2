@@ -28,13 +28,13 @@
             </div>
             <div class="contacts">
                 <div class="contacts-socials">
-                    <div class="social"><img src="assets/images/social-1.png"/>
+                    <div class="social"><img src="resources/images/social-1.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
-                    <div class="social"><img src="assets/images/social-2.png"/>
+                    <div class="social"><img src="resources/images/social-2.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
-                    <div class="social"><img src="assets/images/social-3.png"/>
+                    <div class="social"><img src="resources/images/social-3.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                                 <h3>Каппадокия</h3>
                                 <h3></h3>
                             </div>
-                        </div><img class="tour-logo__image" src="assets/images/tour-1.png" alt=""/>
+                        </div><img class="tour-logo__image" src="resources/images/tour-1.png" alt=""/>
                     </div>
                 </div>
                 <div class="schedule-tour__info">
@@ -120,7 +120,7 @@
                                 <h3>Бали</h3>
                                 <h3>и Нуса Пенида</h3>
                             </div>
-                        </div><img class="tour-logo__image" src="assets/images/tour-2.png" alt=""/>
+                        </div><img class="tour-logo__image" src="resources/images/tour-2.png" alt=""/>
                     </div>
                 </div>
                 <div class="schedule-tour__info">
@@ -145,7 +145,7 @@
                                 <h3>Бали</h3>
                                 <h3>и Нуса Пенида</h3>
                             </div>
-                        </div><img class="tour-logo__image" src="assets/images/tour-3.png" alt=""/>
+                        </div><img class="tour-logo__image" src="resources/images/tour-3.png" alt=""/>
                     </div>
                 </div>
                 <div class="schedule-tour__info">
@@ -170,7 +170,7 @@
                                 <h3>Япония:</h3>
                                 <h3>красные клёны</h3>
                             </div>
-                        </div><img class="tour-logo__image" src="assets/images/tour-4.png" alt=""/>
+                        </div><img class="tour-logo__image" src="resources/images/tour-4.png" alt=""/>
                     </div>
                 </div>
                 <div class="schedule-tour__info">
@@ -195,7 +195,7 @@
                                 <h3>Рождественский Эльзас</h3>
                                 <h3></h3>
                             </div>
-                        </div><img class="tour-logo__image" src="assets/images/tour-5.png" alt=""/>
+                        </div><img class="tour-logo__image" src="resources/images/tour-5.png" alt=""/>
                     </div>
                 </div>
                 <div class="schedule-tour__info">
@@ -233,13 +233,13 @@
 <div class="travels" id="travels">
     <div class="travels__heading">
         <h3 class="travels__title">Открой новый формат путешествий вместе с нами!</h3>
-        <p class="travels__news">Подпишитесь и получите чек-лист топ непакетных направлений <span>бесплатно</span></p><img class="travels__balloon" src="assets/images/balloon.png" alt=""/>
+        <p class="travels__news">Подпишитесь и получите чек-лист топ непакетных направлений <span>бесплатно</span></p><img class="travels__balloon" src="resources/images/balloon.png" alt=""/>
     </div>
-    <div class="travels__logo"><img src="assets/images/nepaketniki.png" alt=""/></div>
+    <div class="travels__logo"><img src="resources/images/nepaketniki.png" alt=""/></div>
     <div class="advantages">
         <div class="advantage column-left">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-1.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-1.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -252,7 +252,7 @@
         </div>
         <div class="advantage column-right mobile-hidden">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-2.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-2.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -265,7 +265,7 @@
         </div>
         <div class="advantage column-left">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-3.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-3.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -278,7 +278,7 @@
         </div>
         <div class="advantage column-right mobile-hidden">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-4.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-4.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -291,7 +291,7 @@
         </div>
         <div class="advantage column-left">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-5.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-5.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -304,7 +304,7 @@
         </div>
         <div class="advantage column-right mobile-hidden">
             <div class="advantage__inside">
-                <div class="advantage__logo"><img src="assets/images/item-6.png" alt=""/>
+                <div class="advantage__logo"><img src="resources/images/item-6.png" alt=""/>
                     <div class="circle large">
                         <div class="border"></div>
                     </div>
@@ -343,13 +343,13 @@
         <div class="footer__contact-info">
             <div class="contacts">
                 <div class="contacts-socials">
-                    <div class="social"><img src="assets/images/social-1.png"/>
+                    <div class="social"><img src="resources/images/social-1.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
-                    <div class="social"><img src="assets/images/social-2.png"/>
+                    <div class="social"><img src="resources/images/social-2.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
-                    <div class="social"><img src="assets/images/social-3.png"/>
+                    <div class="social"><img src="resources/images/social-3.png"/>
                         <div class="social--inner-hover"></div>
                     </div>
                 </div>

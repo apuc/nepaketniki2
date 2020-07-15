@@ -6,14 +6,13 @@
 
 {capture name=css}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
 {/capture}
 
 {capture name=js_head}
 {/capture}
 
 {capture name=js_body}
-    <script src="asset/js/script.js"></script>
 {/capture}
 
 {capture name=meta}
