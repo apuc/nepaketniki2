@@ -204,8 +204,8 @@ class Request
     {
         $msgs = [];
         if($this->errors){
-            foreach ($this->errors->toArray() as $item){
-                $msgs[] = array_values($item)[0];
+            foreach ($this->errors->toArray() as $key => $item){
+                $msgs[$key] = array_values($item)[0];
             }
         }
 

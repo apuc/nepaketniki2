@@ -11,5 +11,4 @@ class MainPageReview extends Model
     protected $table = "main_page_review";
 
     public $fillable = ['name', 'instagramLinks', 'avatar', 'text'];
-
 }

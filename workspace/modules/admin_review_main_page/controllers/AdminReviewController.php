@@ -6,7 +6,9 @@ namespace workspace\modules\admin_review_main_page\controllers;
 
 use core\App;
 use core\Controller;
+use core\Request;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
+use workspace\modules\admin_review_main_page\requests\ReviewRequest;
 use workspace\modules\tour\models\Tour;
 use workspace\modules\users\models\User;
 use workspace\modules\users\requests\UsersSearchRequest;
@@ -14,8 +16,6 @@ use workspace\widgets\Main;
 
 class AdminReviewController extends Controller
 {
-    private $text_fields = ['name', 'instagramLinks', 'text'];
-
     protected function init()
     {
         $this->view->setTitle('Отзывы');
@@ -48,6 +48,7 @@ class AdminReviewController extends Controller
             'pagination' => [
                 'per_page' => 10,
             ],
+            'filters' => false
         ];
     }
 
@@ -59,14 +60,14 @@ class AdminReviewController extends Controller
 
     public function actionStore()
     {
-        if ($this->isPostExist()) {
+        $request = new ReviewRequest();
+
+        if ($request->isPost() AND $request->validate()) {
             $model = new MainPageReview();
-            $model->name = $_POST['name'];
-            $model->instagramLinks = $_POST['instagramLinks'];
-            $model->text = $_POST['text'];
-            // change
-            $model->avatar = '...';
-            //
+            $model->name = $request->name;
+            $model->instagramLinks = $request->instagramLinks;
+            $model->avatar = '/resources/' . $request->avatar;
+            $model->text = $request->text;
             $model->save();
             $this->redirect('admin/reviews');
 
@@ -78,13 +79,13 @@ class AdminReviewController extends Controller
     public function actionEdit($id)
     {
         $model = MainPageReview::where('id', $id)->first();
-        if($this->isPostExist()) {
-            $model->name = $_POST['name'];
-            $model->instagramLinks = $_POST['instagramLinks'];
-            $model->text = $_POST['text'];
-            if (isset($_FILES['avatar'])) {
+        $request = new ReviewRequest();
 
-            }
+        if ($request->isPost() AND $request->validate()) {
+            $model->name = $request->name;
+            $model->instagramLinks = $request->instagramLinks;
+            $model->avatar = '/resources/' . $request->avatar;
+            $model->text = $request->text;
             $model->save();
 
             $this->redirect('admin/reviews');
@@ -98,14 +99,5 @@ class AdminReviewController extends Controller
     {
         $model = MainPageReview::where('id', $id)->first();
         return $this->render('reviews/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
-    }
-
-    private function isPostExist() {
-        foreach ($this->text_fields as $post_var) {
-            if (!isset($_POST[$post_var])) {
-                return false;
-            }
-        }
-        return true;
     }
 }

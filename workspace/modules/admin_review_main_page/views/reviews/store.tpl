@@ -11,10 +11,7 @@
             <label for="instagramLinks">Инстаграм:</label>
             <input type="text" name="instagramLinks" id="instagramLinks" class="form-control" required="required"/>
         </div>
-        <div class="custom-file">
-            <label class="custom-file-label" for="customFile">Выберите аватар:</label>
-            <input type="file" name="avatar" class="custom-file-input" id="customFile">
-        </div>
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'avatar'])->run()}
         <div class="form-group mt-3">
             <label for="text">Отзыв:</label>
             <textarea rows="8" name="text" id="text" class="form-control" required="required"></textarea>
