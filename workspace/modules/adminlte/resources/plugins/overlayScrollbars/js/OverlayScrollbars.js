@@ -2197,7 +2197,7 @@
                 var _sizeAutoObserverElement;           //observes size auto changes
                 var _sizeObserverElement;               //observes size and padding changes
                 var _paddingElement;                    //manages the padding
-                var _viewportElement;                   //is the viewport of our scrollbar model
+                var _viewportElement;                   //is the viewport of our scrollbar models
                 var _contentElement;                    //the element which holds the content
                 var _contentArrangeElement;             //is needed for correct sizing of the content element (only if native scrollbars are overlays)
                 var _contentGlueElement;                //has always the size of the content element

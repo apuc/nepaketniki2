@@ -27,7 +27,7 @@ class FeatureController extends Controller
         $request = new FeatureSearchRequest();
         $model = Feature::search($request);
 
-        return $this->render('feature/index.tpl', ['h1' => 'Особенности', 'model' => $model, 'options' => $this->getOptions()]);
+        return $this->render('feature/index.tpl', ['h1' => 'Особенности', 'models' => $model, 'options' => $this->getOptions()]);
     }
 
     public function actionStore()
@@ -48,7 +48,7 @@ class FeatureController extends Controller
     {
         $model = Feature::where('id', $id)->first();
 
-        return $this->render('feature/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
+        return $this->render('feature/view.tpl', ['models' => $model, 'options' => $this->getOptions()]);
     }
 
     public function actionEdit($id)
@@ -62,7 +62,7 @@ class FeatureController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => $tours]);
+            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'models' => $model, 'tours' => $tours]);
         }
     }
 

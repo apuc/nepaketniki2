@@ -25,14 +25,14 @@ class TourController extends Controller
         $model = Tour::search($request);
 
         return $this->render('tour/index.tpl',
-            ['model' => $model, 'options' => $this->getOptions(), 'h1' => 'Туры']);
+            ['models' => $model, 'options' => $this->getOptions(), 'h1' => 'Туры']);
     }
 
     public function actionView($id)
     {
         $model = Tour::where('id', $id)->first();
 
-        return $this->render('tour/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
+        return $this->render('tour/view.tpl', ['models' => $model, 'options' => $this->getOptions()]);
     }
 
     public function actionStore()
@@ -59,7 +59,7 @@ class TourController extends Controller
         }
         $images = Image::all();
 
-        return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'images' => $images]);
+        return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'models' => $model, 'images' => $images]);
     }
 
     public function actionDelete($id)

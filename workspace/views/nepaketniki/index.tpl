@@ -327,6 +327,7 @@
         </div>
     </div>
 </div>
+{*{core\Slider::widget()->run()}*}
 <div class="comments" id="comments">
     <h2 class="comments__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>
     <div class="comments__pagination">

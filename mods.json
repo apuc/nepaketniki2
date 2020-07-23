@@ -1,5 +1,6 @@
 {
   "adminlte":{"version":"0.2","status":"active","type":"module"},
+  "admin_review_main_page":{"version":"0.1","status":"active","type":"module"},
   "users":{"version":"0.2","status":"active","type":"module"},
   "tour":{"version":"0.1","status":"active","type":"module"},
   "image":{"version":"0.1","status":"active","type":"module"},

@@ -9,10 +9,8 @@
     <link href="resources/css/style.css" rel="stylesheet">
 {/capture}
 
-{capture name=js_head}
-{/capture}
-
-{capture name=js_body}
+{capture name=js_end_body}
+    <script src="resources/js/script.js"></script>
 {/capture}
 
 {capture name=meta}

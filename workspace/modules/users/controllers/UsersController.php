@@ -36,7 +36,7 @@ class UsersController  extends Controller
             ],
         ];
         return $this->render('users/index.tpl',
-            ['model' => $model, 'options' => $options, 'h1' => 'Пользователи']);
+            ['models' => $model, 'options' => $options, 'h1' => 'Пользователи']);
     }
 
     public function actionView($id)
@@ -51,7 +51,7 @@ class UsersController  extends Controller
             ],
         ];
 
-        return $this->render('users/view.tpl', ['model' => $model, 'options' => $options]);
+        return $this->render('users/view.tpl', ['models' => $model, 'options' => $options]);
     }
 
     public function actionStore()
@@ -82,7 +82,7 @@ class UsersController  extends Controller
 
             $this->redirect('admin/users');
         } else
-            return $this->render('users/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model]);
+            return $this->render('users/edit.tpl', ['h1' => 'Редактировать: ', 'models' => $model]);
     }
 
     public function actionDelete($id)

@@ -1,0 +1,10 @@
+{
+  "name": "users",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\admin_review_main_page\\AdminReview",
+  "description": "admin review module",
+  "configFile": "config/review.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'adminlte-module' => 'success',
+    'admin-module' => 'success',
 ];

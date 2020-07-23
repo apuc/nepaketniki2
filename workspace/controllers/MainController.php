@@ -7,12 +7,11 @@ use core\component_manager\lib\CM;
 use core\component_manager\lib\Config;
 use core\component_manager\lib\Mod;
 use core\Controller;
-
-use core\Debug;
 use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
 use workspace\models\User;
+use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\feature\models\Feature;
 use workspace\modules\tour\models\Tour;
 use workspace\requests\LoginRequest;
@@ -29,7 +28,7 @@ class MainController extends Controller
         $this->view->setTitle('Nepaketniki');
 
         $model = Tour::all();
-        return $this->render('nepaketniki/index.tpl', ['model' => $model]);
+        return $this->render('nepaketniki/index.tpl', ['models' => $model]);
     }
 
     public function actionTour($id)
@@ -41,7 +40,7 @@ class MainController extends Controller
 
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
 
-        return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities]);
+        return $this->render('nepaketniki/tour.tpl', ['models' => $model, 'activities' => $activities]);
     }
 
     public function actionLanguage()
@@ -75,12 +74,11 @@ class MainController extends Controller
         $this->view->setTitle('Sign In');
 
         $mod = new Mod();
-        if($mod->getModInfo('users')['status'] != 'active') {
-            $message =  'Чтобы сделать доступной регистрацию и авторизацию установите и активируйте модуль пользователей.';
+        if ($mod->getModInfo('users')['status'] != 'active') {
+            $message = 'Чтобы сделать доступной регистрацию и авторизацию установите и активируйте модуль пользователей.';
 
             return $this->render('main/info.tpl', ['message' => $message]);
-        }
-        else {
+        } else {
             $request = new LoginRequest();
             if ($request->isPost() && $request->validate()) {
                 $model = User::where('username', $request->username)->first();
@@ -170,7 +168,7 @@ class MainController extends Controller
         App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
         App::$breadcrumbs->addItem(['text' => 'Modules', 'url' => 'modules']);
 
-        return $this->render('main/modules.tpl', ['model' => $model, 'options' => $options]);
+        return $this->render('main/modules.tpl', ['models' => $model, 'options' => $options]);
     }
 
     public function actionModuleDownload()
@@ -210,6 +208,17 @@ class MainController extends Controller
             $mod = new Mod();
             $mod->deleteDirectory(ROOT_DIR . Config::get()->byKey($mod->getModInfo($_POST['slug'])['type'] . 'Path') . $_POST['slug']);
             $cm->modDeleteFromJson($_POST['slug']);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function reviewDownload()
+    {
+        try {
+            $review_model = MainPageReview::all();
+            echo json_encode($review_model);
+            die();
         } catch (\Exception $e) {
             return $e;
         }

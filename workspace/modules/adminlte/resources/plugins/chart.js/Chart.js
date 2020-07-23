@@ -1058,7 +1058,7 @@ var conversions_14 = conversions.apple;
 var conversions_15 = conversions.gray;
 
 /*
-	this function routes a model to all other models.
+	this function routes a models to all other models.
 
 	all functions that are routed have a property `.conversion` attached
 	to the returned synthetic function. This property is an array
@@ -1142,7 +1142,7 @@ var route = function (fromModel) {
 		var node = graph[toModel];
 
 		if (node.parent === null) {
-			// no possible conversion, or this node is the source model.
+			// no possible conversion, or this node is the source models.
 			continue;
 		}
 
@@ -2387,7 +2387,7 @@ var helpers = {
 	},
 
 	/**
-	 * Basic javascript inheritance based on the model created in Backbone.js
+	 * Basic javascript inheritance based on the models created in Backbone.js
 	 */
 	inherits: function(extensions) {
 		var me = this;
@@ -3277,7 +3277,7 @@ function interpolate(start, view, model, ease) {
 
 		target = model[key];
 
-		// if a value is added to the model after pivot() has been called, the view
+		// if a value is added to the models after pivot() has been called, the view
 		// doesn't contain it, so let's initialize the view to the target value.
 		if (!view.hasOwnProperty(key)) {
 			view[key] = target;
@@ -8314,7 +8314,7 @@ function splitNewlines(str) {
 
 
 /**
- * Private helper to create a tooltip item model
+ * Private helper to create a tooltip item models
  * @param element - the chart element (point, arc, bar) to create the tooltip item for
  * @return new tooltip item
  */
@@ -8340,7 +8340,7 @@ function createTooltipItem(element) {
 }
 
 /**
- * Helper to get the reset model for the tooltip
+ * Helper to get the reset models for the tooltip
  * @param tooltipOpts {object} the tooltip options
  */
 function getBaseModel(tooltipOpts) {
@@ -8684,8 +8684,8 @@ var exports$4 = core_element.extend({
 		var me = this;
 		var opts = me._options;
 
-		// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+		// Need to regenerate the models because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and models at the same time
 		// which breaks any animations.
 		var existingModel = me._model;
 		var model = me._model = getBaseModel(opts);
@@ -10656,7 +10656,7 @@ var core_helpers = function() {
 		var height = boundingRect.bottom - boundingRect.top - paddingTop - paddingBottom;
 
 		// We divide by the current device pixel ratio, because the canvas is scaled up by that amount in each direction. However
-		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go back here
+		// the backend models is in unscaled coordinates. Since we are going to deal with our models coordinates, we go back here
 		mouseX = Math.round((mouseX - boundingRect.left - paddingLeft) / (width) * canvas.width / chart.currentDevicePixelRatio);
 		mouseY = Math.round((mouseY - boundingRect.top - paddingTop) / (height) * canvas.height / chart.currentDevicePixelRatio);
 
@@ -14855,7 +14855,7 @@ function computeLinearBoundary(source) {
 	}
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
-	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
+	// the models (scaleTop, scaleBottom and scaleZero) because some external plugins and
 	// controllers might still use it (e.g. the Smith chart).
 
 	if (fill === 'start') {

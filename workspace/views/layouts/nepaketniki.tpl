@@ -11,9 +11,7 @@
 </head>
 <body>
 {$content}
-
 {$smarty.capture.js_body}
-    <script src="resources/js/script.js"></script>
-{$jsEndBody}
+{$smarty.capture.js_end_body}
 </body>
 </html>
