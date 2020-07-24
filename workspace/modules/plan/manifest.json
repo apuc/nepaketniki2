@@ -1,0 +1,10 @@
+{
+  "name": "plan",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\plan\\Plan",
+  "description": "admin plan module",
+  "configFile": "config/plan.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

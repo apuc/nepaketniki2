@@ -25,6 +25,7 @@ class Tour extends Migration
             $table->text('difficulties_and_weather');
             $table->string('amount_of_places');
             $table->string('reservation_title');
+            $table->string('activities_title');
             $table->string('visa');
             $table->integer('image_id')->unsigned();
             $table->foreign('image_id')->references('id')->on('image');

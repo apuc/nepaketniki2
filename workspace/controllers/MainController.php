@@ -13,6 +13,9 @@ use workspace\classes\ModulesSearchRequest;
 use workspace\models\User;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\feature\models\Feature;
+use workspace\modules\image\models\Image;
+use workspace\modules\plan\models\Plan;
+use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\tour\models\Tour;
 use workspace\requests\LoginRequest;
 use workspace\requests\RegistrationRequest;
@@ -35,11 +38,12 @@ class MainController extends Controller
     {
         $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle('Nepaketniki');
-
         $model = Tour::where('id', $id)->first();
-
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
-        return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities]);
+        $plan = Plan::where('tour_id', $id)->get();
+        //$images = PlanImages::where('tour_id');
+
+        return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities, 'plan' => $plan]);
     }
 
     public function actionLanguage()

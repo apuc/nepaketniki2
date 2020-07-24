@@ -8,6 +8,7 @@ class ElfinderBtnWidget extends ElfinderWidget
 {
     protected $name;
     protected $value;
+    protected $id;
     protected $label = 'Файлы';
     protected $btnClass = 'btn btn-dark';
     protected $btnValue = 'Выбрать';
@@ -22,7 +23,9 @@ class ElfinderBtnWidget extends ElfinderWidget
             'label' => $this->label,
             'btnClass' => $this->btnClass,
             'btnValue' => $this->btnValue,
+            'id' => $this->id ? $this->id : $this->name
         ]);
+
     }
 
 }
