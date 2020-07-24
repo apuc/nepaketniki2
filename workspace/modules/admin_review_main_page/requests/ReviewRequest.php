@@ -7,22 +7,22 @@ use core\Request;
  * Class RegistrationRequest
  * @package workspace\modules\order\requests
  * @property string $name
- * @property string $instagramLinks
+ * @property string $instagram_link
  * @property object $avatar
  * @property string $text
  */
 class ReviewRequest extends Request
 {
     public $name;
-    public $instagramLinks;
     public $avatar;
     public $text;
+    public $instagram_link;
 
     public function rules()
     {
         return [
             'name' => 'required',
-            'instagramLinks' => 'required',
+            'instagram_link' => 'required',
             'avatar' => 'required',
             'text' => 'required'
         ];

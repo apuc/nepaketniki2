@@ -17,7 +17,7 @@ class MainPageReview extends Migration
         App::$db->schema->create('main_page_review', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
-            $table->string('instagram_links', 255);
+            $table->string('instagram_link', 255);
             $table->string('avatar', 255);
             $table->text('text');
             $table->timestamps();

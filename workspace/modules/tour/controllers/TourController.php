@@ -25,7 +25,7 @@ class TourController extends Controller
         $model = Tour::search($request);
 
         return $this->render('tour/index.tpl',
-            ['models' => $model, 'options' => $this->getOptions(), 'h1' => 'Туры']);
+            ['model' => $model, 'options' => $this->getOptions(), 'h1' => 'Туры']);
     }
 
     public function actionView($id)

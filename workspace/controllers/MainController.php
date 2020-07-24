@@ -28,7 +28,7 @@ class MainController extends Controller
         $this->view->setTitle('Nepaketniki');
 
         $model = Tour::all();
-        return $this->render('nepaketniki/index.tpl', ['models' => $model]);
+        return $this->render('nepaketniki/index.tpl', ['model' => $model]);
     }
 
     public function actionTour($id)
@@ -39,8 +39,7 @@ class MainController extends Controller
         $model = Tour::where('id', $id)->first();
 
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
-
-        return $this->render('nepaketniki/tour.tpl', ['models' => $model, 'activities' => $activities]);
+        return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities]);
     }
 
     public function actionLanguage()
@@ -216,7 +215,8 @@ class MainController extends Controller
     public function reviewDownload()
     {
         try {
-            $review_model = MainPageReview::all();
+            $review_model = MainPageReview::select('instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
+            //get(['instagramLinks AS instagram_link']);
             echo json_encode($review_model);
             die();
         } catch (\Exception $e) {

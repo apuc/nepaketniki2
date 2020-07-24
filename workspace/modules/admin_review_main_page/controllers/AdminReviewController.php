@@ -6,25 +6,11 @@ namespace workspace\modules\admin_review_main_page\controllers;
 
 use core\App;
 use core\Controller;
-use core\Request;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
-use workspace\modules\tour\models\Tour;
-use workspace\modules\users\models\User;
-use workspace\modules\users\requests\UsersSearchRequest;
-use workspace\widgets\Main;
 
 class AdminReviewController extends Controller
 {
-    protected function init()
-    {
-        $this->view->setTitle('Отзывы');
-        $this->viewPath = '/modules/admin_review_main_page/views/';
-        $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Review', 'url' => 'review']);
-    }
-
     public function actionIndex()
     {
         $model = MainPageReview::get();
@@ -40,7 +26,7 @@ class AdminReviewController extends Controller
             'td_class' => 'fixed-height',
             'fields' => [
                 'name' => 'Название',
-                'instagramLinks' => 'Инстаграмм',
+                'instagram_link' => 'Инстаграмм',
                 'avatar' => 'Аватар',
                 'text' => 'Отзыв',
             ],
@@ -65,14 +51,14 @@ class AdminReviewController extends Controller
         if ($request->isPost() AND $request->validate()) {
             $model = new MainPageReview();
             $model->name = $request->name;
-            $model->instagramLinks = $request->instagramLinks;
+            $model->instagram_link = $request->instagram_link;
             $model->avatar = '/resources/' . $request->avatar;
             $model->text = $request->text;
             $model->save();
             $this->redirect('admin/reviews');
 
         } else {
-            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ']);
+            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ', 'errors' => $request->getMessagesArray()]);
         }
     }
 
@@ -83,21 +69,29 @@ class AdminReviewController extends Controller
 
         if ($request->isPost() AND $request->validate()) {
             $model->name = $request->name;
-            $model->instagramLinks = $request->instagramLinks;
-            $model->avatar = '/resources/' . $request->avatar;
+            $model->instagram_link = $request->instagram_link;
+            $model->avatar = $request->avatar;
             $model->text = $request->text;
             $model->save();
 
             $this->redirect('admin/reviews');
         } else {
-            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model]);
+            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'errors' => $request->getMessagesArray()]);
         }
     }
-
 
     public function actionView($id)
     {
         $model = MainPageReview::where('id', $id)->first();
         return $this->render('reviews/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
+    }
+
+    protected function init()
+    {
+        $this->view->setTitle('Отзывы');
+        $this->viewPath = '/modules/admin_review_main_page/views/';
+        $this->layoutPath = App::$config['adminLayoutPath'];
+        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
+        App::$breadcrumbs->addItem(['text' => 'Review', 'url' => 'review']);
     }
 }
