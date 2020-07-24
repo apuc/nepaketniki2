@@ -96,7 +96,7 @@
                                     <h3>{$item->name}</h3>
                                 </div>
                             </div>
-                            <img class="schedule-tour__image" src="../../../resources/images/{$item->image->image}" alt=""/>
+                            <img class="schedule-tour__image" src="{$item->image->image}" alt=""/>
                         </div>
                         <div class="schedule-tour__info">
                             <p class="schedule-tour__date">{$item->front_date}</p>
