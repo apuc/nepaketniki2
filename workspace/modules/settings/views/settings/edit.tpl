@@ -10,6 +10,10 @@
             <input type="text" name="key" id="key" class="form-control" required="required" value="{$model->key}" />
         </div>
         <div class="form-group">
+            <label for="firstname">Label:</label>
+            <input type="text" name="label" id="key" class="form-control" value="{$model->label}" />
+        </div>
+        <div class="form-group">
             <label for="lastname">Value:</label>
             <textarea rows="7" name="value" id="value" class="form-control" required="required">{$model->value}</textarea>
         </div>

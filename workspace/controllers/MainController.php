@@ -172,7 +172,7 @@ class MainController extends Controller
         App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
         App::$breadcrumbs->addItem(['text' => 'Modules', 'url' => 'modules']);
 
-        return $this->render('main/modules.tpl', ['models' => $model, 'options' => $options]);
+        return $this->render('main/modules.tpl', ['model' => $model, 'options' => $options]);
     }
 
     public function actionModuleDownload()

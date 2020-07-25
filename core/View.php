@@ -66,7 +66,7 @@ class View
 
     public function registerJs($js, $params = [], $endOfBody = false)
     {
-        $this->js[] = ['src' => $js, 'params' => $params, 'endOfBody' => $endOfBody];
+        $this->js[$js] = ['src' => $js, 'params' => $params, 'endOfBody' => $endOfBody];
     }
 
     public function registerCss($css, $params = [])

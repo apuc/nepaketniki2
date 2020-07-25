@@ -30,6 +30,7 @@ class SettingsController extends Controller
             'serial' => '#',
             'fields' => [
                 'key' => 'Ключ',
+                'label' => 'Label',
                 'category' => [
                     'label' => 'Значение',
                     'value' => function($model) { return $model->value; }
@@ -63,6 +64,7 @@ class SettingsController extends Controller
         if(isset($_POST['key']) && isset($_POST['value'])) {
             $settings = new Settings();
             $settings->key = $_POST['key'];
+            $settings->label = isset($_POST['label']) ? $_POST['label'] : null;
             $settings->value = $_POST['value'];
             $settings->save();
 
@@ -77,6 +79,7 @@ class SettingsController extends Controller
 
         if(isset($_POST['key']) && isset($_POST['value'])) {
             $model->key = $_POST['key'];
+            $model->label = isset($_POST['label']) ? $_POST['label'] : null;
             $model->value = $_POST['value'];
             $model->save();
 
