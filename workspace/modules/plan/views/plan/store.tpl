@@ -6,8 +6,8 @@
         <div class="form-group">
             <label for="tour_id">Тур:</label>
             <select class="form-control" name="tour_id" id="tour_id">
-                {foreach from=$tours item=item}
-                    <option value="{$item->id}">{$item->name} {$item->price}</option>
+                {foreach from=$tours item=tour}
+                    <option value="{$tour->id}">{$tour->name} {$tour->price}</option>
                 {/foreach}
             </select>
         </div>

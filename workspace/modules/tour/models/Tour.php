@@ -113,6 +113,7 @@ class Tour extends Model
     {
         $this->name = $request->name;
         $this->main_description = $request->main_description;
+        $this->price = $request->price;
         $this->front_description = $request->front_description;
         $this->front_date = $request->front_date;
         $this->front_places_remaining = $request->front_places_remaining;

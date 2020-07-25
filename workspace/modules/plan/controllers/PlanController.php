@@ -58,7 +58,7 @@ class PlanController extends Controller
                 ],
             ]);
             var_dump($validator->validate()); exit();*/
-            if (!in_array((int)$request->day, Plan::select('day')->where('tour_id', 1)->get()->toArray()[0]  )) {
+            if (!in_array((int)$request->day, Plan::select('day')->where('tour_id', $request->tour_id)->get()->toArray()[0])) {
                 $model = new Plan();
                 $model->_save($request);
                 foreach ($request->image as $image) {
@@ -87,10 +87,9 @@ class PlanController extends Controller
         return $this->render('plan/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        $request = new PlanSearchRequest();
-        Plan::destroy($id);
+        Plan::destroy($_POST['id']);
         $this->redirect('admin/plan');
     }
 

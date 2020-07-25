@@ -64,7 +64,7 @@ class Controller
             $uri .= ':' . $_SERVER['SERVER_PORT'];
         }
 
-        if ($url[0] !== '/'){
+        if (isset($url[0]) && $url[0] !== '/'){
             $uri .= '/';
         }
 
