@@ -28,7 +28,7 @@ class ImageController extends Controller
                 'img' => [
                     'label' => 'Картинка тура на главной странице',
                     'value' => function($model) {
-                        return '<img src="../../../resources/images/' . $model->image . '" />';
+                        return '<img src="' . $model->image . '" />';
                     }
                 ],
             ],
