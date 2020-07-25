@@ -20,6 +20,8 @@ class PlanImages extends Migration
             $table->foreign('plan_id')->references('id')->on('plan');
             $table->integer('image_id')->unsigned();
             $table->foreign('image_id')->references('id')->on('image');
+            $table->integer('tour_id')->unsigned();
+            $table->foreign('tour_id')->references('id')->on('tour');
             $table->timestamps();
         });
     }
@@ -36,6 +38,9 @@ class PlanImages extends Migration
         });
         App::$db->schema->table('plan_images', function ($table) {
             $table->dropForeign(['image_id']);
+        });
+        App::$db->schema->table('plan_images', function ($table) {
+            $table->dropForeign(['tour_id']);
         });
         App::$db->schema->dropIfExists('plan_images');
     }

@@ -110,27 +110,30 @@
 </div>
 <div class="-single-tour-plan">
     <h2 class="-single-tour-plan__title">План путешествия</h2>
-    {foreach from=$plan item=item_plan}
+    {for $i=0 to count($plan)-1}
+{*    {foreach from=$plan item=item_plan}*}
         <div class="-single-tour-plan-item">
             <div class="-single-tour-plan-item__heading">
                 <div class="-single-tour-plan-item__date"><img class=".-single-tour-plan-item__day-logo"
-                                                               src="../../../resources/images/-single-tour-plan-day-1.png"
+                                                               src="../../../resources/images/-single-tour-plan-day-{$i+1}.png"
                                                                alt=""/>
                     <div class="-single-tour-plan-item__date-text">
-                        {$item_plan->date}
+                        {$plan[$i]->date}
+{*                        {$item_plan->date}*}
                     </div>
                 </div>
                 <div class="-single-tour-plan-item__actions">
-                    {$item_plan->description}
+                    {$plan[$i]->description}
+                    {*                    {$item_plan->description}*}
                 </div>
             </div>
             <div class="-single-tour-plan-item__description">
-                <p class="-single-tour-plan-item__description-item">{$item_plan->info}</p>
+                <p class="-single-tour-plan-item__description-item">{$plan[$i]->image}</p>
             </div>
             <div class="-single-tour-plan-item__photos">
                 <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"
-                                                                      src="{$}"
-                                                                      alt=""/></div>
+                                                                      src="123"
+                                                                      alt="{$plan[$i]->image}"/></div>
 {*                <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"*}
 {*                                                                      src="../../../resources/images/-single-tour-plan-1-1.png"*}
 {*                                                                      alt=""/></div>*}
@@ -148,7 +151,7 @@
 {*                                                                      alt=""/></div>*}
             </div>
         </div>
-    {/foreach}
+    {/for}
 
 {*    <div class="-single-tour-plan-item">*}
 {*        <div class="-single-tour-plan-item__heading">*}

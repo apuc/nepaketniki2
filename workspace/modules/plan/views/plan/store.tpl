@@ -31,12 +31,12 @@
             <textarea rows="7" name="info" id="info" class="form-control" required="required"></textarea>
             <small id="infoMessage" class="form-text">{if isset($errors['info'])}{$errors['info']}{/if}</small>
         </div>
-        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image', 'label' => 'Картинка 1:'])->run()}
-{*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 2:'])->run()}*}
-{*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 3:'])->run()}*}
-{*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 4:'])->run()}*}
-{*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 5:'])->run()}*}
-{*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 6:'])->run()}*}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 1:'])->run()}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 2:'])->run()}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 3:'])->run()}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 4:'])->run()}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 5:'])->run()}
+        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 6:'])->run()}
         <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
         </div>

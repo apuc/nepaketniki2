@@ -41,6 +41,11 @@ class Tour extends Model
         return $this->hasMany('workspace\modules\date\models\Date');
     }
 
+    public function plans()
+    {
+        return $this->hasMany('workspace\modules\plan\models\Plan');
+    }
+
     /**
      * @param TourSearchRequest $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]

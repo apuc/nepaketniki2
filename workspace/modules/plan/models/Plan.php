@@ -23,4 +23,9 @@ class Plan extends Model
 
         $this->save();
     }
+
+    public function images()
+    {
+        return $this->hasMany('workspace\modules\plan_image\models\PlanImages');
+    }
 }
