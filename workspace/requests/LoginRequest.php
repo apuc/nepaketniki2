@@ -21,6 +21,7 @@ class LoginRequest extends Request
 {
     public $username;
     public $password;
+    public $ref;
 
     public function rules()
     {

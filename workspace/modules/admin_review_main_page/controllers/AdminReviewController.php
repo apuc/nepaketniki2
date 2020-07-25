@@ -38,10 +38,9 @@ class AdminReviewController extends Controller
         ];
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        MainPageReview::destroy($id);
-        $this->redirect('admin/reviews');
+        MainPageReview::destroy($_POST['id']);
     }
 
     public function actionStore()

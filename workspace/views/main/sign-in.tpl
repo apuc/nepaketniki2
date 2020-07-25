@@ -17,6 +17,7 @@
             <label for="password">Пароль:</label>
             <input type="password" name="password" id="password" class="form-control" required="required" />
         </div>
+        <input type="hidden" name="ref" value="{$ref}">
         <div class="form-group">
             <input type="submit" id="submit_button" class="btn btn-dark" value="Войти">
             <a href="/sign-up" class="btn btn-dark">Зарегестрироваться</a>

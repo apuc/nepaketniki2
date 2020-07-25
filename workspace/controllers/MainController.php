@@ -7,6 +7,7 @@ use core\component_manager\lib\CM;
 use core\component_manager\lib\Config;
 use core\component_manager\lib\Mod;
 use core\Controller;
+use core\Debug;
 use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
@@ -90,11 +91,15 @@ class MainController extends Controller
                     $_SESSION['role'] = $model->role;
                     $_SESSION['username'] = $model->username;
 
-                    $this->redirect('admin/tour');
+                    $url = !empty($request->ref) ? parse_url($request->ref, PHP_URL_PATH) : 'admin';
+                    $this->redirect($url);
                 }
             }
 
-            return $this->render('main/sign-in.tpl', ['errors' => $request->getMessagesArray()]);
+            return $this->render('main/sign-in.tpl', [
+                'errors' => $request->getMessagesArray(),
+                'ref' => $request->getHeader('Referer')
+            ]);
         }
     }
 
