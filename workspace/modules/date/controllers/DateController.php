@@ -25,7 +25,7 @@ class DateController extends Controller
     {
         $model = Date::all();
 
-        return $this->render('date/index.tpl', ['h1' => 'Даты', 'models' => $model, 'options' => $this->getOptions()]);
+        return $this->render('date/index.tpl', ['h1' => 'Даты', 'model' => $model, 'options' => $this->getOptions()]);
     }
 
     public function actionStore()
@@ -46,7 +46,7 @@ class DateController extends Controller
     {
         $model = Date::where('id', $id)->first();
 
-        return $this->render('date/view.tpl', ['models' => $model, 'options' => $this->getOptions()]);
+        return $this->render('date/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
     }
 
     public function actionEdit($id)
@@ -60,8 +60,14 @@ class DateController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('date/edit.tpl', ['h1' => 'Редактировать: ', 'models' => $model, 'tours' => $tours]);
+            return $this->render('date/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => $tours]);
         }
+    }
+
+    public function actionDelete()
+    {
+        Date::destroy($_POST['id']);
+        $this->redirect('admin/date');
     }
 
     public function getOptions()

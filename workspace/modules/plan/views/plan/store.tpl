@@ -23,12 +23,12 @@
         </div>
         <div class="form-group mt-3">
             <label for="text">Описание:</label>
-            <textarea rows="3" name="description" id="description" class="form-control" required="required"></textarea>
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'description', 'id' => 'text_editor_description'])->run()}
             <small id="descriptionMessage" class="form-text">{if isset($errors['description'])}{$errors['description']}{/if}</small>
         </div>
         <div class="form-group mt-3">
             <label for="text">Информация:</label>
-            <textarea rows="7" name="info" id="info" class="form-control" required="required"></textarea>
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'info', 'id' => 'text_editor_info'])->run()}
             <small id="infoMessage" class="form-text">{if isset($errors['info'])}{$errors['info']}{/if}</small>
         </div>
         {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 1:', 'id' => '_image_1'])->run()}

@@ -16,7 +16,7 @@
         {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'avatar', 'label' => 'Аватар:'])->run()}
         <div class="form-group mt-3">
             <label for="text">Отзыв:</label>
-            <textarea rows="8" name="text" id="text" class="form-control" required="required"></textarea>
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'text', 'id' => 'text_editor'])->run()}
             <small id="textMessage" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
         <div class="form-group">

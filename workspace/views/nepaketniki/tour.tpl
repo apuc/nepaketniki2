@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="-single-tour-plan-item__description">
-                <p class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</p>
+                <div class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</div>
             </div>
             <div class="-single-tour-plan-item__photos">
                 {for $j=0 to count($model->plans[$i]->images)-1}

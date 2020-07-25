@@ -19,7 +19,7 @@
         {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'avatar', 'value' => {$model->avatar}, 'label' => 'Аватар:'])->run()}
         <div class="form-group">
             <label for="text">Отзыв:</label>
-            <input type="text" name="text" id="text" class="form-control" required="required" value="{$model->text}" />
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'text', 'id' => 'text_editor', 'text' => {$model->text}])->run()}
             <small id="text" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
         <div class="form-group">

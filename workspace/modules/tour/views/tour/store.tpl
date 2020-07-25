@@ -48,12 +48,12 @@
             </select>
         </div>
         <div class="form-group">
-            <div class="form-group">
-                <label for="main_description">Описание на странице просмотра тура:</label>
-                <input type="text" name="main_description" id="main_description" class="form-control" />
-            </div>
+            <label for="main_description">Описание на странице просмотра тура:</label>
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'main_description', 'id' => 'text_editor_main_description'])->run()}
+        </div>
+        <div class="form-group">
             <label for="difficulties_and_weather">Сложности и погода:</label>
-            <input type="text" name="difficulties_and_weather" id="difficulties_and_weather" class="form-control" />
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'difficulties_and_weather', 'id' => 'text_editor_difficulties_and_weather'])->run()}
         </div>
         <div class="form-group">
             <label for="amount_of_places">Количество мест:</label>

@@ -4,7 +4,7 @@
 <div class="h1">{$h1} {$model->name}</div>
 
 <div class="container">
-        <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/tour/update/{$model->id}">
+    <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/tour/update/{$model->id}">
         <div class="form-group">
             <label for="name">Название:</label>
             <input type="text" name="name" id="name" class="form-control" required="required" value="{$model->name}" />

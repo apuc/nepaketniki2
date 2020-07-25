@@ -99,10 +99,23 @@ class PlanController extends Controller
         $model = Plan::where('id', $id)->first();
 
         if ($request->isPost() AND $request->validate()) {
+            if (!in_array((int)$request->day, Plan::select('day')->where('tour_id', $request->tour_id)->get()->toArray()[0])) {
+                $model->_save($request);
+                foreach ($request->image as $image) {
+                    if (strlen($image) !== 0) {
+                        $image_model = new Image();
+                        $image_model->_save('/resources/' . $image);
 
-            $model->_save($request);
+                        $plan_image_model = new PlanImages();
+                        $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
+                    }
+                }
 
-            $this->redirect('admin/plan');
+                $this->redirect('admin/plan');
+            } else {
+                return $this->render('plan/store.tpl', ['errors' => ['day' => 'Этот день уже заполнен']]);
+            }
+
         } else {
             $tours = Tour::all();
 
