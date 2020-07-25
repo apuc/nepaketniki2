@@ -17,7 +17,7 @@
         <div class="form-group mt-3">
             <label for="text">Отзыв:</label>
             <textarea rows="8" name="text" id="text" class="form-control" required="required"></textarea>
-            <small id="text" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
+            <small id="textMessage" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
         <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">

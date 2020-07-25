@@ -19,7 +19,6 @@ $(function () {
     );
 
     $('._select_file').on('click', function(e) {
-        console.log(123);
         var name = $(this).data('name');
         var fm = $('<div/>').dialogelfinder({
             url: '/finder-connector',

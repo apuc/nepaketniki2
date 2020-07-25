@@ -46,9 +46,30 @@ class TourSearchRequest extends RequestSearch
     public $title_image_id;
     public $title_img;
     public $bg_img;
+    public $bg_image_id;
+    public $amount_activities_items_1;
+    public $amount_activities_items_2;
+
 
     public function rules()
     {
-        return [];
+        return [
+            'name' => 'required',
+            'main_description' => 'required',
+            'front_description' => 'required',
+            'front_date' => 'required',
+            'front_places_remaining' => 'required',
+            'price' => 'required',
+            'difficulties_and_weather' => 'required',
+            'amount_of_places' => 'required',
+            'reservation_title' => 'required',
+            'visa' => 'required',
+            'activities_title' => 'required',
+            'image_id' => 'required',
+            'title_image_id' => 'required',
+            'bg_image_id' => 'required',
+            'amount_activities_items_1' => 'required',
+            'amount_activities_items_2' => 'required'
+        ];
     }
 }

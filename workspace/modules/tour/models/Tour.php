@@ -79,8 +79,8 @@ class Tour extends Model
         if ($request->visa)
             $query->where('visa', 'LIKE', "$request->visa");
 
-        if ($request->activities_title)
-            $query->where('activities_title', 'LIKE', "$request->activities_title");
+        /*if ($request->activities_title)
+            $query->where('activities_title', 'LIKE', "$request->activities_title");*/
 
         if ($request->img) {
             $query->whereHas('image', function ($q) use ($request){
@@ -104,9 +104,26 @@ class Tour extends Model
         return $query->get();
     }
 
-    public function _save()
+    public function _save(TourSearchRequest $request)
     {
-        if(isset($_POST['name']))
+        $this->name = $request->name;
+        $this->main_description = $request->main_description;
+        $this->front_description = $request->front_description;
+        $this->front_date = $request->front_date;
+        $this->front_places_remaining = $request->front_places_remaining;
+        $this->difficulties_and_weather = $request->difficulties_and_weather;
+        $this->amount_of_places = $request->amount_of_places;
+        $this->visa = $request->visa;
+        $this->activities_title = $request->activities_title;
+        $this->reservation_title = $request->reservation_title;
+
+        $this->image_id = $request->image_id;
+        $this->title_image_id = $request->title_image_id;
+        $this->bg_image_id = $request->bg_image_id;
+        $this->amount_activities_items_1 = $request->amount_activities_items_1;
+        $this->amount_activities_items_2 = $request->amount_activities_items_2;
+        /*if(isset($_POST['name']))
+
             $this->name = $_POST['name'];
         if(isset($_POST['main_description']))
             $this->main_description = $_POST['main_description'];
@@ -137,7 +154,7 @@ class Tour extends Model
         if(isset($_POST['amount_activities_items_1']))
             $this->amount_activities_items_1 = (int)$_POST['amount_activities_items_1'];
         if(isset($_POST['amount_activities_items_2']))
-            $this->amount_activities_items_2 = (int)$_POST['amount_activities_items_2'];
+            $this->amount_activities_items_2 = (int)$_POST['amount_activities_items_2'];*/
 
         $this->save();
     }
