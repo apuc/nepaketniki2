@@ -37,7 +37,7 @@ class ImageController extends Controller
                 'per_page' => 10,
             ],
         ];
-        return $this->render('image/index.tpl', ['h1' => 'Картинки', 'models' => $model, 'options' => $options]);
+        return $this->render('image/index.tpl', ['h1' => 'Картинки', 'model' => $model, 'options' => $options]);
     }
 
     public function actionStore()
