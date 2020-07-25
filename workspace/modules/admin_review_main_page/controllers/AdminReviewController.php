@@ -8,6 +8,7 @@ use core\App;
 use core\Controller;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
+use workspace\modules\plan\requests\PlanSearchRequest;
 
 class AdminReviewController extends Controller
 {
@@ -38,9 +39,10 @@ class AdminReviewController extends Controller
         ];
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        MainPageReview::destroy($id);
+        $request = new PlanSearchRequest();
+        MainPageReview::destroy($_POST['id']);
         $this->redirect('admin/reviews');
     }
 

@@ -4,6 +4,7 @@ namespace workspace\modules\plan\requests;
 
 use core\RequestSearch;
 
+
 /**
  * Class RegistrationRequest
  * @package workspace\modules\order\requests
@@ -14,7 +15,6 @@ use core\RequestSearch;
  * @property string $description
  * @property string $images
  */
-
 class PlanSearchRequest extends RequestSearch
 {
     public $tour_id;
@@ -29,10 +29,12 @@ class PlanSearchRequest extends RequestSearch
     {
         return [
             'tour_id' => 'required',
-            'day' => 'required',
+            'day' => 'required|',
             'date' => 'required',
             'info' => 'required',
             'description' => 'required'
         ];
     }
+
+
 }

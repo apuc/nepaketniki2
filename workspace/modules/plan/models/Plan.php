@@ -26,6 +26,6 @@ class Plan extends Model
 
     public function images()
     {
-        return $this->hasMany('workspace\modules\plan_image\models\PlanImages');
+        return $this->hasMany('workspace\modules\plan_images\models\PlanImages');
     }
 }

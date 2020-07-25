@@ -17,7 +17,7 @@ class PlanImages extends Migration
         App::$db->schema->create('plan_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('plan_id')->unsigned();
-            $table->foreign('plan_id')->references('id')->on('plan');
+            $table->foreign('plan_id')->references('id')->on('plan')->onDelete('cascade');
             $table->integer('image_id')->unsigned();
             $table->foreign('image_id')->references('id')->on('image');
             $table->integer('tour_id')->unsigned();

@@ -6,6 +6,8 @@ namespace workspace\modules\plan\controllers;
 
 use core\App;
 use core\Controller;
+use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\Validator;
 use workspace\modules\image\models\Image;
 use workspace\modules\plan\models\Plan;
 use workspace\modules\plan\requests\PlanSearchRequest;
@@ -28,6 +30,7 @@ class PlanController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
+                'tour_id' => 'Тур',
                 'day' => 'День',
                 'info' => 'Информация',
                 'date' => 'Даты',
@@ -41,25 +44,36 @@ class PlanController extends Controller
         ];
     }
 
+
     public function actionStore()
     {
         $request = new PlanSearchRequest();
 
         if ($request->isPost() AND $request->validate()) {
-            $model = new Plan();
-            $model->_save($request);
-            $image = new Image();
-            $image->image = $request->image;
-            $image->save();
-            $image_model = new PlanImages();
-            $image_model->_save($model->id, $image->id);
 
-            /*foreach ($request->images as $image) {
-                $image_model = new PlanImages();
-                $image_model->_save();
-            }*/
+            /*$validator = Validator::make((array)$request->day, [
+                'day' => [
+                    'required',
+                    Rule::notIn(Plan::select('day')->where('tour_id', 1)->get()->toArray()),
+                ],
+            ]);
+            var_dump($validator->validate()); exit();*/
+            if (!in_array((int)$request->day, Plan::select('day')->where('tour_id', 1)->get()->toArray()[0]  )) {
+                $model = new Plan();
+                $model->_save($request);
+                foreach ($request->image as $image) {
+                    if (strlen($image) !== 0) {
+                        $image_model = new Image();
+                        $image_model->_save('/resources/' . $image);
 
-            $this->redirect('admin/plan');
+                        $plan_image_model = new PlanImages();
+                        $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
+                    }
+                }
+                $this->redirect('admin/plan');
+            } else {
+                return $this->render('plan/store.tpl', ['errors' => ['day' => 'Этот день уже заполнен']]);
+            }
         } else {
             $tours = Tour::all();
 
@@ -71,6 +85,13 @@ class PlanController extends Controller
     {
         $model = Plan::where('id', $id)->first();
         return $this->render('plan/view.tpl', ['model' => $model, 'options' => $this->getOptions()]);
+    }
+
+    public function actionDelete($id)
+    {
+        $request = new PlanSearchRequest();
+        Plan::destroy($id);
+        $this->redirect('admin/plan');
     }
 
     public function actionEdit($id)

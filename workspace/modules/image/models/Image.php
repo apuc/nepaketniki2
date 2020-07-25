@@ -12,8 +12,14 @@ class Image extends Model
 
     public $fillable = ['image'];
 
-    public function image()
+    public function _save($image)
     {
-        return $this->hasMany('workspace\modules\plan_images\models\PlanImages');
+        $this->image = $image;
+        $this->save();
     }
+
+//    public function image()
+//    {
+//        return $this->hasMany('workspace\modules\plan_images\models\PlanImages');
+//    }
 }

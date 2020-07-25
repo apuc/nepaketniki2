@@ -42,7 +42,7 @@ class MainController extends Controller
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
         $plan = Plan::where('tour_id', $id)->get();
 
-        echo '<pre>'; var_dump($plan->images); exit();
+        //echo '<pre>'; var_dump($model->plans[0]->images[0]->image); exit();
 
         return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities, 'plan' => $plan]);
     }

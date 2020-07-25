@@ -118,23 +118,25 @@
                                                                src="../../../resources/images/-single-tour-plan-day-{$i+1}.png"
                                                                alt=""/>
                     <div class="-single-tour-plan-item__date-text">
-                        {$plan[$i]->date}
+                        {$model->plans[$i]->date}
 {*                        {$item_plan->date}*}
                     </div>
                 </div>
                 <div class="-single-tour-plan-item__actions">
-                    {$plan[$i]->description}
+                    {$model->plans[$i]->description}
                     {*                    {$item_plan->description}*}
                 </div>
             </div>
             <div class="-single-tour-plan-item__description">
-                <p class="-single-tour-plan-item__description-item">{$plan[$i]->image}</p>
+                <p class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</p>
             </div>
             <div class="-single-tour-plan-item__photos">
-                <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"
-                                                                      src="123"
-                                                                      alt="{$plan[$i]->image}"/></div>
-{*                <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"*}
+                {for $j=0 to count($model->plans[$i]->images)-1}
+                    <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"
+                                                                          src="{$model->plans[$i]->images[$j]->image->image}"
+                                                                          alt="Картинки плана дня"/></div>
+                {/for}
+                {*                <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"*}
 {*                                                                      src="../../../resources/images/-single-tour-plan-1-1.png"*}
 {*                                                                      alt=""/></div>*}
 {*                <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"*}
