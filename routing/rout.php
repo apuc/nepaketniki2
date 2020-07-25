@@ -10,7 +10,6 @@ App::$collector->any('module-download', ['workspace\controllers\MainController',
 App::$collector->any('module-set-active', ['workspace\controllers\MainController', 'actionSetActive']);
 App::$collector->any('module-set-inactive', ['workspace\controllers\MainController', 'actionSetInactive']);
 App::$collector->any('module-delete', ['workspace\controllers\MainController', 'actionModuleDelete']);
-App::$collector->any('/admin', function() { return 'nepaketniki admin'; });
 
 App::$collector->any('review_download', ['workspace\controllers\MainController', 'reviewDownload']);
 
