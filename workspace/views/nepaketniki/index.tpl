@@ -14,9 +14,9 @@
             </div>
         </div>
         <div class="menu__list" id="menuList">
-            <div class="menu__item"><a href="#travels">О нас</a></div>
-            <div class="menu__item"><a href="#schedule">Расписание</a></div>
-            <div class="menu__item"><a href="#comments">Отзывы</a></div>
+            <div class="menu__item"><a href="/#travels">О нас</a></div>
+            <div class="menu__item"><a href="/#schedule">Расписание</a></div>
+            <div class="menu__item"><a href="/#comments">Отзывы</a></div>
             <div class="menu__item"><a href="/">Фотоотчёты</a></div>
             <div class="menu__item"><a href="/">Для бизнеса</a></div>
             <div class="menu__item"><a href="/">Контакты</a></div>
@@ -24,7 +24,7 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav"><a href="#travels">О нас</a><a href="#schedule">Расписание</a><a href="#comments">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
+            <div class="header-nav"><a href="/#travels">О нас</a><a href="/#schedule">Расписание</a><a href="/#comments">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
             </div>
             <div class="contacts">
                 <div class="contacts-socials">
