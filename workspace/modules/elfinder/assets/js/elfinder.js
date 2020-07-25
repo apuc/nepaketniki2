@@ -18,8 +18,9 @@ $(function () {
         },
     );
 
-    $('#_select_file').click(function() {
-        var name = $(this).data('name')
+    $('._select_file').on('click', function(e) {
+        console.log(123);
+        var name = $(this).data('name');
         var fm = $('<div/>').dialogelfinder({
             url: '/finder-connector',
             width : 840,
