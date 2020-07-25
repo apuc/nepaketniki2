@@ -60,7 +60,15 @@ class Controller
             $_SERVER['SERVER_NAME']
         );
 
-        header('Location: ' . $uri . '/' . $url);
+        if ($_SERVER['SERVER_PORT'] !== 80 || $_SERVER['SERVER_PORT'] !== 443){
+            $uri .= ':' . $_SERVER['SERVER_PORT'];
+        }
+
+        if ($url[0] !== '/'){
+            $uri .= '/';
+        }
+
+        header('Location: ' . $uri . $url);
         die();
     }
 
