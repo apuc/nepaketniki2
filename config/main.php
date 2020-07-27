@@ -15,7 +15,8 @@ return [
         'url' => 'https://rep.craft-group.xyz',
         'modulePath' => '/workspace/modules/',
         'themePath' => '/workspace/modules/themes/themes/',
-    ]
+    ],
+    'error_page_path' => 'workspace/views/errors/'
 ];
 /* Пример настройки локальной базы
 return [

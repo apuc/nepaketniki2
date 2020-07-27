@@ -1,5 +1,5 @@
 {
-  "name": "users",
+  "name": "reviews",
   "version": "0.1",
   "type": "module",
   "class": "workspace\\modules\\admin_review_main_page\\AdminReview",

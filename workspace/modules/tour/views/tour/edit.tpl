@@ -6,9 +6,17 @@
 <div class="container">
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/tour/update/{$model->id}">
         <div class="form-group">
-            <label for="name">Название:</label>
-            <input type="text" name="name" id="name" class="form-control" required="required" value="{$model->name}" />
+            <label for="tour_id">Тур:</label>
+            <select class="form-control" name="tour_id" id="tour_id">
+                {foreach from=$tours item=item}
+                    <option value="{$item->id}">{$item->name} {$item->price}</option>
+                {/foreach}
+            </select>
         </div>
+{*        <div class="form-group">*}
+{*            <label for="name">Название:</label>*}
+{*            <input type="text" name="name" id="name" class="form-control" required="required" value="{$model->name}" />*}
+{*        </div>*}
         <div class="form-group">
             <label for="front_date">Даты тура на главной странице:</label>
             <input type="text" name="front_date" id="front_date" class="form-control" value="{$model->front_date}" />

@@ -1,0 +1,10 @@
+{
+  "name": "additional_price",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\additional_price\\AdditionalPrice",
+  "description": "admin additional_price module",
+  "configFile": "config/additional_price.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

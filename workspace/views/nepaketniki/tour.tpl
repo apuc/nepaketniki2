@@ -354,48 +354,64 @@
     <h3 class="-single-tour-includes__title">В стоимость путешествия включено:</h3>
     <div class="-single-tour-includes__details">
         <div class="-single-tour-includes__column -single-tour-includes__column--left">
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>полёт на воздушном шаре с памятным сертификатом</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>проживание в бутик-отеле с шикарной террасой (вид на долины Каппадокии и воздушные шары), по 2 человека в номере</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>очень вкусные и сытные завтраки в отеле</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>посещение сауны и бассейна в отеле</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>поездка на квадроциклах, катание на лошадях по Красной и Розовой Долине</span>
-            </div>
+                {foreach from=$model->included item=item}
+                {if $item->column_side eq 0}
+                    <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+                                                                                 src="../resources/images/-single-tour-schedule-point.png"
+                                                                                 alt=""/><span>{$item->text}</span>
+                    </div>
+                {/if}
+                {/foreach}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>полёт на воздушном шаре с памятным сертификатом</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>проживание в бутик-отеле с шикарной террасой (вид на долины Каппадокии и воздушные шары), по 2 человека в номере</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>очень вкусные и сытные завтраки в отеле</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>посещение сауны и бассейна в отеле</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>поездка на квадроциклах, катание на лошадях по Красной и Розовой Долине</span>*}
+{*            </div>*}
         </div>
         <div class="-single-tour-includes__column -single-tour-includes__column--right">
+            {foreach from=$model->included item=item}
+            {if $item->column_side neq 0}
             <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
+                                                         src="../resources/images/-single-tour-schedule-point.png"
                                                          alt=""/><span>походы в самые красивые и инстаграмные локации</span>
             </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>все достопримечательности по маршруту - долины, каньоны, подземные города и музеи под открытым небом</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span> трансфер из/в аэропорт и все перемещения по программе на микроавтобусе с профессиональным гидом</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>красивые фотографии от нас</span>
-            </div>
-            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                         src="../../../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>тщательно разработанный маршрут путешествия и наша постоянная помощь</span>
-            </div>
+                {/if}
+                {/foreach}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>походы в самые красивые и инстаграмные локации</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>все достопримечательности по маршруту - долины, каньоны, подземные города и музеи под открытым небом</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span> трансфер из/в аэропорт и все перемещения по программе на микроавтобусе с профессиональным гидом</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>красивые фотографии от нас</span>*}
+{*            </div>*}
+{*            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"*}
+{*                                                         src="../../../resources/images/-single-tour-schedule-point.png"*}
+{*                                                         alt=""/><span>тщательно разработанный маршрут путешествия и наша постоянная помощь</span>*}
+{*            </div>*}
         </div>
     </div>
 </div>
@@ -403,8 +419,7 @@
     <div class="-single-tour-price__main">
         <p class="-single-tour-price__person"><strong>Стоимость тура за 1 человека:</strong></p>
         <div class="-single-tour-price__cost">
-            <p><strong>850 евро</strong> + авиаперелет</p>
-            <p>до Кайсери</p>
+            <p>{$model->price}</p>
             <p><strong>835 евро</strong> - до 20 марта</p>
         </div>
         <div class="-single-tour-price__discount">
@@ -416,12 +431,15 @@
     <div class="-single-tour-price__additional">
         <div class="-single-tour-price__payment">Дополнительно оплачиваются:</div>
         <ul>
-            <li>- авиаперелет (из Киева ~210 евро, из Москвы ~380 евро, из других городов поможем найти выгодные
-                авиабилеты)
-            </li>
-            <li>- обеды и ужины (~15-30 евро за день)</li>
-            <li>- страховка (~5-10 евро)</li>
-            <li>- личные расходы, шоппинг, сувениры</li>
+            {foreach from=$model->additional_price item=item}
+                <li>- {$item->text}</li>
+{*            <li>- авиаперелет (из Киева ~210 евро, из Москвы ~380 евро, из других городов поможем найти выгодные*}
+{*                авиабилеты)*}
+{*            </li>*}
+{*            <li>- обеды и ужины (~15-30 евро за день)</li>*}
+{*            <li>- страховка (~5-10 евро)</li>*}
+{*            <li>- личные расходы, шоппинг, сувениры</li>*}
+            {/foreach}
         </ul>
         <div class="-single-tour-price__how-to">
             <h3>Как оплатить тур?</h3>
@@ -448,22 +466,25 @@
         <p class="-single-tour-form__number">+38 099 490 24 54</p>
         </p>
     </div>
-    <div class="-single-tour-form__column -single-tour-form__column--thin">
-        <div class="-single-tour-form__inputs">
-            <div class="-single-tour-form__input">
-                <input type="text" placeholder="Введите имя"/>
-            </div>
-            <div class="-single-tour-form__input">
-                <input type="text" placeholder="Введите телефон"/>
-            </div>
-            <div class="-single-tour-form__input">
-                <input type="email" placeholder="Введите емаил"/>
-            </div>
-            <div class="-single-tour-form__button">
-                <button>Забронировать место</button>
+    <form action="/tour/reserve/{$model->id}" method="post">
+        <div class="-single-tour-form__column -single-tour-form__column--thin">
+            <div class="-single-tour-form__inputs">
+                <div class="-single-tour-form__input">
+                    <input name="name" type="text" placeholder="Введите имя"/>
+                </div>
+                <div class="-single-tour-form__input">
+                    <input name='phone' type="text" placeholder="Введите телефон"/>
+                </div>
+                <div class="-single-tour-form__input">
+                    <input name="email" type="email" placeholder="Введите емаил"/>
+                </div>
+                <input name="id" type="hidden" value=>
+                <div class="-single-tour-form__button">
+                    <button type="submit">Забронировать место</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <div class="comments" id="comments">
     <h2 class="comments__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>

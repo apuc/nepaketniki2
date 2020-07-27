@@ -17,6 +17,10 @@ use workspace\modules\feature\models\Feature;
 use workspace\modules\image\models\Image;
 use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
+use workspace\modules\reservation\models\ReservationModel;
+use workspace\modules\reservation\requests\ReservationRequests;
+use workspace\modules\subscription\models\SubscriptionModel;
+use workspace\modules\subscription\requests\SubscriptionRequest;
 use workspace\modules\tour\models\Tour;
 use workspace\requests\LoginRequest;
 use workspace\requests\RegistrationRequest;
@@ -242,7 +246,6 @@ class MainController extends Controller
     {
         try {
             $review_model = MainPageReview::select('instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
-            //get(['instagramLinks AS instagram_link']);
             echo json_encode($review_model);
             die();
         } catch (\Exception $e) {
@@ -250,4 +253,14 @@ class MainController extends Controller
         }
     }
 
+    public function actionReserve($id) {
+        $model = new ReservationModel();
+        $model->tour_id = $id;
+        $model->_save(new ReservationRequests());
+    }
+
+    public function actionSubscribe() {
+        $model = new SubscriptionModel();
+        $model->_save(new SubscriptionRequest());
+    }
 }

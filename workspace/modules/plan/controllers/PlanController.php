@@ -72,7 +72,9 @@ class PlanController extends Controller
                 }
                 $this->redirect('admin/plan');
             } else {
-                return $this->render('plan/store.tpl', ['errors' => ['day' => 'Этот день уже заполнен']]);
+                $tours = Tour::all();
+
+                return $this->render('plan/store.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'tours' => $tours]);
             }
         } else {
             $tours = Tour::all();

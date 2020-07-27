@@ -273,9 +273,9 @@
                 <div class="schedule-form__content">
                     <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>
                     <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>
-                    <form class="schedule-form__feedback">
-                        <input type="text" placeholder="Введите имя"/>
-                        <input type="text" placeholder="Введите телефон"/>
+                    <form class="schedule-form__feedback" action="/subscribe/" method="post">
+                        <input name="name" type="text" placeholder="Введите имя"/>
+                        <input name="phone" type="text" placeholder="Введите телефон"/>
                         <button type="submit">Подписаться</button>
                     </form>
                 </div>

@@ -43,7 +43,17 @@ class Tour extends Model
 
     public function plans()
     {
-        return $this->hasMany('workspace\modules\plan\models\Plan');
+        return $this->hasMany('workspace\modules\plan\models\Plan')->orderBy('day', 'asc');
+    }
+
+    public function included()
+    {
+        return $this->hasMany('workspace\modules\included\models\Included')->orderBy('id', 'asc');
+    }
+
+    public function additional_price()
+    {
+        return $this->hasMany('workspace\modules\additional_price\models\AdditionalPrice');//->orderBy('id', 'asc');
     }
 
     /**

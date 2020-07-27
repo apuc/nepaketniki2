@@ -10,12 +10,11 @@ class Controller
     public $layout = 'main.tpl';
     public $layoutPath = null;
     public $viewPath = '/views/';
-    private $defaultViewPath = '/views/';
-
     /**
      * @var View
      */
     public $view;
+    private $defaultViewPath = '/views/';
 
     public function __construct()
     {
@@ -24,6 +23,11 @@ class Controller
         $this->init();
 
         $this->view->setViewPath(WORKSPACE_DIR . $this->viewPath);
+    }
+
+    protected function init()
+    {
+
     }
 
     public function render($tpl, $data = [])
@@ -60,11 +64,11 @@ class Controller
             $_SERVER['SERVER_NAME']
         );
 
-        if ($_SERVER['SERVER_PORT'] !== 80 || $_SERVER['SERVER_PORT'] !== 443){
+        if ($_SERVER['SERVER_PORT'] !== 80 || $_SERVER['SERVER_PORT'] !== 443) {
             $uri .= ':' . $_SERVER['SERVER_PORT'];
         }
 
-        if (isset($url[0]) && $url[0] !== '/'){
+        if (isset($url[0]) && $url[0] !== '/') {
             $uri .= '/';
         }
 
@@ -80,10 +84,5 @@ class Controller
     protected function setLayout($layout)
     {
         $this->layout = $layout;
-    }
-
-    protected function init()
-    {
-
     }
 }
