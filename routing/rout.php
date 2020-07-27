@@ -17,6 +17,8 @@ App::$collector->any('review_download', ['workspace\controllers\MainController',
 App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], function($router) {
     App::$collector->group(['before' => 'next'], function($router) {
         App::$collector->get('/', [workspace\controllers\MainController::class, 'actionIndex'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
+        App::$collector->get('/tours', [workspace\controllers\MainController::class, 'actionTours'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
+        App::$collector->get('/reviews', [workspace\controllers\MainController::class, 'actionReviews'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
     });
 });
 

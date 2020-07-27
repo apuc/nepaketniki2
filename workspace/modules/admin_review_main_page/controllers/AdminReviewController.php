@@ -41,8 +41,7 @@ class AdminReviewController extends Controller
 
     public function actionDelete()
     {
-        $request = new ReviewRequest();
-        MainPageReview::destroy($request->id);
+        MainPageReview::destroy($_POST['id']);
         $this->redirect('admin/reviews');
     }
 

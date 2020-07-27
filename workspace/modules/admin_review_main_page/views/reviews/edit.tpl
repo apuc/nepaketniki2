@@ -1,5 +1,4 @@
 {assign var="url" value="{'reviews/'}{$model->id}"}
-{assign var="root" value="{$smarty.server.DOCUMENT_ROOT}"}
 {core\App::$breadcrumbs->addItem(['text' => $model->username, 'url' => {$url}])}
 {core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
 <div class="h1">{$h1} {$model->name}</div>
@@ -23,7 +22,7 @@
             <small id="text" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>

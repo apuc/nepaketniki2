@@ -43,9 +43,25 @@ class MainController extends Controller
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
         $plan = Plan::where('tour_id', $id)->get();
 
-        //echo '<pre>'; var_dump($model->plans[0]->images[0]->image); exit();
-
         return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities, 'plan' => $plan]);
+    }
+
+    public function actionTours()
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Nepaketniki');
+
+        $model = Tour::all();
+        return $this->render('nepaketniki/tours.tpl', ['model' => $model]);
+    }
+
+    public function actionReviews()
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Nepaketniki');
+
+        $model = MainPageReview::all();
+        return $this->render('nepaketniki/reviews.tpl', ['model' => $model]);
     }
 
     public function actionLanguage()

@@ -20,7 +20,7 @@
             <small id="textMessage" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>

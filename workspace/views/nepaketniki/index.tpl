@@ -24,7 +24,7 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav"><a href="/#travels">О нас</a><a href="/#schedule">Расписание</a><a href="/#comments">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
+            <div class="header-nav"><a href="/#travels">О нас</a><a href="/#schedule">Расписание</a><a href="/reviews">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
             </div>
             <div class="contacts">
                 <div class="contacts-socials">
@@ -54,7 +54,7 @@
                     <a href="/">блога в Инстаграм</a>,
                     а можешь отправиться в незабываемое приключение вместе с нами.
                 </p>
-                <div class="header__news-wrapper"><a href="#schedule">
+                <div class="header__news-wrapper"><a href="/tours/">
                         <div class="button">
                             <button>Посмотреть туры</button>
                         </div></a>
@@ -89,27 +89,51 @@
                 <div class="schedule-tour">
                     <div class="schedule-tour__inside">
                         <div class="schedule-tour__heading">
-                            <div class="schedule-tour__logo">
-                                <div class="circle small">
-                                </div>
-                                <div class="schedule-tour__title">
-                                    <h3>{$item->name}</h3>
-                                </div>
+                            <div class="tour-logo">
+                                <div class="tour-logo__wrapper">
+                                    <div class="circle small">
+                                    </div>
+                                    <div class="tour-logo__title">
+                                        <h3>{$item->name}</h3>
+                                    </div>
+                                </div><img class="tour-logo__image" src="{$item->image->image}" alt=""/>
                             </div>
-                            <img class="schedule-tour__image" src="{$item->image->image}" alt=""/>
                         </div>
                         <div class="schedule-tour__info">
                             <p class="schedule-tour__date">{$item->front_date}</p>
-                            <p class="schedule-tour__free-places">{$item->front_places_remaining}</p>
+                            <p></p>
                         </div>
                         <p class="schedule-tour__description">{$item->front_description}</p>
                         <p class="schedule-tour__price">{$item->price}</p>
                         <div class="button">
-                            {*                        <a class="button_link" href="/tour">Программа тура</a>*}
                             <button onClick='location.href="/tour/{$item->id}"'>Программа тура</button>
                         </div>
                     </div>
                 </div>
+{*                <div class="schedule-tour">*}
+{*                    <div class="schedule-tour__inside">*}
+{*                        <div class="schedule-tour__heading">*}
+{*                            <div class="schedule-tour__logo">*}
+{*                                <div class="circle small">*}
+{*                                </div>*}
+{*                                <div class="schedule-tour__title">*}
+{*                                    <h3>{$item->name}</h3>*}
+{*                                </div>*}
+{*                            </div>*}
+{*                            <img class="schedule-tour__image" src="{$item->image->image}" alt=""/>*}
+{*                        </div>*}
+{*                        <div class="schedule-tour__info">*}
+{*                            <p class="schedule-tour__date">{$item->front_date}</p>*}
+{*                            <p class="schedule-tour__free-places">{$item->front_places_remaining}</p>*}
+{*                        </div>*}
+{*                        <p class="schedule-tour__description">{$item->front_description}</p>*}
+{*                        <p class="schedule-tour__price">{$item->price}</p>*}
+{*                        <div class="button">*}
+{*                            *}{*                        <a class="button_link" href="/tour">Программа тура</a>*}
+{*                            <button onClick='location.href="/tour/{$item->id}"'>Программа тура</button>*}
+{*                        </div>*}
+{*                    </div>*}
+{*                </div>*}
             {/foreach}
         {/if}
 
