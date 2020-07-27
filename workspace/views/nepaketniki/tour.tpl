@@ -388,7 +388,7 @@
             {if $item->column_side neq 0}
             <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
                                                          src="../resources/images/-single-tour-schedule-point.png"
-                                                         alt=""/><span>походы в самые красивые и инстаграмные локации</span>
+                                                         alt=""/><span>{$item->text}</span>
             </div>
                 {/if}
                 {/foreach}
