@@ -1,6 +1,6 @@
 {assign var="url" value="{'additional_price/'}{$model->id}"}
 {core\App::$breadcrumbs->addItem(['text' => $model->username, 'url' => {$url}])}
-{core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
+{core\App::$breadcrumbs->addItem(['text' => 'Редактирование'])}
 <div class="h1">{$h1}</div>
 
 <div class="container">

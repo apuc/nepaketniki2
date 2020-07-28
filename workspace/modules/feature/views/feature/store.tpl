@@ -1,4 +1,4 @@
-{core\App::$breadcrumbs->addItem(['text' => 'Create'])}
+{core\App::$breadcrumbs->addItem(['text' => 'Создание'])}
 
 <div class="container">
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/feature/create">

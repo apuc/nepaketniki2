@@ -30,7 +30,12 @@ class PlanController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
-                'tour_id' => 'Тур',
+                '_tour' => [
+                    'label' => 'Тур',
+                    'value' => function($model) {
+                        return $model->tour->name;
+                    }
+                ],
                 'day' => 'День',
                 'info' => 'Информация',
                 'date' => 'Даты',
@@ -126,7 +131,7 @@ class PlanController extends Controller
         $this->view->setTitle('Планы туров');
         $this->viewPath = '/modules/plan/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Plan', 'url' => 'plan']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Планы на дни', 'url' => 'admin/plan']);
     }
 }

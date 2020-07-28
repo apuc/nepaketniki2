@@ -17,8 +17,8 @@ class DateController extends Controller
         $this->view->setTitle('Даты');
         $this->viewPath = '/modules/date/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Date', 'url' => 'date']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Даты', 'url' => 'admin/date']);
     }
 
     public function actionIndex()

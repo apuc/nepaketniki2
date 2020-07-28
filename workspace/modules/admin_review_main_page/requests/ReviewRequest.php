@@ -10,13 +10,16 @@ use core\Request;
  * @property string $instagram_link
  * @property object $avatar
  * @property string $text
+ * @property integer $priority
  */
+
 class ReviewRequest extends Request
 {
     public $name;
     public $avatar;
     public $text;
     public $instagram_link;
+    public $priority;
 
     public function rules()
     {

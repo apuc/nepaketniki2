@@ -18,8 +18,8 @@ class FeatureController extends Controller
         $this->view->setTitle('Особенности тура');
         $this->viewPath = '/modules/feature/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Feature', 'url' => 'feature']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Особенности тура', 'url' => 'feature']);
     }
 
     public function actionIndex()

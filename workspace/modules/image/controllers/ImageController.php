@@ -98,7 +98,7 @@ class ImageController extends Controller
         $this->view->setTitle('Картинки');
         $this->viewPath = '/modules/image/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Image', 'url' => 'image']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Картинки', 'url' => 'image']);
     }
 }

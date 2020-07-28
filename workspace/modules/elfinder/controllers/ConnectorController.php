@@ -14,8 +14,8 @@ class ConnectorController extends Controller
 
     public function init()
     {
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Elfinder', 'url' => 'admin/elfinder']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Файлы', 'url' => 'admin/elfinder']);
     }
 
     public function actionIndex()

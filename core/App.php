@@ -119,7 +119,7 @@ class App
         try {
             $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         } catch (HttpMethodNotAllowedException $ex) {
-            $this->setError(403);
+           // $this->setError(403);
         } catch (HttpRouteNotFoundException $ex) {
             $this->setError(404);
         } /*catch (Exception $ex) {

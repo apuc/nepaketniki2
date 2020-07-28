@@ -7,7 +7,6 @@ use core\component_manager\lib\CM;
 use core\component_manager\lib\Config;
 use core\component_manager\lib\Mod;
 use core\Controller;
-use core\Debug;
 use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
@@ -245,7 +244,7 @@ class MainController extends Controller
     public function reviewDownload()
     {
         try {
-            $review_model = MainPageReview::select('instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
+            $review_model = MainPageReview::orderBy('priority', 'DESC')->select('instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
             echo json_encode($review_model);
             die();
         } catch (\Exception $e) {
@@ -253,14 +252,47 @@ class MainController extends Controller
         }
     }
 
-    public function actionReserve($id) {
-        $model = new ReservationModel();
-        $model->tour_id = $id;
-        $model->_save(new ReservationRequests());
+    public function planPhotosDownload($id)
+    {
+        try {
+            $json = [];
+            $model = PlanImages::where('tour_id', $id)->get();
+            foreach ($model as $item)
+            {
+                $temp_arr = [];
+                $temp_arr['image'] = str_replace('\\', '/', $item->image->image);
+                $temp_arr['day'] = $item->plan->day;
+                $json[] = $temp_arr;
+            }
+            echo json_encode($json);
+            die();
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 
-    public function actionSubscribe() {
-        $model = new SubscriptionModel();
-        $model->_save(new SubscriptionRequest());
+    public function actionReserve($id)
+    {
+        $request = new ReservationRequests();
+        if ($request->validate() AND $request->isPost()) {
+            $model = new ReservationModel();
+            $model->tour_id = $id;
+            $model->_save($request);
+        } else {
+            echo json_encode($request->getMessagesArray());
+            die();
+        }
+    }
+
+    public function actionSubscribe()
+    {
+        $request = new SubscriptionRequest();
+        if ($request->validate() AND $request->isPost()) {
+            $model = new SubscriptionModel();
+            $model->_save($request);
+        } else {
+            echo json_encode($request->getMessagesArray());
+            die();
+        }
     }
 }

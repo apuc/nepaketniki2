@@ -19,8 +19,8 @@ class SettingsController extends Controller
     {
         $this->viewPath = '/modules/settings/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Settings', 'url' => 'admin/settings']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Настройки', 'url' => 'admin/settings']);
     }
 
     public function actionIndex()

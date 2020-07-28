@@ -82,7 +82,7 @@ class AdditionalPriceController extends Controller
         $this->view->setTitle('Доп. оплачивается');
         $this->viewPath = '/modules/additional_price/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'AdditionalPrice', 'url' => 'additional_price']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Доп. оплачивается', 'url' => 'admin/additional_price']);
     }
 }

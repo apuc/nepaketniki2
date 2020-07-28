@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanImages extends Model
 {
-    public $fillable = ['plan_id', 'image_id', '$tour_id'];
+    public $fillable = ['plan_id', 'image_id', 'tour_id'];
     protected $table = "plan_images";
 
     public function _save(int $plan_id, int $image_id, int $tour_id)
@@ -23,5 +23,15 @@ class PlanImages extends Model
     public function image()
     {
         return $this->belongsTo('workspace\modules\image\models\Image');
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo('workspace\modules\plan\models\Plan');
+    }
+
+    public function tour()
+    {
+        return $this->belongsTo('workspace\modules\tour\models\Tour');
     }
 }

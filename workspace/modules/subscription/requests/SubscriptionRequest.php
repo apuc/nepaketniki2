@@ -14,8 +14,8 @@ class SubscriptionRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
-            'phone' => 'phone'
+            'name' => 'required|min:2|max:40',
+            'phone' => 'required|max:16|min:3'
         ];
     }
 }

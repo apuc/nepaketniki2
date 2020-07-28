@@ -15,8 +15,8 @@ class TourController extends Controller
         $this->view->setTitle('Туры');
         $this->viewPath = '/modules/tour/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Tour', 'url' => 'tour']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Тур', 'url' => 'admin/tour']);
     }
 
     public function actionIndex()
@@ -86,7 +86,7 @@ class TourController extends Controller
                 'amount_of_places' => 'Количество мест',
                 'activities_title' => 'Заголовок активностей',
             ],
-            'baseUri' => 'tour',
+            'baseUri' => '/admin/tour',
             'pagination' => [
                 'per_page' => 10,
             ],

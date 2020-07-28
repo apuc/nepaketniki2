@@ -28,4 +28,9 @@ class Plan extends Model
     {
         return $this->hasMany('workspace\modules\plan_images\models\PlanImages');
     }
+
+    public function tour()
+    {
+        return $this->belongsTo('workspace\modules\tour\models\Tour');
+    }
 }

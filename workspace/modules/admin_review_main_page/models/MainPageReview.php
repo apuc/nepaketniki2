@@ -5,6 +5,7 @@ namespace workspace\modules\admin_review_main_page\models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use workspace\modules\admin_review_main_page\requests\ReviewRequest;
 
 class MainPageReview extends Model
 {
@@ -12,4 +13,14 @@ class MainPageReview extends Model
 
     public $fillable = ['name', 'instagram_link', 'avatar', 'text'];
 
+    public function _save(ReviewRequest $request)
+    {
+        $this->name = $request->name;
+        $this->instagram_link = $request->instagram_link;
+        if ($request->avatar !== $this->avatar) $this->avatar = '/resources/' . $request->avatar;
+        $this->text = $request->text;
+        $this->priority = $request->priority;
+
+        $this->save();
+    }
 }

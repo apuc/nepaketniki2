@@ -8,7 +8,6 @@ use core\App;
 use core\Controller;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
-use workspace\modules\plan\requests\PlanSearchRequest;
 
 class AdminReviewController extends Controller
 {
@@ -30,6 +29,7 @@ class AdminReviewController extends Controller
                 'instagram_link' => 'Инстаграмм',
                 'avatar' => 'Аватар',
                 'text' => 'Отзыв',
+                'priority' => 'Приоритет',
             ],
             'baseUri' => '/admin/reviews',
             'pagination' => [
@@ -51,11 +51,7 @@ class AdminReviewController extends Controller
 
         if ($request->isPost() AND $request->validate()) {
             $model = new MainPageReview();
-            $model->name = $request->name;
-            $model->instagram_link = $request->instagram_link;
-            $model->avatar = '/resources/' . $request->avatar;
-            $model->text = $request->text;
-            $model->save();
+            $model->_save($request);
             $this->redirect('admin/reviews');
 
         } else {
@@ -69,11 +65,7 @@ class AdminReviewController extends Controller
         $request = new ReviewRequest();
 
         if ($request->isPost() AND $request->validate()) {
-            $model->name = $request->name;
-            $model->instagram_link = $request->instagram_link;
-            $model->avatar = $request->avatar;
-            $model->text = $request->text;
-            $model->save();
+            $model->_save($request);
 
             $this->redirect('admin/reviews');
         } else {
@@ -92,7 +84,7 @@ class AdminReviewController extends Controller
         $this->view->setTitle('Отзывы');
         $this->viewPath = '/modules/admin_review_main_page/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'AdminPanel', 'url' => 'adminlte']);
-        App::$breadcrumbs->addItem(['text' => 'Review', 'url' => 'review']);
+        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Отзывы', 'url' => 'admin/reviews']);
     }
 }

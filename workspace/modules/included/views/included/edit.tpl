@@ -1,6 +1,5 @@
 {assign var="url" value="{'included/'}{$model->id}"}
-{core\App::$breadcrumbs->addItem(['text' => $model->username, 'url' => {$url}])}
-{core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
+{core\App::$breadcrumbs->addItem(['text' => $model->tour->name, 'url' => {$url}])}
 <div class="h1">{$h1}</div>
 
 <div class="container">

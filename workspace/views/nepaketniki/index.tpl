@@ -28,18 +28,24 @@
             </div>
             <div class="contacts">
                 <div class="contacts-socials">
-                    <div class="social"><img src="../../../resources/images/social-1.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-2.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-3.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
+                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+                        <div class="social"><img src="../../../resources/images/social-1.png" alt="instagram"/>
+                            <div class="social--inner-hover"></div>
+                        </div>
+                    </a>
+                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_telegram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+                        <div class="social"><img src="../../../resources/images/social-2.png" alt="telegram"/>
+                            <div class="social--inner-hover"></div>
+                        </div>
+                    </a>
+                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_whatsup', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+                        <div class="social"><img src="../../../resources/images/social-3.png" alt="what's up"/>
+                            <div class="social--inner-hover"></div>
+                        </div>
+                    </a>
                 </div>
                 <div class="contacts__phone"><i class="fa fa-phone"></i>
-                    <div class="contacts__number"><strong>{workspace\modules\settings\services\SettingService::run()->get('header_phone', '+38 099 490 24 54')}</strong>
+                    <div class="contacts__number"><strong>{workspace\modules\settings\services\SettingService::run()->get('site_phone', '+38 099 490 24 54')}</strong>
                         <p>перезвоните мне!</p>
                     </div>
                 </div>
@@ -273,10 +279,16 @@
                 <div class="schedule-form__content">
                     <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>
                     <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>
-                    <form class="schedule-form__feedback" action="/subscribe/" method="post">
-                        <input name="name" type="text" placeholder="Введите имя"/>
-                        <input name="phone" type="text" placeholder="Введите телефон"/>
-                        <button type="submit">Подписаться</button>
+                    <form class="schedule-form__feedback" name="request-form" id="request-form" method="post">
+                        <div class="form-group">
+                            <input id="name" name="name" type="text" placeholder="Введите имя"/>
+                            <small id="nameMessage" class="schedule-form__news"></small>
+                        </div>
+                        <div class="form-group">
+                            <input id="phone" name="phone" type="text" placeholder="Введите телефон"/>
+                            <small id="phoneMessage" class="schedule-form__news"></small>
+                        </div>
+                        <button id="submit" name="submit" type="submit">Подписаться</button>
                     </form>
                 </div>
             </div>
@@ -419,318 +431,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-{*<div class="header">*}
-{*    <div class="menu" id="menu">*}
-{*        <div class="menu__icon" id="menuIcon"><i class="fa fa-bars"></i></div>*}
-{*        <div class="menu__list" id="menuList">*}
-{*            <div class="menu__item"><a href="#travels">О нас</a></div>*}
-{*            <div class="menu__item"><a href="#schedule">Расписание</a></div>*}
-{*            <div class="menu__item"><a href="#comments">Отзывы</a></div>*}
-{*            <div class="menu__item"><a href="/">Фотоотчёты</a></div>*}
-{*            <div class="menu__item"><a href="/">Для бизнеса</a></div>*}
-{*            <div class="menu__item"><a href="/">Контакты</a></div>*}
-{*        </div>*}
-{*    </div>*}
-{*    <div class="header__nav-info" id="headerNavInfo">*}
-{*        <div class="header-nav"><a href="#travels">О нас</a><a href="#schedule">Расписание</a><a*}
-{*                    href="#comments">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a*}
-{*                    href="/">Контакты</a>*}
-{*        </div>*}
-{*        <div class="contacts">*}
-{*            <div class="contacts-socials">*}
-{*                <div class="social"><img src="../../../resources/images/social-1.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*                <div class="social"><img src="../../../resources/images/social-2.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*                <div class="social"><img src="../../../resources/images/social-3.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*            </div>*}
-{*            <div class="contacts__phone"><i class="fa fa-phone"></i>*}
-{*                <div class="contacts__number"><strong>+38 099 490 24 54</strong>*}
-{*                    <p>перезвоните мне!</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*    <div class="header__main">*}
-{*        <div class="header__text">*}
-{*            <p class="header__author-tours"><strong>Мы создаём авторские туры</strong> в самые красивые места нашей*}
-{*                планеты - <br/>Бали, Японию, Эльзас, Каппадокию. </p>*}
-{*            <h2 class="header__travel-format-text">Открой для себя новый формат путешествий</h2>*}
-{*            <p class="header__proposition-text">*}
-{*                Ты можешь путешествовать вместе с нами онлайн - в сториз и постах нашего*}
-{*                <a href="/">блога в Инстаграм</a>,*}
-{*                а можешь отправиться в незабываемое приключение вместе с нами.*}
-{*            </p>*}
-{*            <div class="header__news-wrapper"><a href="#schedule">*}
-{*                    <div class="button">*}
-{*                        <button>Посмотреть туры</button>*}
-{*                    </div>*}
-{*                </a>*}
-{*                <p class="header__news">Хочешь получить новости о наших турах первым? <a href='/'>Напиши нам</a></p>*}
-{*            </div>*}
-{*            <div class="hash-tag">*}
-{*                <h3 class="tag">#NePaketniki</h3>*}
-{*                <p class="secrets-text">Секреты путешествий</p>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="header__traveling"><span class="traveling-text">traveling</span>*}
-{*            <div class="search-bar">*}
-{*                <input type="text" value="как правильно отдыхать?"/><i class="fa fa-search"></i>*}
-{*                <div class="triangle"></div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*</div>*}
-{*<div class="schedule" id="schedule">*}
-{*    <h3 class="schedule__title">Расписание авторских туров</h3>*}
-{*    <p class="schedule__proposition">*}
-{*        Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего*}
-{*        <a href='/'>блога в Инстаграм</a>,*}
-{*        а можете отправиться в незабываемое приключение вместе с нами.*}
-{*    </p>*}
-{*    <div class="schedule__tours">*}
-{*        {foreach from=$model item=item}*}
-{*        <div class="schedule-tour">*}
-{*            <div class="schedule-tour__inside">*}
-{*                <div class="schedule-tour__heading">*}
-{*                    <div class="schedule-tour__logo">*}
-{*                        <div class="circle small">*}
-{*                        </div>*}
-{*                        <div class="schedule-tour__title">*}
-{*                            <h3>{$item->name}</h3>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                    <img class="schedule-tour__image" src="../../../resources/images/{$item->image->image}" alt=""/>*}
-{*                </div>*}
-{*                <div class="schedule-tour__info">*}
-{*                    <p class="schedule-tour__date">{$item->front_date}</p>*}
-{*                    <p class="schedule-tour__free-places">{$item->front_places_remaining}</p>*}
-{*                </div>*}
-{*                <p class="schedule-tour__description">{$item->front_description}</p>*}
-{*                <p class="schedule-tour__price">{$item->price}</p>*}
-{*                <div class="button">*}
-{*                    <button>Программа тура</button>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        {/foreach}*}
-
-{*        <div class="schedule__form-wrapper">*}
-{*            <div class="hash-tag">*}
-{*                <h3 class="tag">#NePaketniki</h3>*}
-{*                <p class="secrets-text">Секреты путешествий</p>*}
-{*            </div>*}
-{*            <div class="schedule-form">*}
-{*                <div class="circle medium">*}
-{*                </div>*}
-{*                <div class="schedule-form__inside">*}
-{*                    <div class="schedule-form__content">*}
-{*                        <h3 class="schedule-form__title">Обязательно <br/>подпишись!</h3>*}
-{*                        <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это*}
-{*                            важно!</p>*}
-{*                        <form class="schedule-form__feedback">*}
-{*                            <input type="text" placeholder="Введите имя"/>*}
-{*                            <input type="text" placeholder="Введите телефон"/>*}
-{*                            <button type="submit">Спросить онлайн</button>*}
-{*                        </form>*}
-{*                        <h4 class="schedule-form__instagram">Instagram</h4>*}
-{*                    </div>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*</div>*}
-{*<div class="travels" id="travels">*}
-{*    <div class="travels__heading">*}
-{*        <h3 class="travels__title">Открой новый формат путешествий вместе с нами!</h3>*}
-{*        <p class="travels__news">Подпишитесь и получите чек-лист топ непакетных направлений <span>бесплатно</span></p>*}
-{*        <img class="travels__balloon" src="../../../resources/images/balloon.png" alt=""/>*}
-{*    </div>*}
-{*    <div class="travels__logo"><img src="../../../resources/images/nepaketniki.png" alt=""/></div>*}
-{*    <div class="advantages">*}
-{*        <div class="advantage column-left">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-1.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Продуманность</h3>*}
-{*                    <p>Самой большой вашей проблемой в туре будет выбор блюда в ресторане, и даже с этим мы*}
-{*                        поможем:)</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="advantage column-right">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-2.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Программа</h3>*}
-{*                    <p>Мы за идеальный микс активностей и релакса. У нас нет активностей нон-стоп, но и заскучать вам*}
-{*                        тоже не дадим.</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="advantage column-left">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-3.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Компания</h3>*}
-{*                    <p>Не знаем, как так получается, но с нами всегда ездят очень интересные, весёлые, успешные и*}
-{*                        перспективные ребята</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="advantage column-right">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-4.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Фотографии</h3>*}
-{*                    <p>Не беспокойтесь - мы сделаем вам ОЧЕНЬ классные фотографии!</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="advantage column-left">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-5.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Еда</h3>*}
-{*                    <p>В наших турах вкусно! Еда для нас важная эстетическая и культурная часть любой поездки. Мы*}
-{*                        тщательно выбираем кафе по нашему маршруту</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="advantage column-right">*}
-{*            <div class="advantage__inside">*}
-{*                <div class="advantage__logo"><img src="../../../resources/images/advantage-icon-6.png" alt=""/>*}
-{*                    <div class="circle large">*}
-{*                        <div class="border"></div>*}
-{*                    </div>*}
-{*                </div>*}
-{*                <div class="advantage__text">*}
-{*                    <h3>Нет скрытых затрат</h3>*}
-{*                    <p>Мы всегда включаем в стоимость тура все активности, которые дают полное представление о месте, в*}
-{*                        которое мы едем</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*    <div class="travels__subscribe">*}
-{*        <p>*}
-{*            Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего*}
-{*            <a href="/">блога в Инстаграм</a>,*}
-{*            а можете отправиться в незабываемое приключение вместе с нами.*}
-{*        </p>*}
-{*        <div class="button">*}
-{*            <button>Подписаться</button>*}
-{*        </div>*}
-{*    </div>*}
-{*</div>*}
-{*<div class="comments" id="comments">*}
-{*    <h2 class="comments__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>*}
-{*    <div class="comments__pagination">*}
-{*        <button>&lt;</button>*}
-{*        <span class="comments__current-page">1 из 12</span>*}
-{*        <button>&gt;</button>*}
-{*    </div>*}
-{*    <div class="comments__list">*}
-{*        <div class="comments-comment upper">*}
-{*            <div class="comments-comment__border-inside"></div>*}
-{*            <div class="comment__main">*}
-{*                <h4 class="comment__name">Карина и Андрей</h4>*}
-{*                <div class="comment__instagram"><i class="fa fa-instagram"></i><a class="comment__link"*}
-{*                                                                                  href="http::/instagram.com/karina_duvanova">karina_duvanova</a><span*}
-{*                            class="comment__link-breaker">|</span><a class="comment__link"*}
-{*                                                                     href="http::/instagram.com/andy_slipp">*}
-{*                        andy_slipp</a>*}
-{*                </div>*}
-{*                <p class="comment__text">Это был самый крутой отдых! Вы - просто молодцы! Программа тура была не*}
-{*                    стандартной туристической и при желании группа могла внести ещё и свои коррективы. Т.е. мое*}
-{*                    нелюбимое - в 7 утра стоять перед гостиницей с сухим пайком и ждать автобус не происходило... </p>*}
-{*            </div>*}
-{*            <img class="comment__avatar" src="../../../resources/images/comment-1.png" alt=""/>*}
-{*        </div>*}
-{*        <div class="comments-comment">*}
-{*            <div class="comments-comment__border-inside"></div>*}
-{*            <div class="comment__main">*}
-{*                <h4 class="comment__name">Людмила</h4>*}
-{*                <div class="comment__instagram"><i class="fa fa-instagram"></i><a class="comment__link"*}
-{*                                                                                  href="http::/instagram.com/mng.milka">mng.milka</a>*}
-{*                </div>*}
-{*                <p class="comment__text">Ребятки, формат вашей программы оказался просто идеальным для меня (Я*}
-{*                    собственно на это и рассчитывала) Этот формат я называю «взять и выгулять», когда ты не паришься о*}
-{*                    подробностях и деталях планирования поездки, ты просто доверяешь себя профессионалам...,*}
-{*                    расслабляешься и наслаждаешься путешествием на полную </p>*}
-{*            </div>*}
-{*            <img class="comment__avatar" src="../../../resources/images/comment-2.png" alt=""/>*}
-{*        </div>*}
-{*        <div class="comments-comment upper">*}
-{*            <div class="comments-comment__border-inside"></div>*}
-{*            <div class="comment__main">*}
-{*                <h4 class="comment__name">Галина</h4>*}
-{*                <div class="comment__instagram"><i class="fa fa-instagram"></i><a class="comment__link"*}
-{*                                                                                  href="http::/instagram.com/galochka115">galochka115</a>*}
-{*                </div>*}
-{*                <p class="comment__text">Ребята, спасибо вам большое за поездку! Я сама люблю составлять маршруты и всё*}
-{*                    тщательно планировать, но как же приятно иногда ни о чем не думать и довериться хорошим*}
-{*                    организаторам!)) До сих пор закрываю глаза и у меня пряничные домики перед глазами))... </p>*}
-{*            </div>*}
-{*            <img class="comment__avatar" src="../../../resources/images/comment-3.png" alt=""/>*}
-{*        </div>*}
-{*    </div>*}
-{*</div>*}
-{*<div class="footer">*}
-{*    <div class="footer__text"><span class="traveling-text">traveling</span>*}
-{*        <p class="travel-format-text">Открой для себя новый <br/>формат путешествий</p>*}
-{*    </div>*}
-{*    <div class="footer__contact-info">*}
-{*        <div class="contacts">*}
-{*            <div class="contacts-socials">*}
-{*                <div class="social"><img src="../../../resources/images/social-1.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*                <div class="social"><img src="../../../resources/images/social-2.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*                <div class="social"><img src="../../../resources/images/social-3.png"/>*}
-{*                    <div class="social--inner-hover"></div>*}
-{*                </div>*}
-{*            </div>*}
-{*            <div class="contacts__phone"><i class="fa fa-phone"></i>*}
-{*                <div class="contacts__number"><strong>+38 099 490 24 54</strong>*}
-{*                    <p>перезвоните мне!</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="search-bar">*}
-{*            <input type="text" value="Контакты Nepaketniki"/><i class="fa fa-search"></i>*}
-{*            <div class="triangle"></div>*}
-{*        </div>*}
-{*    </div>*}
-{*</div>*}
+<script src="../resources/js/handler_form.js"></script>

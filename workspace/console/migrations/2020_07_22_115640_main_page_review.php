@@ -20,6 +20,7 @@ class MainPageReview extends Migration
             $table->string('instagram_link', 255);
             $table->string('avatar', 255);
             $table->text('text');
+            $table->integer('priority');
             $table->timestamps();
         });
     }

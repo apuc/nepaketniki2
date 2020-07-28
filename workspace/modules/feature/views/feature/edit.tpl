@@ -1,6 +1,6 @@
 {assign var="url" value="{'feature/'}{$model->id}"}
 {core\App::$breadcrumbs->addItem(['text' => $model->name, 'url' => {$url}])}
-{core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
+{core\App::$breadcrumbs->addItem(['text' => 'Редактирование'])}
 <div class="h1">{$h1} {$model->name}</div>
 
 <div class="container">

@@ -1,6 +1,5 @@
 {assign var="url" value="{'tour/'}{$model->id}"}
 {core\App::$breadcrumbs->addItem(['text' => $model->name, 'url' => {$url}])}
-{core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
 <div class="h1">{$h1} {$model->name}</div>
 
 <div class="container">
@@ -13,10 +12,6 @@
                 {/foreach}
             </select>
         </div>
-{*        <div class="form-group">*}
-{*            <label for="name">Название:</label>*}
-{*            <input type="text" name="name" id="name" class="form-control" required="required" value="{$model->name}" />*}
-{*        </div>*}
         <div class="form-group">
             <label for="front_date">Даты тура на главной странице:</label>
             <input type="text" name="front_date" id="front_date" class="form-control" value="{$model->front_date}" />
