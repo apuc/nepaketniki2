@@ -1,10 +1,10 @@
 <?php
 
+use core\App;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
-class MainPageReviewe2 extends Migration
+class MainPageReviewAddColumnToTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class MainPageReviewe2 extends Migration
      */
     public function up()
     {
-        Schema::table('main_page_review', function($table) {
-            $table->integer('tour_id')->unsigned();
+        App::$db->schema->table('main_page_review', function (Blueprint $table) {
+            $table->integer('tour_id')->unsigned()->default(0);
             $table->foreign('tour_id')->references('id')->on('tour');
-            $table->integer('priority');
-        });;
+            $table->integer('priority')->default(1);;
+        });
     }
 
     /**
@@ -27,7 +27,7 @@ class MainPageReviewe2 extends Migration
      */
     public function down()
     {
-        Schema::table('main_page_review', function($table) {
+        App::$db->schema->table('main_page_review', function (Blueprint $table) {
             $table->dropColumn('tour_id');
         });
     }
