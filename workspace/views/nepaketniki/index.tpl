@@ -24,32 +24,10 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav"><a href="/#travels">О нас</a><a href="/#schedule">Расписание</a><a href="/reviews">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
+            <div class="header-nav">
+                {include file='includes/nav_menu.tpl'}
             </div>
-            <div class="contacts">
-                <div class="contacts-socials">
-                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
-                        <div class="social"><img src="../../../resources/images/social-1.png" alt="instagram"/>
-                            <div class="social--inner-hover"></div>
-                        </div>
-                    </a>
-                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_telegram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
-                        <div class="social"><img src="../../../resources/images/social-2.png" alt="telegram"/>
-                            <div class="social--inner-hover"></div>
-                        </div>
-                    </a>
-                    <a href="{workspace\modules\settings\services\SettingService::run()->get('site_whatsup', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
-                        <div class="social"><img src="../../../resources/images/social-3.png" alt="what's up"/>
-                            <div class="social--inner-hover"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="contacts__phone"><i class="fa fa-phone"></i>
-                    <div class="contacts__number"><strong>{workspace\modules\settings\services\SettingService::run()->get('site_phone', '+38 099 490 24 54')}</strong>
-                        <p>перезвоните мне!</p>
-                    </div>
-                </div>
-            </div>
+                {include file='includes/contacts.tpl'}
         </div>
         <div class="header__main">
             <div class="header__text">
@@ -116,158 +94,8 @@
                         </div>
                     </div>
                 </div>
-{*                <div class="schedule-tour">*}
-{*                    <div class="schedule-tour__inside">*}
-{*                        <div class="schedule-tour__heading">*}
-{*                            <div class="schedule-tour__logo">*}
-{*                                <div class="circle small">*}
-{*                                </div>*}
-{*                                <div class="schedule-tour__title">*}
-{*                                    <h3>{$item->name}</h3>*}
-{*                                </div>*}
-{*                            </div>*}
-{*                            <img class="schedule-tour__image" src="{$item->image->image}" alt=""/>*}
-{*                        </div>*}
-{*                        <div class="schedule-tour__info">*}
-{*                            <p class="schedule-tour__date">{$item->front_date}</p>*}
-{*                            <p class="schedule-tour__free-places">{$item->front_places_remaining}</p>*}
-{*                        </div>*}
-{*                        <p class="schedule-tour__description">{$item->front_description}</p>*}
-{*                        <p class="schedule-tour__price">{$item->price}</p>*}
-{*                        <div class="button">*}
-{*                            *}{*                        <a class="button_link" href="/tour">Программа тура</a>*}
-{*                            <button onClick='location.href="/tour/{$item->id}"'>Программа тура</button>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
             {/foreach}
         {/if}
-
-        {*        <div class="schedule-tour">*}
-        {*            <div class="schedule-tour__inside">*}
-        {*                <div class="schedule-tour__heading">*}
-        {*                    <div class="tour-logo">*}
-        {*                        <div class="tour-logo__wrapper">*}
-        {*                            <div class="circle small">*}
-        {*                            </div>*}
-        {*                            <div class="tour-logo__title">*}
-        {*                                <h3>Каппадокия</h3>*}
-        {*                                <h3></h3>*}
-        {*                            </div>*}
-        {*                        </div><img class="tour-logo__image" src="assets/images/tour-1.png" alt=""/>*}
-        {*                    </div>*}
-        {*                </div>*}
-        {*                <div class="schedule-tour__info">*}
-        {*                    <p class="schedule-tour__date">сентябрь - октябрь 2020</p>*}
-        {*                    <p></p>*}
-        {*                </div>*}
-        {*                <p class="schedule-tour__description">Полёт на воздушном шаре над марсианскими пейзажами, долины и каньоны, фотосессии в разлетающихся платьях на террасе бутик-отеля, прогулка на квадроциклах и лошадях.</p>*}
-        {*                <p class="schedule-tour__price">850 € + авиаперелёт</p>*}
-        {*                <div class="button">*}
-        {*                    <button>Программа тура</button>*}
-        {*                </div>*}
-        {*            </div>*}
-        {*        </div>*}
-        {*        <div class="schedule-tour">*}
-        {*            <div class="schedule-tour__inside">*}
-        {*                <div class="schedule-tour__heading">*}
-        {*                    <div class="tour-logo">*}
-        {*                        <div class="tour-logo__wrapper">*}
-        {*                            <div class="circle small">*}
-        {*                            </div>*}
-        {*                            <div class="tour-logo__title">*}
-        {*                                <h3>Бали</h3>*}
-        {*                                <h3>и Нуса Пенида</h3>*}
-        {*                            </div>*}
-        {*                        </div><img class="tour-logo__image" src="assets/images/tour-2.png" alt=""/>*}
-        {*                    </div>*}
-        {*                </div>*}
-        {*                <div class="schedule-tour__info">*}
-        {*                    <p class="schedule-tour__date">16-28 октября 2020</p>*}
-        {*                    <p></p>*}
-        {*                </div>*}
-        {*                <p class="schedule-tour__description">11 дней в раю и месте силы. Океан, райские пляжи, мощные водопады, восхождение на вулкан, спа, рестораны в джунглях и джакузи выше облаков.</p>*}
-        {*                <p class="schedule-tour__price">1620 € + авиаперелёт</p>*}
-        {*                <div class="button">*}
-        {*                    <button>Программа тура</button>*}
-        {*                </div>*}
-        {*            </div>*}
-        {*        </div>*}
-        {*        <div class="schedule-tour mobile-hidden">*}
-        {*            <div class="schedule-tour__inside">*}
-        {*                <div class="schedule-tour__heading">*}
-        {*                    <div class="tour-logo">*}
-        {*                        <div class="tour-logo__wrapper">*}
-        {*                            <div class="circle small">*}
-        {*                            </div>*}
-        {*                            <div class="tour-logo__title">*}
-        {*                                <h3>Бали</h3>*}
-        {*                                <h3>и Нуса Пенида</h3>*}
-        {*                            </div>*}
-        {*                        </div><img class="tour-logo__image" src="assets/images/tour-3.png" alt=""/>*}
-        {*                    </div>*}
-        {*                </div>*}
-        {*                <div class="schedule-tour__info">*}
-        {*                    <p class="schedule-tour__date">27 октября - 6 ноября 2020</p>*}
-        {*                    <p class="schedule-tour__free-places">(8 свободных мест)</p>*}
-        {*                </div>*}
-        {*                <p class="schedule-tour__description">9 дней в раю и месте силы. Океан, райские пляжи, мощные водопады, восхождение на вулкан, спа, рестораны в джунглях и джакузи выше облаков.</p>*}
-        {*                <p class="schedule-tour__price">1290 € + авиаперелёт</p>*}
-        {*                <div class="button">*}
-        {*                    <button>Программа тура</button>*}
-        {*                </div>*}
-        {*            </div>*}
-        {*        </div>*}
-        {*        <div class="schedule-tour mobile-hidden">*}
-        {*            <div class="schedule-tour__inside">*}
-        {*                <div class="schedule-tour__heading">*}
-        {*                    <div class="tour-logo">*}
-        {*                        <div class="tour-logo__wrapper">*}
-        {*                            <div class="circle small">*}
-        {*                            </div>*}
-        {*                            <div class="tour-logo__title">*}
-        {*                                <h3>Япония:</h3>*}
-        {*                                <h3>красные клёны</h3>*}
-        {*                            </div>*}
-        {*                        </div><img class="tour-logo__image" src="assets/images/tour-4.png" alt=""/>*}
-        {*                    </div>*}
-        {*                </div>*}
-        {*                <div class="schedule-tour__info">*}
-        {*                    <p class="schedule-tour__date">12-20 ноября 2020</p>*}
-        {*                    <p class="schedule-tour__free-places">(5 свободных мест)</p>*}
-        {*                </div>*}
-        {*                <p class="schedule-tour__description">Неизведанная и таинственная, абсолютно другая и уникальная. Ночной Токио, ручные олени в Наре, древний Киото со знакомством с гейшей, гора Фудзи в закури...</p>*}
-        {*                <p class="schedule-tour__price">2100 € + авиаперелёт</p>*}
-        {*                <div class="button">*}
-        {*                    <button>Программа тура</button>*}
-        {*                </div>*}
-        {*            </div>*}
-        {*        </div>*}
-        {*        <div class="schedule-tour mobile-hidden">*}
-        {*            <div class="schedule-tour__inside">*}
-        {*                <div class="schedule-tour__heading">*}
-        {*                    <div class="tour-logo">*}
-        {*                        <div class="tour-logo__wrapper">*}
-        {*                            <div class="circle small">*}
-        {*                            </div>*}
-        {*                            <div class="tour-logo__title">*}
-        {*                                <h3>Рождественский Эльзас</h3>*}
-        {*                                <h3></h3>*}
-        {*                            </div>*}
-        {*                        </div><img class="tour-logo__image" src="assets/images/tour-5.png" alt=""/>*}
-        {*                    </div>*}
-        {*                </div>*}
-        {*                <div class="schedule-tour__info">*}
-        {*                    <p class="schedule-tour__date">декабрь 2021</p>*}
-        {*                    <p></p>*}
-        {*                </div>*}
-        {*                <p class="schedule-tour__description">5 дней в нетипичной Франции и рождественской сказке. Самые красивые деревушки, отель в виноградниках, средневековые ярмарки и неповторимые эльзасские </p>*}
-        {*                <p class="schedule-tour__price">1290 € + авиаперелёт</p>*}
-        {*                <div class="button">*}
-        {*                    <button>Программа тура</button>*}
-        {*                </div>*}
-        {*            </div>*}
-        {*        </div>*}
         <div class="schedule__form-wrapper">
             <div class="hash-tag">
                 <h3 class="tag">#NePaketniki</h3>
@@ -392,38 +220,14 @@
         </div>
     </div>
 </div>
-<div class="comments" id="comments">
-    <h2 class="comments__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>
-    <div class="comments__pagination">
-        <button class="comments__button" id="prevPage"></button><span class="comments__current-page"><span id='currentPage'></span> из <span id='pages'></span></span>
-        <button class="comments__button comments__button--active" id="nextPage"></button>
-    </div>
-    <div class="comments__list" id="commentsList"></div>
-</div>
+{workspace\modules\admin_review_main_page\widgets\Slider::widget()->run()}
 <div class="footer">
     <div class="footer__container">
         <div class="footer__text"><span class="traveling-text">travelling</span>
             <p class="travel-format-text">Открой для себя новый <br />формат путешествий</p>
         </div>
         <div class="footer__contact-info">
-            <div class="contacts">
-                <div class="contacts-socials">
-                    <div class="social"><img src="../../../resources/images/social-1.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-2.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-3.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                </div>
-                <div class="contacts__phone"><i class="fa fa-phone"></i>
-                    <div class="contacts__number"><strong>+38 099 490 24 54</strong>
-                        <p>перезвоните мне!</p>
-                    </div>
-                </div>
-            </div>
+            {include file='../includes/contacts.tpl'}
             <div class="search-bar">
                 <input type="text" value="Контакты Nepaketniki"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
                 <div class="triangle"></div>

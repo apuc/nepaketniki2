@@ -241,10 +241,10 @@ class MainController extends Controller
         }
     }
 
-    public function reviewDownload()
+    public function reviewsDownload()
     {
         try {
-            $review_model = MainPageReview::orderBy('priority', 'DESC')->select('instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
+            $review_model = MainPageReview::orderBy('priority', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
             echo json_encode($review_model);
             die();
         } catch (\Exception $e) {

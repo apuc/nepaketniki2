@@ -23,4 +23,12 @@ class MainPageReview extends Model
 
         $this->save();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tour()
+    {
+        return $this->belongsTo('workspace\modules\tour\models\Tour');
+    }
 }

@@ -18,7 +18,7 @@ class IncludedController extends Controller
         $this->viewPath = '/modules/included/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
-        App::$breadcrumbs->addItem(['text' => 'Включено в тур', 'url' => 'included']);
+        App::$breadcrumbs->addItem(['text' => 'Включено в тур', 'url' => 'admin/included']);
     }
 
     public function actionIndex()

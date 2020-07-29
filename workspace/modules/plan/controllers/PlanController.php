@@ -18,7 +18,7 @@ class PlanController extends Controller
 {
     public function actionIndex()
     {
-        $model = Plan::get();
+        $model = Plan::orderBy('tour_id', 'DESC')->orderBy('day', 'ASC')->get();
 
         return $this->render('plan/index.tpl', ['h1' => 'Планы на дни', 'model' => $model, 'options' => $this->getOptions()]);
     }
@@ -55,21 +55,13 @@ class PlanController extends Controller
         $request = new PlanSearchRequest();
 
         if ($request->isPost() AND $request->validate()) {
-
-            /*$validator = Validator::make((array)$request->day, [
-                'day' => [
-                    'required',
-                    Rule::notIn(Plan::select('day')->where('tour_id', 1)->get()->toArray()),
-                ],
-            ]);
-            var_dump($validator->validate()); exit();*/
-            if (!in_array((int)$request->day, Plan::select('day')->where('tour_id', $request->tour_id)->get()->toArray()[0])) {
+            if ($this->checkDay($request->day, $request->tour_id)) {
                 $model = new Plan();
                 $model->_save($request);
                 foreach ($request->image as $image) {
                     if (strlen($image) !== 0) {
                         $image_model = new Image();
-                        $image_model->_save('/resources/' . $image);
+                        $image_model->_save($image);
 
                         $plan_image_model = new PlanImages();
                         $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
@@ -106,19 +98,24 @@ class PlanController extends Controller
         $model = Plan::where('id', $id)->first();
 
         if ($request->isPost() AND $request->validate()) {
-            $model->_save($request);
-            foreach ($request->image as $image) {
-                if (strlen($image) !== 0) {
-                    $image_model = new Image();
-                    $image_model->_save('/resources/' . $image);
+            if ($this->checkDay($request->day, $request->tour_id, $model->day)) {
+                $model->_save($request);
+                foreach ($request->image as $image) {
+                    if (strlen($image) !== 0) {
+                        $image_model = new Image();
+                        $image_model->_save($image);
 
-                    $plan_image_model = new PlanImages();
-                    $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
+                        $plan_image_model = new PlanImages();
+                        $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
+                    }
                 }
+
+                $this->redirect('admin/plan');
+            } else {
+                $tours = Tour::all();
+
+                return $this->render('plan/edit.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'h1' => 'Редактировать: ', 'model' => $model, 'options' => $this->getOptions(), 'tours' => $tours]);
             }
-
-            $this->redirect('admin/plan');
-
         } else {
             $tours = Tour::all();
 
@@ -133,5 +130,16 @@ class PlanController extends Controller
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
         App::$breadcrumbs->addItem(['text' => 'Планы на дни', 'url' => 'admin/plan']);
+    }
+
+    protected function checkDay($selected_day, $tour_id, $cur_day = -1): bool
+    {
+        $days =  Plan::select('day')->where('tour_id', $tour_id)->get()->toArray();
+        foreach ($days as $day) {
+            if (in_array($selected_day, $day) AND $cur_day !== $day['day']) {
+                return false;
+            }
+        }
+        return true;
     }
 }

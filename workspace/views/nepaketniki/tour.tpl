@@ -24,27 +24,11 @@
             </div>
         </div>
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav"><a href="#travels">О нас</a><a href="#schedule">Расписание</a><a href="#comments">Отзывы</a><a
-                        href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
+            <div class="header-nav">
+                <a href="/">На главную</a>
+                {include file='includes/nav_menu.tpl'}
             </div>
-            <div class="contacts">
-                <div class="contacts-socials">
-                    <div class="social"><img src="../../../resources/images/social-1.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-2.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-3.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                </div>
-                <div class="contacts__phone"><i class="fa fa-phone"></i>
-                    <div class="contacts__number"><strong>+38 099 490 24 54</strong>
-                        <p>перезвоните мне!</p>
-                    </div>
-                </div>
-            </div>
+            {include file='includes/contacts.tpl'}
         </div>
         <div class="-single-tour-header__main">
             <div class="search-bar">
@@ -115,7 +99,7 @@
         <div class="-single-tour-plan-item">
             <div class="-single-tour-plan-item__heading">
                 <div class="-single-tour-plan-item__date"><img class=".-single-tour-plan-item__day-logo"
-                                                               src="../../../resources/images/-single-tour-plan-day-{$i+1}.png"
+                                                               src="../../../resources/images/-single-tour-plan-day-{$model->plans[$i]->day}.png"
                                                                alt=""/>
                     <div class="-single-tour-plan-item__date-text">
                         {$model->plans[$i]->date}
@@ -131,16 +115,16 @@
                 <div class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</div>
             </div>
             <div class="-single-tour-plan-item__photos">
-{*                <div class="-single-tour-plan-item__photos-wrapper">*}
-{*                    <button class="-single-tour-plan-item__button" id="singleTourPlanPrevPage"></button>*}
-{*                    <div class="-single-tour-plan-item__photos" id="singleTourPlanPhotos-1"></div>*}
-{*                    <button class="-single-tour-plan-item__button -single-tour-plan-item__button--active" id="singleTourPlanNextPage"></button>*}
-{*                </div>*}
-                {for $j=0 to count($model->plans[$i]->images)-1}
-                    <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"
-                                                                          src="{$model->plans[$i]->images[$j]->image->image}"
-                                                                          alt="Картинки плана дня"/></div>
-                {/for}
+                <div class="-single-tour-plan-item__photos-wrapper">
+                    <button class="-single-tour-plan-item__button" id="singleTourPlanPrevPage-{$i+1}"></button>
+                    <div class="-single-tour-plan-item__photos" id="singleTourPlanPhotos-{$i+1}"></div>
+                    <button class="-single-tour-plan-item__button -single-tour-plan-item__button--active" id="singleTourPlanNextPage-{$i+1}"></button>
+                </div>
+{*                {for $j=0 to count($model->plans[$i]->images)-1}*}
+{*                    <div class="-single-tour-plan-item__photos-item"><img class=".-single-tour-plan-item__photo"*}
+{*                                                                          src="{$model->plans[$i]->images[$j]->image->image}"*}
+{*                                                                          alt="Картинки плана дня"/></div>*}
+{*                {/for}*}
             </div>
         </div>
     {/for}
@@ -436,38 +420,14 @@
         </div>
     </form>
 </div>
-<div class="comments" id="comments">
-    <h2 class="comments__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>
-    <div class="comments__pagination">
-        <button class="comments__button" id="prevPage"></button><span class="comments__current-page"><span id='currentPage'></span> из <span id='pages'></span></span>
-        <button class="comments__button comments__button--active" id="nextPage"></button>
-    </div>
-    <div class="comments__list" id="commentsList"></div>
-</div>
+{workspace\modules\admin_review_main_page\widgets\Slider::widget()->run()}
 <div class="footer">
     <div class="footer__container">
         <div class="footer__text"><span class="traveling-text">travelling</span>
             <p class="travel-format-text">Открой для себя новый <br/>формат путешествий</p>
         </div>
         <div class="footer__contact-info">
-            <div class="contacts">
-                <div class="contacts-socials">
-                    <div class="social"><img src="../../../resources/images/social-1.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-2.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                    <div class="social"><img src="../../../resources/images/social-3.png"/>
-                        <div class="social--inner-hover"></div>
-                    </div>
-                </div>
-                <div class="contacts__phone"><i class="fa fa-phone"></i>
-                    <div class="contacts__number"><strong>+38 099 490 24 54</strong>
-                        <p>перезвоните мне!</p>
-                    </div>
-                </div>
-            </div>
+            {include file='../includes/contacts.tpl'}
             <div class="search-bar">
                 <input type="text" value="Контакты Nepaketniki"/><span class="times"><i
                             class="fa fa-times"></i></span><i class="fa fa-search"></i>

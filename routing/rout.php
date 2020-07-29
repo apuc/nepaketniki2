@@ -11,7 +11,7 @@ App::$collector->any('module-set-active', ['workspace\controllers\MainController
 App::$collector->any('module-set-inactive', ['workspace\controllers\MainController', 'actionSetInactive']);
 App::$collector->any('module-delete', ['workspace\controllers\MainController', 'actionModuleDelete']);
 
-App::$collector->any('review_download', ['workspace\controllers\MainController', 'reviewDownload']);
+App::$collector->any('reviews_download', ['workspace\controllers\MainController', 'reviewsDownload']);
 App::$collector->any('tour/plan_photos/{id}', ['workspace\controllers\MainController', 'planPhotosDownload']);
 App::$collector->any('tour/reserve/{id}', ['workspace\controllers\MainController', 'actionReserve']);
 App::$collector->any('subscribe', ['workspace\controllers\MainController', 'actionSubscribe']);

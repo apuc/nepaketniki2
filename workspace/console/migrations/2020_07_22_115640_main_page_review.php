@@ -16,6 +16,8 @@ class MainPageReview extends Migration
     {
         App::$db->schema->create('main_page_review', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('tour_id')->references('id')->on('tour');
+            $table->integer('column_side');
             $table->string('name', 255);
             $table->string('instagram_link', 255);
             $table->string('avatar', 255);

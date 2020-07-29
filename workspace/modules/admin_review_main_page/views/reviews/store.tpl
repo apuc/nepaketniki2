@@ -1,5 +1,5 @@
 {core\App::$breadcrumbs->addItem(['text' => 'Создание'])}
-{*<div class="h1">{$h1}</div>*}
+<div class="h1">{$h1}</div></br>
 
 <div class="container">
     <form class="form-horizontal" enctype="multipart/form-data" name="create_form" id="create_form" method="post" action="/admin/reviews/create">

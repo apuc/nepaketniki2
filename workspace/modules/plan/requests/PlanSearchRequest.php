@@ -35,6 +35,4 @@ class PlanSearchRequest extends RequestSearch
             'description' => 'required'
         ];
     }
-
-
 }

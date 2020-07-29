@@ -14,12 +14,8 @@ class Image extends Model
 
     public function _save($image)
     {
-        $this->image = $image;
+        if (stripos($image, 'resource')) $this->image = '/resources/' . $image;
+        else $this->image = $image;
         $this->save();
     }
-
-//    public function image()
-//    {
-//        return $this->hasMany('workspace\modules\plan_images\models\PlanImages');
-//    }
 }

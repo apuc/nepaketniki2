@@ -35,43 +35,21 @@
           </div>
         </div>
         <div class="header__nav-info" id="headerNavInfo">
-          <div class="header-nav"><a href="#travels">О нас</a><a href="#schedule">Расписание</a><a href="#comments">Отзывы</a><a href="/">Фотоотчёты</a><a href="/">Для бизнеса</a><a href="/">Контакты</a>
+          <div class="header-nav">
+            <a href="/">На главную</a>
+            {include file='includes/nav_menu.tpl'}
           </div>
-          <div class="contacts">
-            <div class="contacts-socials">
-              <div class="social"><img src="../resources/images/social-1.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-              <div class="social"><img src="../resources/images/social-2.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-              <div class="social"><img src="../resources/images/social-3.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-            </div>
-            <div class="contacts__phone"><i class="fa fa-phone"></i>
-              <div class="contacts__number"><strong>+38 099 490 24 54</strong>
-                <p>перезвоните мне!</p>
-              </div>
-            </div>
-          </div>
+          {include file='includes/contacts.tpl'}
         </div>
         <div class="-reviews-header__main">
           <div class="search-bar">
             <input type="text" value="как правильно отдыхать"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
             <div class="triangle"></div>
           </div>
-          <h2 class="-reviews-header__title">Сомневаешься стоит ли путешествовать с нами? <br/> Тогда читай, что пишут о нас</h2>
         </div>
       </div>
     </div>
-    <div class="comments" id="comments">
-      <div class="comments__pagination">
-        <button class="comments__button" id="prevPage"></button><span class="comments__current-page"><span id='currentPage'></span> из <span id='pages'></span></span>
-        <button class="comments__button comments__button--active" id="nextPage"></button>
-      </div>
-      <div class="comments__list" id="commentsList"></div>
-    </div>
+    {workspace\modules\admin_review_main_page\widgets\Slider::widget()->run()}
     <div class="-reviews">
       <div class="-reviews__proposition">
         <p class="-reviews__proposition-text">
@@ -80,7 +58,7 @@
           а можете отправиться в незабываемое приключение вместе с нами.
         </p>
         <div class="button"> 
-          <button>Подписаться</button>
+          <button onClick='location.href="/"'>Подписаться</button>
         </div>
       </div>
       <div class="-reviews-instagram">
@@ -126,24 +104,7 @@
           <p class="travel-format-text">Открой для себя новый <br />формат путешествий</p>
         </div>
         <div class="footer__contact-info">
-          <div class="contacts">
-            <div class="contacts-socials">
-              <div class="social"><img src="../resources/images/social-1.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-              <div class="social"><img src="../resources/images/social-2.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-              <div class="social"><img src="../resources/images/social-3.png"/>
-                <div class="social--inner-hover"></div>
-              </div>
-            </div>
-            <div class="contacts__phone"><i class="fa fa-phone"></i>
-              <div class="contacts__number"><strong>+38 099 490 24 54</strong>
-                <p>перезвоните мне!</p>
-              </div>
-            </div>
-          </div>
+          {include file='../includes/contacts.tpl'}
           <div class="search-bar">
             <input type="text" value="Контакты Nepaketniki"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
             <div class="triangle"></div>

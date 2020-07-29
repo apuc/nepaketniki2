@@ -25,9 +25,20 @@ class AdminReviewController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
-                'name' => 'Название',
+                'name' => 'Имя',
+                '_tour' => [
+                    'label' => 'Тур',
+                    'value' => function($model) {
+                        return $model->tour->name;
+                    }
+                ],
                 'instagram_link' => 'Инстаграмм',
-                'avatar' => 'Аватар',
+                '_avatar' => [
+                    'label' => 'Аватар',
+                    'value' => function($model) {
+                        return '<img style="max-width:18em; max-height:18em" src="' . $model->avatar . '" />';
+                    }
+                ],
                 'text' => 'Отзыв',
                 'priority' => 'Приоритет',
             ],
