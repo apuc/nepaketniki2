@@ -14,7 +14,7 @@ class Image extends Model
 
     public function _save($image)
     {
-        if (stripos($image, 'resource')) $this->image = '/resources/' . $image;
+        if (!stripos($image, 'resource')) $this->image = '/resources/' . $image;
         else $this->image = $image;
         $this->save();
     }

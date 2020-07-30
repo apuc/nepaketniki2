@@ -11,7 +11,11 @@
             <label for="tour_id">Тур:</label>
             <select class="form-control" name="tour_id" id="tour_id">
                 {foreach from=$tours item=item}
-                    <option value="{$item->id}">{$item->name} {$item->price}</option>
+                    {if $item->id eq $model->tour_id}
+                        <option selected value="{$item->id}">{$item->name} {$item->price}</option>
+                    {else}
+                        <option value="{$item->id}">{$item->name} {$item->price}</option>
+                    {/if}
                 {/foreach}
             </select>
         </div>
@@ -36,17 +40,18 @@
             {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'info', 'id' => 'text_editor_info', 'text' => {$model->info}])->run()}
             <small id="infoMessage" class="form-text">{if isset($errors['info'])}{$errors['info']}{/if}</small>
         </div>
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 1:', 'id' => '_image_1', 'value' => $model->images[0]->image->image])->run()}*}
         {for $i=1 to 6}
-            {*        {if isset($model->images[4]->image->image)}$value=$model->images[0]->image->image{else}$value=''{/if}*}
-            {if isset($model->images[$i-1]->image->image)}{workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => $model->images[{$i}-1]->image->image])->run()}{else}{workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => ''])->run()}{/if}
+            {if isset($model->images[$i-1]->image->image)}
+                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => $model->images[{$i}-1]->image->image])->run()}
+            {else}
+                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => ''])->run()}{/if}
         {/for}
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 1:', 'id' => '_image_1', 'value' => $model->images[0]->image->image])->run()}*}
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 2:', 'id' => '_image_2', 'value' => $model->images[1]->image->image])->run()}*}
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 3:', 'id' => '_image_3', 'value' => $model->images[2]->image->image])->run()}*}
-        {*        {if isset($model->images[4]->image->image)}$value=$model->images[0]->image->image{else}$value=''{/if}*}
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 5:', 'id' => '_image_5', 'value' => $model->images[4]->image->image])->run()}*}
-        {*        {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image[]', 'label' => 'Картинка 6:', 'id' => '_image_6', 'value' => $model->images[5]->image->image])->run()}*}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 1:', 'id' => '_image_1', 'value' => $model->images[0]->image->image])->run()}*}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 2:', 'id' => '_image_2', 'value' => $model->images[1]->image->image])->run()}*}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 3:', 'id' => '_image_3', 'value' => $model->images[2]->image->image])->run()}*}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 4:', 'id' => '_image_4', 'value' => $model->images[3]->image->image])->run()}      *}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 5:', 'id' => '_image_5', 'value' => $model->images[4]->image->image])->run()}*}
+{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 6:', 'id' => '_image_6', 'value' => $model->images[5]->image->image])->run()}*}
         <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>

@@ -16,6 +16,7 @@ use core\Request;
 class ReviewRequest extends Request
 {
     public $name;
+    public $tour_id;
     public $avatar;
     public $text;
     public $instagram_link;
@@ -25,6 +26,7 @@ class ReviewRequest extends Request
     {
         return [
             'name' => 'required',
+            'tour_id' => 'required',
             'instagram_link' => 'required',
             'avatar' => 'required',
             'text' => 'required'

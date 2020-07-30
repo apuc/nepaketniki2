@@ -8,6 +8,7 @@ use core\App;
 use core\Controller;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
+use workspace\modules\tour\models\Tour;
 
 class AdminReviewController extends Controller
 {
@@ -66,7 +67,7 @@ class AdminReviewController extends Controller
             $this->redirect('admin/reviews');
 
         } else {
-            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ', 'errors' => $request->getMessagesArray()]);
+            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ', 'errors' => $request->getMessagesArray(), 'tours' => Tour::select('id', 'name')->get()]);
         }
     }
 
@@ -80,7 +81,7 @@ class AdminReviewController extends Controller
 
             $this->redirect('admin/reviews');
         } else {
-            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'errors' => $request->getMessagesArray()]);
+            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'errors' => $request->getMessagesArray(), 'tours' => Tour::select('id', 'name')->get()]);
         }
     }
 

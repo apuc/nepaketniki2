@@ -11,11 +11,12 @@ class MainPageReview extends Model
 {
     protected $table = "main_page_review";
 
-    public $fillable = ['name', 'instagram_link', 'avatar', 'text'];
+    public $fillable = ['name', 'tour_id', 'instagram_link', 'avatar', 'text', 'priority'];
 
     public function _save(ReviewRequest $request)
     {
         $this->name = $request->name;
+        $this->tour_id = $request->tour_id;
         $this->instagram_link = $request->instagram_link;
         if ($request->avatar !== $this->avatar) $this->avatar = '/resources/' . $request->avatar;
         $this->text = $request->text;

@@ -96,11 +96,14 @@ class PlanController extends Controller
     {
         $request = new PlanSearchRequest();
         $model = Plan::where('id', $id)->first();
-
         if ($request->isPost() AND $request->validate()) {
+            
             if ($this->checkDay($request->day, $request->tour_id, $model->day)) {
+                $model = Plan::where('id', $id)->first();
                 $model->_save($request);
-                foreach ($request->image as $image) {
+                $this->clearPlan($request->tour_id, $id);
+
+                foreach ($request->images as $image) {
                     if (strlen($image) !== 0) {
                         $image_model = new Image();
                         $image_model->_save($image);
@@ -114,7 +117,7 @@ class PlanController extends Controller
             } else {
                 $tours = Tour::all();
 
-                return $this->render('plan/edit.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'h1' => 'Редактировать: ', 'model' => $model, 'options' => $this->getOptions(), 'tours' => $tours]);
+                return $this->render('plan/edit.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'h1' => 'Редактировать: ', 'options' => $this->getOptions(), 'tours' => $tours]);
             }
         } else {
             $tours = Tour::all();
@@ -141,5 +144,15 @@ class PlanController extends Controller
             }
         }
         return true;
+    }
+
+    protected function clearPlan(int $tour_id, int $plan_id)
+    {
+        $plan_images = PlanImages::where('plan_id', $plan_id)->where('tour_id', $tour_id)->get();
+        //var_dump($plan_images);
+        foreach ($plan_images as $plan_image) {
+            PlanImages::destroy($plan_image->id);
+        }
+        //var_dump($plan_images); exit();
     }
 }
