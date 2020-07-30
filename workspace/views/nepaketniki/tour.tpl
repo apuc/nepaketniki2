@@ -94,7 +94,6 @@
 </div>
 <div class="-single-tour-plan">
     <h2 class="-single-tour-plan__title">План путешествия</h2>
-    {var_dump(count($model->plans[0]->images))}
     {for $i=0 to count($plan)-1}
 {*    {foreach from=$plan item=item_plan}*}
         <div class="-single-tour-plan-item">
@@ -116,8 +115,7 @@
                 <div class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</div>
             </div>
             <div class="-single-tour-plan-item__photos">
-                {if count($model->plans[$i]->images) neq 0}
-                    {var_dump(count($model->plans[$i]->images))}
+                {if count($model->plans[$i]->images) <= 3}
                     <div class="-single-tour-plan-item__photos-wrapper">
                         <button class="-single-tour-plan-item__button" id="singleTourPlanPrevPage-{$i+1}"></button>
                         <div class="-single-tour-plan-item__photos" id="singleTourPlanPhotos-{$i+1}"></div>

@@ -11,6 +11,7 @@ App::$collector->any('module-set-active', ['workspace\controllers\MainController
 App::$collector->any('module-set-inactive', ['workspace\controllers\MainController', 'actionSetInactive']);
 App::$collector->any('module-delete', ['workspace\controllers\MainController', 'actionModuleDelete']);
 
+App::$collector->any('404', ['workspace\controllers\MainController', 'actionPageNotfound']);
 App::$collector->any('reviews_download', ['workspace\controllers\MainController', 'reviewsDownload']);
 App::$collector->any('tour/plan_photos/{id}', ['workspace\controllers\MainController', 'planPhotosDownload']);
 App::$collector->any('tour/reserve/{id}', ['workspace\controllers\MainController', 'actionReserve']);
@@ -21,6 +22,7 @@ App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], functio
         App::$collector->get('/', [workspace\controllers\MainController::class, 'actionIndex'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
         App::$collector->get('/tours', [workspace\controllers\MainController::class, 'actionTours'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
         App::$collector->get('/reviews', [workspace\controllers\MainController::class, 'actionReviews'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
+        App::$collector->get('/about', [workspace\controllers\MainController::class, 'actionAbout'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
     });
 });
 

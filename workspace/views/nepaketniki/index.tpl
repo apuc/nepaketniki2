@@ -31,8 +31,8 @@
         </div>
         <div class="header__main">
             <div class="header__text">
-                <p class="header__author-tours"><strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию. </p>
-                <h2 class="header__travel-format-text">Открой для себя новый формат путешествий</h2>
+                <p class="header__author-tours">{workspace\modules\settings\services\SettingService::run()->get('site_activities', '<strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию.')}</p>
+                <h2 class="header__travel-format-text">{workspace\modules\settings\services\SettingService::run()->get('site_tagline', 'Открой для себя новый формат путешествий')}</h2>
                 <p class="header__proposition-text">
                     Ты можешь путешествовать вместе с нами онлайн - в сториз и постах нашего
                     <a href="/">блога в Инстаграм</a>,
@@ -80,7 +80,10 @@
                                     <div class="tour-logo__title">
                                         <h3>{$item->name}</h3>
                                     </div>
-                                </div><img class="tour-logo__image" src="{$item->image->image}" alt=""/>
+                                </div>
+                                <a href="/tour/{$item->id}">
+                                    <img class="tour-logo__image" src="{$item->image->image}" alt=""/>
+                                </a>
                             </div>
                         </div>
                         <div class="schedule-tour__info">

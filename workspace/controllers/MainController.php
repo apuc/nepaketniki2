@@ -58,6 +58,22 @@ class MainController extends Controller
         return $this->render('nepaketniki/tours.tpl', ['model' => $model]);
     }
 
+    public function actionAbout()
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Nepaketniki');
+
+        return $this->render('nepaketniki/about.tpl');
+    }
+
+    public function actionPageNotfound()
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Page not found');
+
+        return $this->render('errors/404.tpl');
+    }
+
     public function actionReviews()
     {
         $this->setLayout('nepaketniki.tpl');

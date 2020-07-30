@@ -130,6 +130,18 @@ class App
         echo $response;
     }
 
+    private function setError($error)
+    {
+        http_response_code($error);
+        $path = App::$config['error_page_path'] . $error . '.tpl';//' workspace/views/errors/' . $error . '.php';
+        if (file_exists($path)) {
+            header("Location: /$error");
+        } else {
+            echo 'Error ' . $error;
+        }
+        die();
+    }
+
     protected function setMods()
     {
         $filesystem = new Filesystem();
@@ -152,18 +164,6 @@ class App
                     }
                 }
             }
-    }
-
-    private function setError($error)
-    {
-        http_response_code($error);
-        $path = App::$config['error_page_path'] . $error . '.php';//' workspace/views/errors/' . $error . '.php';
-        if (file_exists($path)) {
-            require $path;
-        } else {
-            echo 'Error ' . $error;
-        }
-        die();
     }
 
     protected function setModRouting()

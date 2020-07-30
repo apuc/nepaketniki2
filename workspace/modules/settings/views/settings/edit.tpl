@@ -18,7 +18,7 @@
             <textarea rows="7" name="value" id="value" class="form-control" required="required">{$model->value}</textarea>
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>

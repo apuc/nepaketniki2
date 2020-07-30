@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 {include file="{$workspace_dir}/assets/nepaketniki.tpl"}
 <head>
     {$smarty.capture.meta}
