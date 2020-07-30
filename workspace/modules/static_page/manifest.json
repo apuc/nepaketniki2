@@ -1,0 +1,10 @@
+{
+  "name": "static_page",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\static_page\\StaticPage",
+  "description": "static page module",
+  "configFile": "config/static_page.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}
