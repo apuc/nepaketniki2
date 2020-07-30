@@ -6,9 +6,13 @@
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/tour/update/{$model->id}">
         <div class="form-group">
             <label for="tour_id">Тур:</label>
-            <select class="form-control" name="tour_id" id="tour_id">
+            <select class="form-control" name="name" id="name">
                 {foreach from=$tours item=item}
-                    <option value="{$item->id}">{$item->name} {$item->price}</option>
+                    {if $item->id eq $model->id}
+                        <option selected value="{$item->name}">{$item->name} {$item->price}</option>
+                    {else}
+                        <option value="{$item->name}">{$item->name} {$item->price}</option>
+                    {/if}
                 {/foreach}
             </select>
         </div>
@@ -33,9 +37,9 @@
             <select class="form-control" name="image_id" id="image_id">
                 {foreach from=$images item=item}
                     {if $item->id == $model->image_id}
-                    <option selected value="{$item->id}">{$item->image}</option>
+                        <option selected value="{$item->id}">{$item->image}</option>
                     {else}
-                    <option value="{$item->id}">{$item->image}</option>
+                        <option value="{$item->id}">{$item->image}</option>
                     {/if}
                 {/foreach}
             </select>
@@ -97,7 +101,7 @@
             <input type="text" name="reservation_title" id="reservation_title" class="form-control" value="{$model->reservation_title}" />
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>

@@ -54,22 +54,22 @@ class TourSearchRequest extends RequestSearch
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:255',
             'main_description' => 'required',
             'front_description' => 'required',
-            'front_date' => 'required',
-            'front_places_remaining' => 'required',
-            'price' => 'required',
+            'front_date' => 'required|max:255',
+            'front_places_remaining' => 'required|max:255',
+            'price' => 'required|max:255',
             'difficulties_and_weather' => 'required',
-            'amount_of_places' => 'required',
-            'reservation_title' => 'required',
-            'visa' => 'required',
-            'activities_title' => 'required',
+            'amount_of_places' => 'required|max:255',
+            'reservation_title' => 'required|max:255',
+            'visa' => 'required|max:255',
+            'activities_title' => 'required|max:255',
             'image_id' => 'required',
             'title_image_id' => 'required',
             'bg_image_id' => 'required',
-            'amount_activities_items_1' => 'required',
-            'amount_activities_items_2' => 'required'
+            'amount_activities_items_1' => 'required|numeric',
+            'amount_activities_items_2' => 'required|numeric'
         ];
     }
 }

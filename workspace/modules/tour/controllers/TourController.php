@@ -54,15 +54,15 @@ class TourController extends Controller
     {
         $model = Tour::where('id', $id)->first();
         $request = new TourSearchRequest();
-
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
             $this->redirect('admin/tour');
-        }
-        $images = Image::all();
+        } else {
+            $images = Image::all();
 
-        return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'images' => $images]);
+            return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => Tour::select('id', 'name')->get(), 'images' => $images]);
+        }
     }
 
     public function actionDelete($id)

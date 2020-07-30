@@ -1,4 +1,4 @@
-{core\App::$breadcrumbs->addItem(['text' => 'Create'])}
+{core\App::$breadcrumbs->addItem(['text' => 'Создание'])}
 {*<div class="h1">{$h1}</div>*}
 
 <div class="container">
@@ -80,7 +80,7 @@
             <input type="text" name="reservation_title" id="reservation_title" class="form-control" />
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>
