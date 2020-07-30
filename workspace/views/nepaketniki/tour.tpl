@@ -115,7 +115,7 @@
                 <div class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</div>
             </div>
             <div class="-single-tour-plan-item__photos">
-                {if count($model->plans[$i]->images) <= 3}
+                {if count($model->plans[$i]->images) neq 0}
                     <div class="-single-tour-plan-item__photos-wrapper">
                         <button class="-single-tour-plan-item__button" id="singleTourPlanPrevPage-{$i+1}"></button>
                         <div class="-single-tour-plan-item__photos" id="singleTourPlanPhotos-{$i+1}"></div>
