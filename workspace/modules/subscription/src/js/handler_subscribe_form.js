@@ -29,6 +29,8 @@ $(document).ready(function() {
                     });
                     $('#phone').val('');
                     $('#name').val('');
+                    $('#nameMessage').html('');
+                    $('#phoneMessage').html('');
                     $('#submit').prop('disabled', true);
                 }
             },

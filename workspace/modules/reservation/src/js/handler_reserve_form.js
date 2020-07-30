@@ -12,7 +12,6 @@ $(document).ready(function() {
                 $('#submit').prop('disabled', true);
             },
             success: function(response) {
-                console.log(response);
                 if (response.length !== 0) {
                     const result = $.parseJSON(response);
                     console.log(result);
@@ -38,6 +37,9 @@ $(document).ready(function() {
                     $('#phone').val('');
                     $('#name').val('');
                     $('#email').val('');
+                    $('#phoneMessage').html('');
+                    $('#nameMessage').html('');
+                    $('#emailMessage').html('');
                     $('#submit').prop('disabled', true);
                 }
             },

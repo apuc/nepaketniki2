@@ -406,12 +406,15 @@
 {*            <div class="-single-tour-form__inputs">*}
 {*                <div class="-single-tour-form__input">*}
 {*                    <input id="name" name="name" type="text" placeholder="Введите имя"/>*}
+{*                    <small id="nameMessage" class="schedule-form__news"></small>*}
 {*                </div>*}
 {*                <div class="-single-tour-form__input">*}
 {*                    <input id="phone" name='phone' type="text" placeholder="Введите телефон"/>*}
+{*                    <small id="phoneMessage" class="schedule-form__news"></small>*}
 {*                </div>*}
 {*                <div class="-single-tour-form__input">*}
 {*                    <input id="email" name="email" type="email" placeholder="Введите емаил"/>*}
+{*                    <small id="emailMessage" class="schedule-form__news"></small>*}
 {*                </div>*}
 {*                <input name="id" type="hidden" value=>*}
 {*                <div class="-single-tour-form__button">*}
@@ -437,4 +440,4 @@
         </div>
     </div>
 </div>
-<script src="../resources/js/handler_reserve_form.js"></script>
+{*<script src="../resources/js/handler_reserve_form.js"></script>*}
