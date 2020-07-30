@@ -97,7 +97,7 @@ class PlanController extends Controller
         $request = new PlanSearchRequest();
         $model = Plan::where('id', $id)->first();
         if ($request->isPost() AND $request->validate()) {
-            
+
             if ($this->checkDay($request->day, $request->tour_id, $model->day)) {
                 $model = Plan::where('id', $id)->first();
                 $model->_save($request);
