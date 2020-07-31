@@ -11,7 +11,7 @@ class StaticPage
     {
         $config['adminLeftMenu'] = [
             [
-                'title' => 'Статические страницы',
+                'title' => 'Страницы',
                 'url' => '/admin/static_page',
                 'icon' => '<i class="nav-icon far fa-file-alt"></i>'
             ],
