@@ -19,9 +19,11 @@ class StaticPage extends Migration
         App::$db->schema->create($this->table, function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug');
-            $table->longText('content');
-            $table->text('layout');
+            $table->string('slug')->unique();
+            $table->longText('content')->nullable();
+            $table->string('layout')->nullable();
+            $table->string('view')->nullable();
+            $table->boolean('status');
             $table->timestamps();
         });
     }

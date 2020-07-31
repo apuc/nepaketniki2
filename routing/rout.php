@@ -17,6 +17,7 @@ App::$collector->any('tour/plan_photos/{id}', ['workspace\controllers\MainContro
 App::$collector->any('tour/reserve/{id}', ['workspace\controllers\MainController', 'actionReserve']);
 App::$collector->any('subscribe', ['workspace\controllers\MainController', 'actionSubscribe']);
 
+
 App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], function($router) {
     App::$collector->group(['before' => 'next'], function($router) {
         App::$collector->get('/', [workspace\controllers\MainController::class, 'actionIndex'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);

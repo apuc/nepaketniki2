@@ -51,7 +51,6 @@ class Controller
         }
 
         $this->view->tpl->template_dir = $layoutPath;
-
 //        Debug::dd($this->layout);
         return $this->view->tpl->fetch($this->layout, ['content' => $view]);
     }

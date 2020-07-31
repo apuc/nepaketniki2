@@ -131,7 +131,7 @@ class PlanController extends Controller
         $this->view->setTitle('Планы туров');
         $this->viewPath = '/modules/plan/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Панель администратора', 'url' => 'admin']);
         App::$breadcrumbs->addItem(['text' => 'Планы на дни', 'url' => 'admin/plan']);
     }
 
