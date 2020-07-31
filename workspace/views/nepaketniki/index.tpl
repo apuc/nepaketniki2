@@ -232,6 +232,7 @@
         </div>
         <div class="footer__contact-info">
             {include file='../includes/contacts.tpl'}
+{*            {workspace\widgets\search_bar\SearchBarWidget::widget()->setValue('W)Контакты Nepaketniki')->run()}*}
             <div class="search-bar">
                 <input type="text" value="Контакты Nepaketniki"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
                 <div class="triangle"></div>

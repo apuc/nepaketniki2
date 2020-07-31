@@ -9,20 +9,24 @@ use core\Widget;
 class CkEditorWidget extends Widget
 {
     public $viewPath = '/modules/ckeditor/widgets/views/';
-
+    private static $iter = 0; // count ckeditors on one page
     protected $id = 'editor';
     protected $name = 'editorName';
     protected $text = '';
+    protected $type = 'v4_full';
+
 
     public function run()
     {
-        $this->view->registerJs('https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js');
-
-        return $this->view->getTpl('editor.tpl', [
-            'id' => $this->id,
-            'name' => $this->name,
-            'text' => $this->text
-        ]);
+        $conf = require WORKSPACE_DIR . '/modules/ckeditor/config/main.php';
+        if (array_key_exists($this->type, $conf)) {
+            $this->view->registerJs($conf[$this->type]['cdn']);
+            ++self::$iter;
+            return $this->view->getTpl($conf[$this->type]['view'],
+                ['id' => $this->id.self::$iter,
+                    'name' => $this->name,
+                    'text' => $this->text]);
+        }
+        return false;
     }
-
 }
