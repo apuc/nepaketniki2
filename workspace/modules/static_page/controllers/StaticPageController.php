@@ -112,12 +112,6 @@ class StaticPageController extends Controller
             'fields' => [
                 'name' => 'Название',
                 'slug' => 'Адрес',
-                '_content' => [
-                    'label' => 'Контент',
-                    'value' => function($model) {
-                        return substr($model->content, 0, 50);
-                    },
-                ],
                 'layout' => 'Шаблон',
                 'view' => 'Вид',
                 '_status' => [
