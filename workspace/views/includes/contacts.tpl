@@ -18,7 +18,6 @@
     </div>
     <div class="contacts__phone"><i class="fa fa-phone"></i>
         <div class="contacts__number"><strong>{workspace\modules\settings\services\SettingService::run()->get('site_phone', '+38 099 490 24 54')}</strong>
-            <p>перезвоните мне!</p>
         </div>
     </div>
 </div>
