@@ -21,7 +21,6 @@ class StaticPageRequest extends Request
         return [
             'name' => 'required',
             'slug' => 'required',
-            'content' => 'max:255',
             'layout' => 'max:255',
             'view' => 'max:255',
             'status' => 'required'
