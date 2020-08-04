@@ -259,8 +259,19 @@ class MainController extends Controller
 
     public function reviewsDownload()
     {
+        $review_model = [];
         try {
-            $review_model = MainPageReview::orderBy('priority', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id')->get();
+            if (!isset($_GET['tour_id']) OR $_GET['tour_id'] === 0) {
+                $review_model = MainPageReview::orderBy('priority', 'DESC')
+                    ->orderBy('updated_at', 'DESC')
+                    ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
+                    ->get();
+            } else if (isset($_GET['tour_id']) AND $_GET['tour_id'] !== 0) {
+                $tour_id = $_GET['tour_id'];
+                $review_model_by_tour = MainPageReview::where('tour_id', $tour_id)->orderBy('priority', 'DESC')->orderBy('updated_at', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')->get()->toArray();
+                $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'DESC')->orderBy('updated_at', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')->get()->toArray();
+                $review_model = array_merge((array)$review_model_by_tour, (array)$review_model_not_by_tour);
+            }
             echo json_encode($review_model);
             die();
         } catch (\Exception $e) {
