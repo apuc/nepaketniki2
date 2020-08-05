@@ -53,6 +53,7 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
             'Phroute\\Phroute\\' => 16,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'I' => 
         array (
@@ -146,6 +147,10 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'Phroute\\Phroute\\' => 
         array (
             0 => __DIR__ . '/..' . '/craft-group/phroute/src/Phroute',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -606,6 +611,11 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'Illuminate\\Support\\Traits\\Macroable' => __DIR__ . '/..' . '/illuminate/support/Traits/Macroable.php',
         'Illuminate\\Support\\Traits\\Tappable' => __DIR__ . '/..' . '/illuminate/support/Traits/Tappable.php',
         'Illuminate\\Support\\ViewErrorBag' => __DIR__ . '/..' . '/illuminate/support/ViewErrorBag.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'Phroute\\Phroute\\Dispatcher' => __DIR__ . '/..' . '/craft-group/phroute/src/Phroute/Dispatcher.php',
         'Phroute\\Phroute\\Exception\\BadRouteException' => __DIR__ . '/..' . '/craft-group/phroute/src/Phroute/Exception/BadRouteException.php',
         'Phroute\\Phroute\\Exception\\HttpException' => __DIR__ . '/..' . '/craft-group/phroute/src/Phroute/Exception/HttpException.php',
@@ -854,6 +864,11 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'workspace\\modules\\adminlte\\controllers\\AdminController' => __DIR__ . '/../..' . '/workspace/modules/adminlte/controllers/AdminController.php',
         'workspace\\modules\\adminlte\\widgets\\LeftMenu' => __DIR__ . '/../..' . '/workspace/modules/adminlte/widgets/LeftMenu.php',
         'workspace\\modules\\adminlte\\widgets\\TopMenu' => __DIR__ . '/../..' . '/workspace/modules/adminlte/widgets/TopMenu.php',
+        'workspace\\modules\\business\\Business' => __DIR__ . '/../..' . '/workspace/modules/business/Business.php',
+        'workspace\\modules\\business\\controllers\\BusinessController' => __DIR__ . '/../..' . '/workspace/modules/business/controllers/BusinessController.php',
+        'workspace\\modules\\business\\models\\Business' => __DIR__ . '/../..' . '/workspace/modules/business/models/Business.php',
+        'workspace\\modules\\business\\models\\BusinessImages' => __DIR__ . '/../..' . '/workspace/modules/business/models/BusinessImages.php',
+        'workspace\\modules\\business\\requests\\BusinessRequest' => __DIR__ . '/../..' . '/workspace/modules/business/requests/BusinessRequest.php',
         'workspace\\modules\\ckeditor\\Ckeditor' => __DIR__ . '/../..' . '/workspace/modules/ckeditor/Ckeditor.php',
         'workspace\\modules\\ckeditor\\widgets\\CkEditorWidget' => __DIR__ . '/../..' . '/workspace/modules/ckeditor/widgets/CkEditorWidget.php',
         'workspace\\modules\\date\\Date' => __DIR__ . '/../..' . '/workspace/modules/date/Date.php',
@@ -876,6 +891,8 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'workspace\\modules\\included\\controllers\\IncludedController' => __DIR__ . '/../..' . '/workspace/modules/included/controllers/IncludedController.php',
         'workspace\\modules\\included\\models\\Included' => __DIR__ . '/../..' . '/workspace/modules/included/models/Included.php',
         'workspace\\modules\\included\\requests\\IncludedRequest' => __DIR__ . '/../..' . '/workspace/modules/included/requests/IncludedRequest.php',
+        'workspace\\modules\\mailer\\Mailer' => __DIR__ . '/../..' . '/workspace/modules/mailer/Mailer.php',
+        'workspace\\modules\\mailer\\ViewMailer' => __DIR__ . '/../..' . '/workspace/modules/mailer/ViewMailer.php',
         'workspace\\modules\\plan\\Plan' => __DIR__ . '/../..' . '/workspace/modules/plan/Plan.php',
         'workspace\\modules\\plan\\controllers\\PlanController' => __DIR__ . '/../..' . '/workspace/modules/plan/controllers/PlanController.php',
         'workspace\\modules\\plan\\models\\Plan' => __DIR__ . '/../..' . '/workspace/modules/plan/models/Plan.php',
@@ -886,6 +903,7 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'workspace\\modules\\reservation\\controllers\\ReservationController' => __DIR__ . '/../..' . '/workspace/modules/reservation/controllers/ReservationController.php',
         'workspace\\modules\\reservation\\models\\ReservationModel' => __DIR__ . '/../..' . '/workspace/modules/reservation/models/ReservationModel.php',
         'workspace\\modules\\reservation\\requests\\ReservationRequests' => __DIR__ . '/../..' . '/workspace/modules/reservation/requests/ReservationRequests.php',
+        'workspace\\modules\\reservation\\widgets\\ReservationWidget' => __DIR__ . '/../..' . '/workspace/modules/reservation/widgets/ReservationWidget.php',
         'workspace\\modules\\review\\controllers\\ReviewController' => __DIR__ . '/../..' . '/workspace/modules/review/controllers/ReviewController.php',
         'workspace\\modules\\services\\controllers\\ServicesController' => __DIR__ . '/../..' . '/workspace/modules/services/controllers/ServicesController.php',
         'workspace\\modules\\settings\\Settings' => __DIR__ . '/../..' . '/workspace/modules/settings/Settings.php',
@@ -893,10 +911,15 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'workspace\\modules\\settings\\models\\Settings' => __DIR__ . '/../..' . '/workspace/modules/settings/models/Settings.php',
         'workspace\\modules\\settings\\requests\\SettingsSearchRequest' => __DIR__ . '/../..' . '/workspace/modules/settings/requests/SettingsSearchRequest.php',
         'workspace\\modules\\settings\\services\\SettingService' => __DIR__ . '/../..' . '/workspace/modules/settings/services/SettingService.php',
+        'workspace\\modules\\static_page\\StaticPage' => __DIR__ . '/../..' . '/workspace/modules/static_page/StaticPage.php',
+        'workspace\\modules\\static_page\\controllers\\StaticPageController' => __DIR__ . '/../..' . '/workspace/modules/static_page/controllers/StaticPageController.php',
+        'workspace\\modules\\static_page\\models\\StaticPage' => __DIR__ . '/../..' . '/workspace/modules/static_page/models/StaticPage.php',
+        'workspace\\modules\\static_page\\requests\\StaticPageRequest' => __DIR__ . '/../..' . '/workspace/modules/static_page/requests/StaticPageRequest.php',
         'workspace\\modules\\subscription\\Subscription' => __DIR__ . '/../..' . '/workspace/modules/subscription/Subscription.php',
         'workspace\\modules\\subscription\\controllers\\SubscriptionController' => __DIR__ . '/../..' . '/workspace/modules/subscription/controllers/SubscriptionController.php',
         'workspace\\modules\\subscription\\models\\SubscriptionModel' => __DIR__ . '/../..' . '/workspace/modules/subscription/models/SubscriptionModel.php',
         'workspace\\modules\\subscription\\requests\\SubscriptionRequest' => __DIR__ . '/../..' . '/workspace/modules/subscription/requests/SubscriptionRequest.php',
+        'workspace\\modules\\subscription\\widgets\\SubscriptionWidget' => __DIR__ . '/../..' . '/workspace/modules/subscription/widgets/SubscriptionWidget.php',
         'workspace\\modules\\tour\\Tour' => __DIR__ . '/../..' . '/workspace/modules/tour/Tour.php',
         'workspace\\modules\\tour\\controllers\\TourController' => __DIR__ . '/../..' . '/workspace/modules/tour/controllers/TourController.php',
         'workspace\\modules\\tour\\models\\Tour' => __DIR__ . '/../..' . '/workspace/modules/tour/models/Tour.php',
@@ -911,6 +934,7 @@ class ComposerStaticInit3f803850d33cd506c4f59e7c241701d7
         'workspace\\traits\\SmartTitle' => __DIR__ . '/../..' . '/workspace/traits/SmartTitle.php',
         'workspace\\widgets\\Language' => __DIR__ . '/../..' . '/workspace/widgets/Language.php',
         'workspace\\widgets\\Main' => __DIR__ . '/../..' . '/workspace/widgets/Main.php',
+        'workspace\\widgets\\search_bar\\SearchBarWidget' => __DIR__ . '/../..' . '/workspace/widgets/search_bar/SearchBarWidget.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

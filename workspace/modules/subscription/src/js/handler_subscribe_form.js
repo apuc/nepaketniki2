@@ -11,12 +11,15 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.length !== 0) {
                     const result = $.parseJSON(response);
-
                     if (result.hasOwnProperty('name')) {
                         $('#nameMessage').html(result.name);
+                    } else {
+                        $('#nameMessage').html('');
                     }
                     if (result.hasOwnProperty('phone')) {
                         $('#phoneMessage').html(result.phone);
+                    } else {
+                        $('#phoneMessage').html('');
                     }
                     $('#submit').prop('disabled', false);
                 } else {

@@ -24,6 +24,7 @@ App::$collector->group(['after' => 'main_group', 'params' => ['AFTER']], functio
         App::$collector->get('/tours', [workspace\controllers\MainController::class, 'actionTours'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
         App::$collector->get('/reviews', [workspace\controllers\MainController::class, 'actionReviews'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
         App::$collector->get('/about', [workspace\controllers\MainController::class, 'actionAbout'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
+        App::$collector->get('/business', [workspace\controllers\MainController::class, 'actionBusiness'], ['before' => 'some', 'params' => ['param to some, BEFORE']]);
     });
 });
 

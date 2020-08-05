@@ -1,0 +1,8 @@
+{
+  "name": "mailer",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\Mailer\\Mailer",
+  "description": "mailer module",
+  "configFile": "config/mailer.php"
+}

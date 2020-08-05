@@ -149,10 +149,8 @@ class PlanController extends Controller
     protected function clearPlan(int $tour_id, int $plan_id)
     {
         $plan_images = PlanImages::where('plan_id', $plan_id)->where('tour_id', $tour_id)->get();
-        //var_dump($plan_images);
         foreach ($plan_images as $plan_image) {
             PlanImages::destroy($plan_image->id);
         }
-        //var_dump($plan_images); exit();
     }
 }

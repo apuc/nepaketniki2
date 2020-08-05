@@ -12,17 +12,24 @@ $(document).ready(function() {
                 $('#submit').prop('disabled', true);
             },
             success: function(response) {
+                console.log(response);
                 if (response.length !== 0) {
                     const result = $.parseJSON(response);
                     console.log(result);
                     if (result.hasOwnProperty('name')) {
                         $('#nameMessage').html(result.name);
+                    } else {
+                        $('#nameMessage').html('');
                     }
                     if (result.hasOwnProperty('phone')) {
                         $('#phoneMessage').html(result.phone);
+                    } else {
+                        $('#phoneMessage').html('');
                     }
                     if (result.hasOwnProperty('email')) {
                         $('#emailMessage').html(result.email);
+                    } else {
+                        $('#emailMessage').html('');
                     }
                     $('#submit').prop('disabled', false);
                 }

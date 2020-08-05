@@ -22,7 +22,7 @@ class PlanSearchRequest extends RequestSearch
     public $date;
     public $info;
     public $description;
-    public $images;
+    public $images = [];
 
 
     public function rules()

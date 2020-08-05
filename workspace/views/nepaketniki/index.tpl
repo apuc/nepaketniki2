@@ -27,7 +27,7 @@
             <div class="header-nav">
                 {include file='includes/nav_menu.tpl'}
             </div>
-                {include file='includes/contacts.tpl'}
+            {include file='includes/contacts.tpl'}
         </div>
         <div class="header__main">
             <div class="header__text">
@@ -105,25 +105,25 @@
                 <p class="secrets-text">Секреты путешествий</p>
             </div>
             {workspace\modules\subscription\widgets\SubscriptionWidget::widget()->run()}
-{*                        <div class="schedule-form">*}
-{*                <div class="circle medium">*}
-{*                </div>*}
-{*                <div class="schedule-form__content">*}
-{*                    <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>*}
-{*                    <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>*}
-{*                    <form class="schedule-form__feedback" name="request-form" id="request-form" method="post">*}
-{*                        <div class="form-group">*}
-{*                            <input id="name" name="name" type="text" placeholder="Введите имя"/>*}
-{*                            <small id="nameMessage" class="schedule-form__news"></small>*}
-{*                        </div>*}
-{*                        <div class="form-group">*}
-{*                            <input id="phone" name="phone" type="text" placeholder="Введите телефон"/>*}
-{*                            <small id="phoneMessage" class="schedule-form__news"></small>*}
-{*                        </div>*}
-{*                        <button id="submit" name="submit" type="submit">Подписаться</button>*}
-{*                    </form>*}
-{*                </div>*}
-{*            </div>*}
+            {*                        <div class="schedule-form">*}
+            {*                <div class="circle medium">*}
+            {*                </div>*}
+            {*                <div class="schedule-form__content">*}
+            {*                    <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>*}
+            {*                    <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>*}
+            {*                    <form class="schedule-form__feedback" name="request-form" id="request-form" method="post">*}
+            {*                        <div class="form-group">*}
+            {*                            <input id="name" name="name" type="text" placeholder="Введите имя"/>*}
+            {*                            <small id="nameMessage" class="schedule-form__news"></small>*}
+            {*                        </div>*}
+            {*                        <div class="form-group">*}
+            {*                            <input id="phone" name="phone" type="text" placeholder="Введите телефон"/>*}
+            {*                            <small id="phoneMessage" class="schedule-form__news"></small>*}
+            {*                        </div>*}
+            {*                        <button id="submit" name="submit" type="submit">Подписаться</button>*}
+            {*                    </form>*}
+            {*                </div>*}
+            {*            </div>*}
         </div>
     </div>
 </div>
@@ -220,7 +220,9 @@
             а можете отправиться в незабываемое приключение вместе с нами.
         </p>
         <div class="button">
-            <button>Подписаться</button>
+            <a href="{workspace\modules\settings\services\SettingService::run()->get('site_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+                <button>Подписаться</button>
+            </a>
         </div>
     </div>
 </div>
@@ -232,7 +234,7 @@
         </div>
         <div class="footer__contact-info">
             {include file='../includes/contacts.tpl'}
-{*            {workspace\widgets\search_bar\SearchBarWidget::widget()->setValue('W)Контакты Nepaketniki')->run()}*}
+            {*            {workspace\widgets\search_bar\SearchBarWidget::widget()->setValue('W)Контакты Nepaketniki')->run()}*}
             <div class="search-bar">
                 <input type="text" value="Контакты Nepaketniki"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
                 <div class="triangle"></div>

@@ -12,8 +12,9 @@ use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
 use workspace\models\User;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
+use workspace\modules\business\models\Business;
 use workspace\modules\feature\models\Feature;
-use workspace\modules\image\models\Image;
+use workspace\modules\mailer\ViewMailer;
 use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\reservation\models\ReservationModel;
@@ -33,16 +34,16 @@ class MainController extends Controller
     {
         $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle('Nepaketniki');
-
         $model = Tour::all();
+
         return $this->render('nepaketniki/index.tpl', ['model' => $model]);
     }
 
     public function actionTour($id)
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Nepaketniki');
         $model = Tour::where('id', $id)->first();
+        $this->view->setTitle($model->name);
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
         $plan = Plan::where('tour_id', $id)->get();
 
@@ -52,18 +53,26 @@ class MainController extends Controller
     public function actionTours()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Nepaketniki');
-
+        $this->view->setTitle('Tours');
         $model = Tour::all();
+
         return $this->render('nepaketniki/tours.tpl', ['model' => $model]);
     }
 
     public function actionAbout()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Nepaketniki');
+        $this->view->setTitle('About');
 
         return $this->render('nepaketniki/about.tpl');
+    }
+
+    public function actionBusiness()
+    {
+        $this->setLayout('nepaketniki.tpl');
+        $this->view->setTitle('Business');
+
+        return $this->render('nepaketniki/business.tpl', ['model' => Business::get()->first()]);
     }
 
     public function actionPageNotfound()
@@ -78,8 +87,8 @@ class MainController extends Controller
     {
         $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle('Nepaketniki');
-
         $model = MainPageReview::all();
+
         return $this->render('nepaketniki/reviews.tpl', ['model' => $model]);
     }
 
@@ -122,6 +131,9 @@ class MainController extends Controller
             $request = new LoginRequest();
             if ($request->isPost() && $request->validate()) {
                 $model = User::where('username', $request->username)->first();
+                if ($model === null) {
+                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с таким логином нет']]);
+                }
 
                 if (password_verify($request->password, $model->password_hash)) {
                     $_SESSION['role'] = $model->role;
@@ -129,6 +141,8 @@ class MainController extends Controller
 
                     $url = !empty($request->ref) ? parse_url($request->ref, PHP_URL_PATH) : 'admin';
                     $this->redirect($url);
+                } else {
+                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с такими учетными данными нет']]);
                 }
             }
 
@@ -284,8 +298,7 @@ class MainController extends Controller
         try {
             $json = [];
             $model = PlanImages::where('tour_id', $id)->get();
-            foreach ($model as $item)
-            {
+            foreach ($model as $item) {
                 $temp_arr = [];
                 $temp_arr['image'] = str_replace('\\', '/', $item->image->image);
                 $temp_arr['day'] = $item->plan->day;
@@ -305,6 +318,9 @@ class MainController extends Controller
             $model = new ReservationModel();
             $model->tour_id = $id;
             $model->_save($request);
+
+            $mailer = new ViewMailer();
+            $mailer->send('Бронирование тура', 'reservation.tpl', null, ['client' => $model, 'tour' => Tour::find($id)]);
         } else {
             echo json_encode($request->getMessagesArray());
             die();
@@ -317,6 +333,9 @@ class MainController extends Controller
         if ($request->validate() AND $request->isPost()) {
             $model = new SubscriptionModel();
             $model->_save($request);
+
+            $mailer = new ViewMailer();
+            $mailer->send('Подписка', 'subscribe.tpl', null, ['subscriber' => $model]);
         } else {
             echo json_encode($request->getMessagesArray());
             die();

@@ -1,0 +1,10 @@
+{
+  "name": "business",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\business\\Business",
+  "description": "admin business module",
+  "configFile": "config/business.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

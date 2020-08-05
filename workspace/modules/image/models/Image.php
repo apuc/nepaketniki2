@@ -12,9 +12,11 @@ class Image extends Model
 
     public $fillable = ['image'];
 
-    public function _save($image)
+    public function _save(string $image)
     {
-        if (!stripos($image, 'resource')) $this->image = '/resources/' . $image;
+        if (!stripos($image, 'resource') AND strlen($image) !== 0) {
+            $this->image = '/resources/' . $image;
+        }
         else $this->image = $image;
         $this->save();
     }

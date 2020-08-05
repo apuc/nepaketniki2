@@ -17,6 +17,7 @@ return [
         'themePath' => '/workspace/modules/themes/themes/',
     ],
     'error_page_path' => 'workspace/views/errors/',
+//    'admin_email' => 'kanatush.lorraine@gmail.com'
 ];
 /* Пример настройки локальной базы
 return [
