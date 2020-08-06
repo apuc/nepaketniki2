@@ -13,6 +13,7 @@
         <div class="form-group">
             <label for="feature">Особенность:</label>
             <input type="text" name="feature" id="feature" class="form-control" />
+            <small id="featureMessage" class="form-text">{if isset($errors['feature'])}{$errors['feature']}{/if}</small>
         </div>
         <div class="form-group">
             <label for="type">Тип:</label>
@@ -22,7 +23,7 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>

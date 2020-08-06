@@ -76,7 +76,8 @@ class PlanController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('plan/store.tpl', ['h1' => 'Создать:', 'options' => $this->getOptions(), 'tours' => $tours]);
+            return $this->render('plan/store.tpl', ['h1' => 'Создать:', 'options' => $this->getOptions(),
+                'tours' => $tours, 'errors' => $request->getMessagesArray()]);
         }
     }
 
@@ -123,7 +124,8 @@ class PlanController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('plan/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'options' => $this->getOptions(), 'tours' => $tours]);
+            return $this->render('plan/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'options' => $this->getOptions(),
+                'tours' => $tours, 'errors' => $request->getMessagesArray()]);
         }
     }
 

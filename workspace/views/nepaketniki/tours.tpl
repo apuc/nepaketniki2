@@ -42,7 +42,7 @@
           <h3 class="schedule-heading__title">Расписание авторских туров</h3>
           <p class="schedule-heading__proposition">
             Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего 
-            <a href='/'>блога в Инстаграм</a>, 
+            <a href='{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}' target="_blank">блога в Инстаграм</a>,
             а можете отправиться в незабываемое приключение вместе с нами.
           </p>
         </div>

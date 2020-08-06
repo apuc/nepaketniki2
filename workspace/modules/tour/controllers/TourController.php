@@ -46,15 +46,15 @@ class TourController extends Controller
         } else {
             $images = Image::all();
 
-            return $this->render('tour/store.tpl', ['images' => $images]);
+            return $this->render('tour/store.tpl', ['images' => $images, 'errors' => $request->getMessagesArray()]);
         }
     }
 
     public function actionEdit($id)
     {
         $model = Tour::where('id', $id)->first();
-
         $request = new TourSearchRequest();
+
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
@@ -62,7 +62,8 @@ class TourController extends Controller
         } else {
             $images = Image::all();
 
-            return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => Tour::select('id', 'name')->get(), 'images' => $images]);
+            return $this->render('tour/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model,
+                'tours' => Tour::select('id', 'name')->get(), 'images' => $images, 'errors' => $request->getMessagesArray()]);
         }
     }
 

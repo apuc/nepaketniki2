@@ -46,7 +46,7 @@ class IncludedController extends Controller
 
             $this->redirect('admin/included');
         } else {
-            return $this->render('included/store.tpl', ['tours' => Tour::all()]);
+            return $this->render('included/store.tpl', ['tours' => Tour::all(), 'errors' => $request->getMessagesArray()]);
         }
     }
 
@@ -60,7 +60,8 @@ class IncludedController extends Controller
 
             $this->redirect('admin/included');
         } else {
-            return $this->render('included/edit.tpl', ['model' => $model, 'tours' => Tour::all(), 'h1' => 'Редактировать:']);
+            return $this->render('included/edit.tpl', ['model' => $model, 'tours' => Tour::all(),
+                'h1' => 'Редактировать:', 'errors' => $request->getMessagesArray()]);
         }
     }
 

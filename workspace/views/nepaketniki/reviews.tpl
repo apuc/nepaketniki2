@@ -51,11 +51,13 @@
       <div class="-reviews__proposition">
         <p class="-reviews__proposition-text">
           Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего 
-          <a href="/">блога в Инстаграм</a>, 
+          <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">блога в Инстаграм</a>,
           а можете отправиться в незабываемое приключение вместе с нами.
         </p>
-        <div class="button"> 
-          <button onClick='location.href="/"'>Подписаться</button>
+        <div class="button">
+          <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+            <button>Подписаться</button>
+          </a>
         </div>
       </div>
       <div class="-reviews-instagram">
@@ -63,7 +65,7 @@
           <h3>
             <span>Все отзывы вы можете также посмотреть на</span>
             <img src="../resources/images/reviews-insta-icon.png" />
-            <a href="/">nepaketniki</a>
+            <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">nepaketniki</a>
           </h3>
         </div>
         <div class="-reviews-instagram__account">

@@ -5,7 +5,7 @@ namespace workspace\modules\feature\models;
 
 
 use Illuminate\Database\Eloquent\Model;
-use workspace\modules\feature\requests\FeatureSearchRequest;
+use workspace\modules\feature\requests\FeatureRequest;
 
 class Feature extends Model
 {
@@ -22,10 +22,10 @@ class Feature extends Model
     }
 
     /**
-     * @param FeatureSearchRequest $request
+     * @param FeatureRequest $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public static function search(FeatureSearchRequest $request)
+    public static function search(FeatureRequest $request)
     {
         $query = self::query();
 

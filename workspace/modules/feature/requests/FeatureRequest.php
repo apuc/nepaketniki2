@@ -4,7 +4,7 @@
 namespace workspace\modules\feature\requests;
 
 
-use core\RequestSearch;
+use core\Request;
 
 /**
  * Class FeatureSearchRequest
@@ -15,7 +15,7 @@ use core\RequestSearch;
  * @property string $type
  * @property string $_tour
  */
-class FeatureSearchRequest extends RequestSearch
+class FeatureRequest extends Request
 {
     public $tour_id;
     public $feature;
@@ -24,6 +24,8 @@ class FeatureSearchRequest extends RequestSearch
 
     public function rules()
     {
-        return [];
+        return [
+            'feature' => 'required'
+        ];
     }
 }

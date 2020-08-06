@@ -75,7 +75,8 @@ class BusinessController extends Controller
                 $_SESSION['count_images'] = $request->count_images;
                 return $this->render('business/store.tpl', ['h1' => 'Редактироние: ', 'new_count_images' => $request->count_images]);
             } else {
-                return $this->render('business/store.tpl', ['h1' => 'Редактироние: ', 'errors' => 'Количество картинок не может быть отрицательным', 'model' => Business::get()->first()]);
+                return $this->render('business/store.tpl', ['h1' => 'Редактироние: ', 'errors' => 'Количество картинок не может быть отрицательным',
+                    'model' => Business::get()->first()]);
             }
         }
 

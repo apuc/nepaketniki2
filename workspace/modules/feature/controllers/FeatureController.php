@@ -8,7 +8,7 @@ use core\App;
 use core\Controller;
 use core\Debug;
 use workspace\modules\feature\models\Feature;
-use workspace\modules\feature\requests\FeatureSearchRequest;
+use workspace\modules\feature\requests\FeatureRequest;
 use workspace\modules\tour\models\Tour;
 
 class FeatureController extends Controller
@@ -19,12 +19,12 @@ class FeatureController extends Controller
         $this->viewPath = '/modules/feature/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
-        App::$breadcrumbs->addItem(['text' => 'Особенности тура', 'url' => 'feature']);
+        App::$breadcrumbs->addItem(['text' => 'Особенности тура', 'url' => 'admin/feature']);
     }
 
     public function actionIndex()
     {
-        $request = new FeatureSearchRequest();
+        $request = new FeatureRequest();
         $model = Feature::search($request);
 
         return $this->render('feature/index.tpl', ['h1' => 'Особенности', 'model' => $model, 'options' => $this->getOptions()]);
@@ -32,7 +32,9 @@ class FeatureController extends Controller
 
     public function actionStore()
     {
-        if(isset($_POST['feature'])) {
+        $request = new FeatureRequest();
+
+        if($request->isPost() AND $request->validate()) {
             $model = new Feature();
             $model->_save();
 
@@ -40,7 +42,7 @@ class FeatureController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('feature/store.tpl', ['tours' => $tours]);
+            return $this->render('feature/store.tpl', ['tours' => $tours, 'errors' => $request->getMessagesArray()]);
         }
     }
 
@@ -53,16 +55,18 @@ class FeatureController extends Controller
 
     public function actionEdit($id)
     {
+        $request = new FeatureRequest();
         $model = Feature::where('id', $id)->first();
 
-        if(isset($_POST['feature'])) {
+        if($request->isPost() AND $request->validate()) {
             $model->_save();
 
             $this->redirect('admin/feature');
         } else {
             $tours = Tour::all();
 
-            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'tours' => $tours]);
+            return $this->render('feature/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model,
+                'tours' => $tours, 'errors' => $request->getMessagesArray()]);
         }
     }
 
