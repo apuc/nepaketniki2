@@ -29,7 +29,8 @@ class ReviewRequest extends Request
             'tour_id' => 'required',
             'instagram_link' => 'required',
             'avatar' => 'required',
-            'text' => 'required'
+            'text' => 'required',
+            'priority' => 'integer'
         ];
     }
 }

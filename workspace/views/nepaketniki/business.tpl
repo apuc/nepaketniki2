@@ -25,17 +25,14 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav">
-                <a href="/">На главную</a>
-                {include file='includes/nav_menu.tpl'}
-            </div>
+            {include file='includes/nav_menu.tpl'}
             {include file='includes/contacts.tpl'}
         </div>
         <div class="-about-header__main">
             <div class="-about-header__text">
                 <p class="-about-header__author-tours"><strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию. </p>
                 <h2 class="-about-header__travel-format-text maxed">
-                    {if isset($model->header)}{$model->header}{/if}
+                    {if isset($model->header)}{str_replace('&nbsp', ' ', $model->header)}{/if}
                 </h2>
             </div>
             <div class="-about-header__traveling"><span class="traveling-text">travelling</span>
@@ -50,13 +47,13 @@
 <div class="-business">
     <div class="container">
         <div class="-business__text">
-            {if isset($model->text_block_1)}{$model->text_block_1}{/if}
+            {if isset($model->text_block_1)}{str_replace('&nbsp', ' ', $model->text_block_1)}{/if}
         </div>
         <div class="-business__text">
-            {if isset($model->text_block_2)}{$model->text_block_2}{/if}
+            {if isset($model->text_block_2)}{str_replace('&nbsp', ' ', $model->text_block_2)}{/if}
         </div>
         <div class="-business__text -business__text--wide">
-            {if isset($model->text_block_3)}{$model->text_block_3}{/if}
+            {if isset($model->text_block_3)}{str_replace('&nbsp', ' ', $model->text_block_3)}{/if}
         </div>
     </div>
 </div>
@@ -80,14 +77,6 @@
                         {/if}
                     {/foreach}
                 {/if}
-
-                {*                <div class="grid-sizer"></div>*}
-{*                <div class="grid-item"><img src="/resources/images/masonry-1.png" alt=""/></div>*}
-{*                <div class="grid-item grid-item--upper"><img src="/resources/images/masonry-2.png" alt=""/></div>*}
-{*                <div class="grid-item"><img src="/resources/images/masonry-3.png" alt=""/></div>*}
-{*                <div class="grid-item"><img src="/resources/images/masonry-4.png" alt=""/></div>*}
-{*                <div class="grid-item"><img src="/resources/images/masonry-5.png" alt=""/></div>*}
-{*                <div class="grid-item"><img src="/resources/images/masonry-6.png" alt=""/></div>*}
             </div>
         </div>
     </div>

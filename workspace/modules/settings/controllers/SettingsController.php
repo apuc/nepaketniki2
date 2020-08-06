@@ -17,6 +17,7 @@ class SettingsController extends Controller
 
     protected function init()
     {
+        $this->view->setTitle('Настройки');
         $this->viewPath = '/modules/settings/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);

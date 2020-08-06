@@ -24,25 +24,23 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav">
-                {include file='includes/nav_menu.tpl'}
-            </div>
+            {include file='includes/nav_menu.tpl'}
             {include file='includes/contacts.tpl'}
         </div>
         <div class="header__main">
             <div class="header__text">
-                <p class="header__author-tours">{workspace\modules\settings\services\SettingService::run()->get('site_activities', '<strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию.')}</p>
-                <h2 class="header__travel-format-text">{workspace\modules\settings\services\SettingService::run()->get('site_tagline', 'Открой для себя новый формат путешествий')}</h2>
+                <p class="header__author-tours">{workspace\modules\settings\services\SettingService::run()->get('index_activities', '<strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию.')}</p>
+                <h2 class="header__travel-format-text">{workspace\modules\settings\services\SettingService::run()->get('index_tagline', 'Открой для себя новый формат путешествий')}</h2>
                 <p class="header__proposition-text">
                     Ты можешь путешествовать вместе с нами онлайн - в сториз и постах нашего
-                    <a href="/">блога в Инстаграм</a>,
+                    <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">блога в Инстаграм</a>,
                     а можешь отправиться в незабываемое приключение вместе с нами.
                 </p>
                 <div class="header__news-wrapper"><a href="/tours/">
                         <div class="button">
                             <button>Посмотреть туры</button>
                         </div></a>
-                    <p class="header__news">Хочешь получить новости о наших турах первым? <a href='/'>Напиши нам</a></p>
+                    <p class="header__news">Хочешь получить новости о наших турах первым? <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">Напиши нам в инстаграм</a></p>
                 </div>
                 <div class="hash-tag">
                     <h3 class="tag">#NePaketniki</h3>
@@ -63,7 +61,7 @@
         <h3 class="schedule-heading__title">Расписание авторских туров</h3>
         <p class="schedule-heading__proposition">
             Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего
-            <a href='/'>блога в Инстаграм</a>,
+            <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">блога в блога в Инстаграм</a>,
             а можете отправиться в незабываемое приключение вместе с нами.
         </p>
     </div>
@@ -105,25 +103,6 @@
                 <p class="secrets-text">Секреты путешествий</p>
             </div>
             {workspace\modules\subscription\widgets\SubscriptionWidget::widget()->run()}
-            {*                        <div class="schedule-form">*}
-            {*                <div class="circle medium">*}
-            {*                </div>*}
-            {*                <div class="schedule-form__content">*}
-            {*                    <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>*}
-            {*                    <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>*}
-            {*                    <form class="schedule-form__feedback" name="request-form" id="request-form" method="post">*}
-            {*                        <div class="form-group">*}
-            {*                            <input id="name" name="name" type="text" placeholder="Введите имя"/>*}
-            {*                            <small id="nameMessage" class="schedule-form__news"></small>*}
-            {*                        </div>*}
-            {*                        <div class="form-group">*}
-            {*                            <input id="phone" name="phone" type="text" placeholder="Введите телефон"/>*}
-            {*                            <small id="phoneMessage" class="schedule-form__news"></small>*}
-            {*                        </div>*}
-            {*                        <button id="submit" name="submit" type="submit">Подписаться</button>*}
-            {*                    </form>*}
-            {*                </div>*}
-            {*            </div>*}
         </div>
     </div>
 </div>
@@ -143,7 +122,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Продуманность</h3>
-                    <p>Самой большой вашей проблемой в туре будет выбор блюда в ресторане, и даже с этим мы поможем:)</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_thoughtfulness', 'Самой большой вашей проблемой в туре будет выбор блюда в ресторане, и даже с этим мы поможем:)')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -156,7 +137,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Программа</h3>
-                    <p>Мы за идеальный микс активностей и релакса. У нас нет активностей нон-стоп, но и заскучать вам тоже не дадим.</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_program', 'Мы за идеальный микс активностей и релакса. У нас нет активностей нон-стоп, но и заскучать вам тоже не дадим.')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -169,7 +152,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Компания</h3>
-                    <p>Не знаем, как так получается, но с нами всегда ездят очень интересные, весёлые, успешные и перспективные ребята</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_company', 'Не знаем, как так получается, но с нами всегда ездят очень интересные, весёлые, успешные и перспективные ребята')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -182,7 +167,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Фотографии</h3>
-                    <p>Не беспокойтесь - мы сделаем вам ОЧЕНЬ классные фотографии!</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_photos', 'Не беспокойтесь - мы сделаем вам ОЧЕНЬ классные фотографии!')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -195,7 +182,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Еда</h3>
-                    <p>В наших турах вкусно! Еда для нас важная эстетическая и культурная часть любой поездки. Мы тщательно выбираем кафе по нашему маршруту</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_food', 'В наших турах вкусно! Еда для нас важная эстетическая и культурная часть любой поездки. Мы тщательно выбираем кафе по нашему маршруту')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -208,7 +197,9 @@
                 </div>
                 <div class="advantage__text">
                     <h3>Нет скрытых затрат</h3>
-                    <p>Мы всегда включаем в стоимость тура все активности, которые дают полное представление о месте, в которое мы едем</p>
+                    <p>
+                        {workspace\modules\settings\services\SettingService::run()->get('index_money', 'Мы всегда включаем в стоимость тура все активности, которые дают полное представление о месте, в которое мы едем')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -216,11 +207,11 @@
     <div class="travels__subscribe">
         <p>
             Вы можете путешествовать вместе с нами онлайн - в сториз и постах нашего
-            <a href="/">блога в Инстаграм</a>,
+            <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">блога в Инстаграм</a>,
             а можете отправиться в незабываемое приключение вместе с нами.
         </p>
         <div class="button">
-            <a href="{workspace\modules\settings\services\SettingService::run()->get('site_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
+            <a href="{workspace\modules\settings\services\SettingService::run()->get('contacts_instagram', 'https://www.instagram.com/nepaketniki/')}" target="_blank">
                 <button>Подписаться</button>
             </a>
         </div>
@@ -234,7 +225,6 @@
         </div>
         <div class="footer__contact-info">
             {include file='../includes/contacts.tpl'}
-            {*            {workspace\widgets\search_bar\SearchBarWidget::widget()->setValue('W)Контакты Nepaketniki')->run()}*}
             <div class="search-bar">
                 <input type="text" value="Контакты Nepaketniki"/><span class="times"><i class="fa fa-times"></i></span><i class="fa fa-search"></i>
                 <div class="triangle"></div>

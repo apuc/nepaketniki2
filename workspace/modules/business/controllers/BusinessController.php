@@ -30,19 +30,19 @@ class BusinessController extends Controller
                 'header' => 'Заголовок',
                 '_text_block_1' => [
                     'label' => 'Текст 1',
-                    'value' => function($model) {
+                    'value' => function ($model) {
                         return mb_substr($model->text_block_1, 0, 150, 'utf-8');
                     }
                 ],
                 '_text_block_2' => [
                     'label' => 'Текст 2',
-                    'value' => function($model) {
+                    'value' => function ($model) {
                         return mb_substr($model->text_block_2, 0, 150, 'utf-8');
                     }
                 ],
                 '_text_block_3' => [
                     'label' => 'Текст 3',
-                    'value' => function($model) {
+                    'value' => function ($model) {
                         return mb_substr($model->text_block_3, 0, 150, 'utf-8');
                     }
                 ],
@@ -80,9 +80,12 @@ class BusinessController extends Controller
         }
 
         if ($request->isPost() AND $request->validate()) {
+
             $model = new Business();
-            isset($_SESSION['count_images']) || $request->count_images = $_SESSION['count_images'];
-            unset($_SESSION['count_images']);
+            if ($_SESSION['count_images']) {
+                $request->count_images = $_SESSION['count_images'];
+                unset($_SESSION['count_images']);
+            }
             $model->_save($request);
             foreach ($request->images as $image) {
                 if (strlen($image) !== 0) {
@@ -143,6 +146,14 @@ class BusinessController extends Controller
         }
     }
 
+    protected function clearBusinessImages()
+    {
+        $business_images = BusinessImages::get();
+        foreach ($business_images as $business_image) {
+            BusinessImages::destroy($business_image->id);
+        }
+    }
+
     public function actionView($id)
     {
         $model = Business::where('id', $id)->first();
@@ -156,13 +167,5 @@ class BusinessController extends Controller
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
         App::$breadcrumbs->addItem(['text' => 'Для бизнеса', 'url' => 'admin/business']);
-    }
-
-    protected function clearBusinessImages()
-    {
-        $business_images = BusinessImages::get();
-        foreach ($business_images as $business_image) {
-            BusinessImages::destroy($business_image->id);
-        }
     }
 }

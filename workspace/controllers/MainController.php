@@ -99,23 +99,30 @@ class MainController extends Controller
 
     public function actionSignUp()
     {
-        $this->view->setTitle('Sign Up');
-        $request = new RegistrationRequest();
-        if ($request->isPost() && $request->validate()) {
-            $model = new User();
-            $model->username = $request->username;
-            $model->email = $request->email;
-            $model->role = 2;
-            $model->password_hash = password_hash($request->password, PASSWORD_DEFAULT);
-            $model->save();
+        if (App::$config['is_allow_register_admin']) {
+            $this->view->setTitle('Sign Up');
+            $request = new RegistrationRequest();
+            if ($request->isPost() && $request->validate()) {
+                $model = new User();
+                $model->username = $request->username;
+                $model->email = $request->email;
+                $model->role = 2;
+                $model->password_hash = password_hash($request->password, PASSWORD_DEFAULT);
+                $model->save();
 
-            $_SESSION['role'] = $model->role;
-            $_SESSION['username'] = $model->username;
+                $_SESSION['role'] = $model->role;
+                $_SESSION['username'] = $model->username;
 
-            $this->redirect('admin/tour');
+                $this->redirect('admin/tour');
+            }
+
+            return $this->render('main/sign-up.tpl', ['errors' => $request->getMessagesArray()]);
+        } else {
+            $this->setLayout('nepaketniki.tpl');
+            $this->view->setTitle('Page not found');
+
+            return $this->render('errors/404.tpl');
         }
-
-        return $this->render('main/sign-up.tpl', ['errors' => $request->getMessagesArray()]);
     }
 
     public function actionSignIn()
@@ -126,13 +133,13 @@ class MainController extends Controller
         if ($mod->getModInfo('users')['status'] != 'active') {
             $message = 'Чтобы сделать доступной регистрацию и авторизацию установите и активируйте модуль пользователей.';
 
-            return $this->render('main/info.tpl', ['message' => $message]);
+            return $this->render('main/info.tpl', ['message' => $message, 'is_allow_register_admin' => App::$config['is_allow_register_admin']]);
         } else {
             $request = new LoginRequest();
             if ($request->isPost() && $request->validate()) {
                 $model = User::where('username', $request->username)->first();
                 if ($model === null) {
-                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с таким логином нет']]);
+                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с таким логином нет'], 'is_allow_register_admin' => App::$config['is_allow_register_admin']]);
                 }
 
                 if (password_verify($request->password, $model->password_hash)) {
@@ -142,7 +149,7 @@ class MainController extends Controller
                     $url = !empty($request->ref) ? parse_url($request->ref, PHP_URL_PATH) : 'admin';
                     $this->redirect($url);
                 } else {
-                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с такими учетными данными нет']]);
+                    return $this->render('main/sign-in.tpl', ['errors' => ['Пользователя с такими учетными данными нет'], 'is_allow_register_admin' => App::$config['is_allow_register_admin']]);
                 }
             }
 

@@ -46,12 +46,6 @@
             {else}
                 {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => ''])->run()}{/if}
         {/for}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 1:', 'id' => '_image_1', 'value' => $model->images[0]->image->image])->run()}*}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 2:', 'id' => '_image_2', 'value' => $model->images[1]->image->image])->run()}*}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 3:', 'id' => '_image_3', 'value' => $model->images[2]->image->image])->run()}*}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 4:', 'id' => '_image_4', 'value' => $model->images[3]->image->image])->run()}      *}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 5:', 'id' => '_image_5', 'value' => $model->images[4]->image->image])->run()}*}
-{*                {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => 'Картинка 6:', 'id' => '_image_6', 'value' => $model->images[5]->image->image])->run()}*}
         <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>

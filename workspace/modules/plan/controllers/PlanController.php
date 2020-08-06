@@ -96,8 +96,8 @@ class PlanController extends Controller
     {
         $request = new PlanSearchRequest();
         $model = Plan::where('id', $id)->first();
-        if ($request->isPost() AND $request->validate()) {
 
+        if ($request->isPost() AND $request->validate()) {
             if ($this->checkDay($request->day, $request->tour_id, $model->day)) {
                 $model = Plan::where('id', $id)->first();
                 $model->_save($request);
@@ -117,7 +117,8 @@ class PlanController extends Controller
             } else {
                 $tours = Tour::all();
 
-                return $this->render('plan/edit.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'h1' => 'Редактировать: ', 'options' => $this->getOptions(), 'tours' => $tours]);
+                return $this->render('plan/edit.tpl', ['errors' => ['day' => 'Этот день уже заполнен'], 'h1' => 'Редактировать: ',
+                    'options' => $this->getOptions(), 'tours' => $tours, 'model' => $model]);
             }
         } else {
             $tours = Tour::all();

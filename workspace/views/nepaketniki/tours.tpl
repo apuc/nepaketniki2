@@ -35,11 +35,8 @@
           </div>
         </div>
         <div class="header__nav-info" id="headerNavInfo">
-          <div class="header-nav">
-            <a href="/">На главную</a>
             {include file='includes/nav_menu.tpl'}
-          </div>
-          {include file='includes/contacts.tpl'}
+            {include file='includes/contacts.tpl'}
         </div>
         <div class="schedule-heading">
           <h3 class="schedule-heading__title">Расписание авторских туров</h3>

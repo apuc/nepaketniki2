@@ -20,7 +20,7 @@
         <input type="hidden" name="ref" value="{$ref}">
         <div class="form-group">
             <input type="submit" id="submit_button" class="btn btn-dark" value="Войти">
-            <a href="/sign-up" class="btn btn-dark">Зарегестрироваться</a>
+            {if isset($is_allow_register_admin)}<a href="/sign-up" class="btn btn-dark">Зарегестрироваться</a>{/if}
         </div>
     </form>
 </div>

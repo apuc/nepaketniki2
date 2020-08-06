@@ -24,10 +24,7 @@
     </div>
     <div class="container">
         <div class="header__nav-info" id="headerNavInfo">
-            <div class="header-nav">
-                <a href="/">На главную</a>
-                {include file='workspace/views/includes/nav_menu.tpl'}
-            </div>
+            {include file='workspace/views/includes/nav_menu.tpl'}
             {include file='workspace/views/includes/contacts.tpl'}
         </div>
         <div class="-about-header__main">

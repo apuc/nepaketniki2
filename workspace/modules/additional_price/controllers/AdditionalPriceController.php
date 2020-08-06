@@ -77,6 +77,12 @@ class AdditionalPriceController extends Controller
         ];
     }
 
+    public function actionDelete()
+    {
+        AdditionalPrice::destroy($_POST['id']);
+        $this->redirect('admin/additional_price');
+    }
+
     protected function init()
     {
         $this->view->setTitle('Доп. оплачивается');

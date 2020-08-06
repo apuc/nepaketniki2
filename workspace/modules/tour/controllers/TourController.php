@@ -53,6 +53,7 @@ class TourController extends Controller
     public function actionEdit($id)
     {
         $model = Tour::where('id', $id)->first();
+
         $request = new TourSearchRequest();
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
@@ -65,9 +66,9 @@ class TourController extends Controller
         }
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        Tour::destroy($id);
+        Tour::destroy($_POST['id']);
         $this->redirect('admin/tour');
     }
 
@@ -80,7 +81,7 @@ class TourController extends Controller
             'fields' => [
                 'name' => 'Название',
                 'front_date' => 'Даты тура на главной странице',
-                'front_places_remaining' => 'Отсавшиеся места в туре на главной странице',
+                'front_places_remaining' => 'Оставшиеся места в туре на главной странице',
                 'price' => 'Цена тура на главной странице',
                 'difficulties_and_weather' => 'Сложности и погода',
                 'amount_of_places' => 'Количество мест',
@@ -90,6 +91,7 @@ class TourController extends Controller
             'pagination' => [
                 'per_page' => 10,
             ],
+            'filters' => false
         ];
     }
 }

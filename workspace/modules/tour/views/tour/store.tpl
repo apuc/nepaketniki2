@@ -29,28 +29,13 @@
             <small id="priceMessage" class="form-text">{if isset($errors['price'])}{$errors['price']}{/if}</small>
         </div>
         <div class="form-group">
-            <label for="image_id">Картинка тура на главной странице:</label>
-            <select class="form-control" name="image_id" id="image_id">
-                {foreach from=$images item=item}
-                    <option value="{$item->id}">{$item->image}</option>
-                {/foreach}
-            </select>
+            {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image_id', 'label' => "Картинка тура на главной странице:", 'id' => "image_id"])->run()}
         </div>
         <div class="form-group">
-            <label for="title_image_id">Картинка заголовка тура:</label>
-            <select class="form-control" name="title_image_id" id="title_image_id">
-                {foreach from=$images item=item}
-                    <option value="{$item->id}">{$item->image}</option>
-                {/foreach}
-            </select>
+            {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'title_image_id', 'label' => "Картинка заголовка тура:", 'id' => "title_image_id"])->run()}
         </div>
         <div class="form-group">
-            <label for="bg_image_id">Картинка фона тура:</label>
-            <select class="form-control" name="bg_image_id" id="bg_image_id">
-                {foreach from=$images item=item}
-                    <option value="{$item->id}">{$item->image}</option>
-                {/foreach}
-            </select>
+            {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'bg_image_id', 'label' => "Картинка фона тура:", 'id' => "bg_image_id"])->run()}
         </div>
         <div class="form-group">
             <label for="main_description">Описание на странице просмотра тура:</label>

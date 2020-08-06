@@ -5,6 +5,7 @@ namespace workspace\modules\tour\models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use workspace\modules\image\models\Image;
 use workspace\modules\tour\requests\TourSearchRequest;
 
 class Tour extends Model
@@ -132,45 +133,22 @@ class Tour extends Model
         $this->visa = $request->visa;
         $this->activities_title = $request->activities_title;
         $this->reservation_title = $request->reservation_title;
-
         $this->image_id = $request->image_id;
-        $this->title_image_id = $request->title_image_id;
-        $this->bg_image_id = $request->bg_image_id;
+
+        $image_id = new Image();
+        $image_id->_save($request->image_id);
+        $this->image_id = $image_id->id;
+
+        $title_image_id = new Image();
+        $title_image_id->_save($request->title_image_id);
+        $this->title_image_id = $title_image_id->id;
+
+        $bg_image_id = new Image();
+        $bg_image_id->_save($request->bg_image_id);
+        $this->bg_image_id = $bg_image_id->id;
+
         $this->amount_activities_items_1 = $request->amount_activities_items_1;
         $this->amount_activities_items_2 = $request->amount_activities_items_2;
-        /*if(isset($_POST['name']))
-
-            $this->name = $_POST['name'];
-        if(isset($_POST['main_description']))
-            $this->main_description = $_POST['main_description'];
-        if(isset($_POST['front_description']))
-            $this->front_description = $_POST['front_description'];
-        if(isset($_POST['front_date']))
-            $this->front_date = $_POST['front_date'];
-        if(isset($_POST['front_places_remaining']))
-            $this->front_places_remaining = $_POST['front_places_remaining'];
-        if(isset($_POST['price']))
-            $this->price = $_POST['price'];
-        if(isset($_POST['difficulties_and_weather']))
-            $this->difficulties_and_weather = $_POST['difficulties_and_weather'];
-        if(isset($_POST['amount_of_places']))
-            $this->amount_of_places = $_POST['amount_of_places'];
-        if(isset($_POST['visa']))
-            $this->visa = $_POST['visa'];
-        if(isset($_POST['activities_title']))
-            $this->activities_title = $_POST['activities_title'];
-        if(isset($_POST['reservation_title']))
-            $this->reservation_title = $_POST['reservation_title'];
-        if(isset($_POST['image_id']))
-            $this->image_id = (int)$_POST['image_id'];
-        if(isset($_POST['title_image_id']))
-            $this->title_image_id = (int)$_POST['title_image_id'];
-        if(isset($_POST['bg_image_id']))
-            $this->bg_image_id = (int)$_POST['bg_image_id'];
-        if(isset($_POST['amount_activities_items_1']))
-            $this->amount_activities_items_1 = (int)$_POST['amount_activities_items_1'];
-        if(isset($_POST['amount_activities_items_2']))
-            $this->amount_activities_items_2 = (int)$_POST['amount_activities_items_2'];*/
 
         $this->save();
     }
