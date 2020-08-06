@@ -1,6 +1,16 @@
 {core\App::$breadcrumbs->addItem(['text' => 'Редактирование'])}
 <div class="h1">{$h1}</div></br>
 <div class="container">
+    <form class="form-horizontal" name="image_change_form" id="create_form" method="post" action="/admin/business/update/{$model->id}">
+        <div class="form-group">
+            <label for="count_imagesMessage">Количество картинок:</label>
+            <input type="text" name="count_images" id="header" class="form-control" required="required" value="{$model->count_images}"/>
+            <small id="count_imagesMessage" class="form-text">{if isset($errors['count_images'])}{$errors['count_images']}{/if}</small>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="submit_count_images" id="submit_button_count_images" class="btn btn-dark" value="Изменить количество картинок">
+        </div>
+    </form>
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/business/update/{$model->id}">
         <div class="form-group">
             <label for="name">Заголовок:</label>
@@ -22,23 +32,14 @@
             {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'text_block_3', 'id' => 'text_editor', 'text' => $model->text_block_3])->run()}
             <small id="text_block_3Message" class="form-text">{if isset($errors['text_block_3'])}{$errors['text_block_3']}{/if}</small>
         </div>
-        {$i = 1}
-        {for $i=1 to 6}
+        {for $i=1 to $model->count_images}
             {if isset($model->images[$i-1]->image->image)}
                 {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => $model->images[{$i}-1]->image->image])->run()}
             {else}
                 {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'images[]', 'label' => "Картинка {$i}:", 'id' => "_image_{$i}", 'value' => ''])->run()}{/if}
         {/for}
-{*        <div class="btn btn-dark" id="add_image_field">Добавить картинку</div>*}
-        <div class="form-group" id="insert-before">
+        <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
-
-{*        <script>*}
-{*            $('#add_image_field').click(function () {*}
-{*                $('{workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(["name" => "images[]", "label" => "Картинка 7:", "id" => "_image_7"])->run()}').insertBefore('#insert-before');*}
-{*            });*}
-{*        </script>*}
-
     </form>
 </div>

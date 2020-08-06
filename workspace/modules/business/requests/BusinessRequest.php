@@ -16,15 +16,17 @@ class BusinessRequest extends Request
     public $text_block_1;
     public $text_block_2;
     public $text_block_3;
+    public $count_images;
     public $images = [];
 
     public function rules()
     {
         return [
             'header' => 'required|max:255',
-            'text_block_1' => 'required',
-            'text_block_2' => 'required',
-            'text_block_3' => 'required',
+//            'text_block_1' => 'required',
+//            'text_block_2' => 'required',
+//            'text_block_3' => 'required',
+            'count_images' => 'integer'
         ];
     }
 }

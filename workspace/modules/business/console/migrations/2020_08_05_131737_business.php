@@ -17,8 +17,8 @@ class Business extends Migration
     {
         App::$db->schema->create($this->table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('header');
-            $table->text('text_block_1');
+            $table->string('header')->nullable();
+            $table->text('text_block_1')->nullable();
             $table->text('text_block_2');
             $table->text('text_block_3');
             $table->integer('count_images')->default(6);
@@ -33,6 +33,9 @@ class Business extends Migration
      */
     public function down()
     {
-        App::$db->schema->dropIfExists($this->table);
+        App::$db->schema->table($this->table, function (Blueprint $table) {
+            if (App::$db->schema->hasColumn($this->table, 'tour_id')) $table->dropColumn('tour_id');
+            if (App::$db->schema->hasColumn($this->table, 'priority')) $table->dropColumn('tour_id');
+        });
     }
 }

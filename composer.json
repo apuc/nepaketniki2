@@ -16,7 +16,9 @@
     "samejack/php-argv": "dev-master",
     "symfony/filesystem": "^5.0",
     "rakit/validation": "^1.2",
-    "phpmailer/phpmailer": "^6.1"
+    "phpmailer/phpmailer": "^6.1",
+    "doctrine/doctrine-migrations-bundle": "^3.0",
+    "doctrine/dbal": "^2.10"
   },
   "autoload": {
     "psr-4": {

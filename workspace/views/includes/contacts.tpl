@@ -47,7 +47,6 @@
         </a>
     </div>
     <div class="contacts__phone"><i class="fa fa-phone"></i>
-        <div class="contacts__number"><strong>{workspace\modules\settings\services\SettingService::run()->get('contacts_phone', '+38 099 490 24 54')}</strong>
-        </div>
+        <div class="contacts__number"><a><strong>{workspace\modules\settings\services\SettingService::run()->get('contacts_phone', '+38 099 490 24 54')}</strong></a></div>
     </div>
 </div>

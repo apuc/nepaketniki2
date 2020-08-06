@@ -34,7 +34,9 @@
         <div class="-about-header__main">
             <div class="-about-header__text">
                 <p class="-about-header__author-tours"><strong>Мы создаём авторские туры</strong> в самые красивые места нашей планеты - <br />Бали, Японию, Эльзас, Каппадокию. </p>
-                <h2 class="-about-header__travel-format-text maxed">{$model->header}</h2>
+                <h2 class="-about-header__travel-format-text maxed">
+                    {if isset($model->header)}{$model->header}{/if}
+                </h2>
             </div>
             <div class="-about-header__traveling"><span class="traveling-text">travelling</span>
                 <div class="search-bar">
@@ -48,13 +50,13 @@
 <div class="-business">
     <div class="container">
         <div class="-business__text">
-            {$model->text_block_1}
+            {if isset($model->text_block_1)}{$model->text_block_1}{/if}
         </div>
         <div class="-business__text">
-            {$model->text_block_2}
+            {if isset($model->text_block_2)}{$model->text_block_2}{/if}
         </div>
         <div class="-business__text -business__text--wide">
-            {$model->text_block_3}
+            {if isset($model->text_block_3)}{$model->text_block_3}{/if}
         </div>
     </div>
 </div>
@@ -63,9 +65,21 @@
         <div class="-business-photos__masonry">
             <div class="grid">
                 <div class="grid-sizer"></div>
-                {foreach from=$model->images item=image}
-                     <div class="grid-item"><img src="{$image->image->image}" alt=""/></div>
-                {/foreach}
+                {if isset($model->images)}
+                    {assign var=index value=1}
+                    {foreach from=$model->images item=image}
+                        {if $index <= $model->count_images}
+                            {if $index eq 2}
+                                <div class="grid-item grid-item--upper"><img src="{$image->image->image}" alt=""/></div>
+                            {else}
+                                <div class="grid-item"><img src="{$image->image->image}" alt=""/></div>
+                            {/if}
+                            {assign var=index value=$index+1}
+                        {else}
+                            {break}
+                        {/if}
+                    {/foreach}
+                {/if}
 
                 {*                <div class="grid-sizer"></div>*}
 {*                <div class="grid-item"><img src="/resources/images/masonry-1.png" alt=""/></div>*}

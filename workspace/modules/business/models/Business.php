@@ -20,6 +20,7 @@ class Business extends Model
         $this->text_block_1 = $request->text_block_1;
         $this->text_block_2 = $request->text_block_2;
         $this->text_block_3 = $request->text_block_3;
+        $request->count_images === null || $this->count_images = $request->count_images;
 
         $this->save();
     }

@@ -27,5 +27,4 @@ class ElfinderBtnWidget extends ElfinderWidget
         ]);
 
     }
-
 }

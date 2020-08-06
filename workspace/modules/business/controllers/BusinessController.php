@@ -31,19 +31,19 @@ class BusinessController extends Controller
                 '_text_block_1' => [
                     'label' => 'Текст 1',
                     'value' => function($model) {
-                        return substr($model->text_block_1, 0, 150);
+                        return mb_substr($model->text_block_1, 0, 150, 'utf-8');
                     }
                 ],
                 '_text_block_2' => [
                     'label' => 'Текст 2',
                     'value' => function($model) {
-                        return substr($model->text_block_2, 0, 150);
+                        return mb_substr($model->text_block_2, 0, 150, 'utf-8');
                     }
                 ],
                 '_text_block_3' => [
                     'label' => 'Текст 3',
                     'value' => function($model) {
-                        return substr($model->text_block_3, 0, 150);
+                        return mb_substr($model->text_block_3, 0, 150, 'utf-8');
                     }
                 ],
             ],
@@ -57,6 +57,7 @@ class BusinessController extends Controller
 
     public function actionDelete()
     {
+        BusinessImages::truncate();
         Business::destroy($_POST['id']);
         $this->redirect('admin/business');
     }
@@ -67,10 +68,21 @@ class BusinessController extends Controller
         if ($model->count() >= 1) {
             return $this->render('business/index.tpl', ['h1' => 'Нельзя добавить больше одной страницы "Для бизнеса"', 'models' => $model, 'options' => $this->getOptions()]);
         }
+
         $request = new BusinessRequest();
+        if (isset($request->data["submit_count_images"])) {
+            if ($request->count_images >= 0) {
+                $_SESSION['count_images'] = $request->count_images;
+                return $this->render('business/store.tpl', ['h1' => 'Редактироние: ', 'new_count_images' => $request->count_images]);
+            } else {
+                return $this->render('business/store.tpl', ['h1' => 'Редактироние: ', 'errors' => 'Количество картинок не может быть отрицательным', 'model' => Business::get()->first()]);
+            }
+        }
 
         if ($request->isPost() AND $request->validate()) {
             $model = new Business();
+            isset($_SESSION['count_images']) || $request->count_images = $_SESSION['count_images'];
+            unset($_SESSION['count_images']);
             $model->_save($request);
             foreach ($request->images as $image) {
                 if (strlen($image) !== 0) {
@@ -92,6 +104,24 @@ class BusinessController extends Controller
     {
         $request = new BusinessRequest();
 
+        if (isset($request->data["submit_count_images"])) {
+            $model = Business::find($id);
+            if ($model->count_images > $request->count_images) {
+                $images = BusinessImages::orderBy('id', 'DESC')->get();
+                for ($i = 0; $i < $images->count() - $request->count_images; ++$i) {
+                    BusinessImages::destroy($images[$i]->id);
+                }
+                $model->count_images = $request->count_images;
+                $model->save();
+            } else if ($request->count_images >= 0) {
+                $model->count_images = $request->count_images;
+                $model->save();
+                return $this->render('business/edit.tpl', ['h1' => 'Редактироние: ', 'errors' => $request->getMessagesArray(), 'model' => Business::find($id)]);
+            } else if ($request->count_images < 0) {
+                return $this->render('business/edit.tpl', ['h1' => 'Редактироние: ', 'errors' => 'Количество картинок не может быть отрицательным', 'model' => Business::find($id)]);
+            }
+        }
+
         if ($request->isPost() AND $request->validate()) {
             $model = Business::find($id);
             $model->_save($request);
@@ -109,7 +139,7 @@ class BusinessController extends Controller
             $this->redirect('admin/business');
 
         } else {
-            return $this->render('business/edit.tpl', ['h1' => 'Создать: ', 'errors' => $request->getMessagesArray(), 'model' => Business::find($id)]);
+            return $this->render('business/edit.tpl', ['h1' => 'Редактироние: ', 'errors' => $request->getMessagesArray(), 'model' => Business::find($id)]);
         }
     }
 
