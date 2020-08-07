@@ -39,9 +39,9 @@
         <div class="-single-tour-header__logo">
             <img src="../../../{$model->title_image->image}" alt=""/>
         </div>
-        <p class="-single-tour-header__description">
-            {$model->main_description}
-        </p>
+        <div class="-single-tour-header__description">
+            <p>{$model->main_description}</p>
+        </div>
     </div>
 </div>
 <div class="-single-tour-info">
@@ -94,7 +94,9 @@
     </div>
 </div>
 <div class="-single-tour-plan">
-    {if count($plan) neq 0}<h2 class="-single-tour-plan__title">План путешествия</h2>{/if}
+    {if count($plan) neq 0}
+        <h2 class="-single-tour-plan__title">План путешествия</h2>
+    {/if}
     {for $i=0 to count($plan)-1}
         <div class="-single-tour-plan-item">
             <div class="-single-tour-plan-item__heading">
@@ -130,27 +132,50 @@
         <div class="-single-tour-includes__details">
             <div class="-single-tour-includes__column -single-tour-includes__column--left">
                     {foreach from=$model->included item=item}
-                    {if $item->column_side eq 0}
-                        <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
+                        {if $item->column_side eq 0}
+                            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
                                                                                      src="../resources/images/-single-tour-schedule-point.png"
                                                                                      alt=""/><span>{$item->text}</span>
-                        </div>
-                    {/if}
+                            </div>
+                        {/if}
                     {/foreach}
             </div>
             <div class="-single-tour-includes__column -single-tour-includes__column--right">
                 {foreach from=$model->included item=item}
-                {if $item->column_side neq 0}
-                <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
+                    {if $item->column_side neq 0}
+                        <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
                                                              src="../resources/images/-single-tour-schedule-point.png"
                                                              alt=""/><span>{$item->text}</span>
-                </div>
+                        </div>
                     {/if}
-                    {/foreach}
+                {/foreach}
             </div>
         </div>
     </div>
 {/if}
+{if count($model->sections) neq 0}
+    <div class="-single-tour-section">
+        <div class="container">
+            <div id="singleTourSection">
+                <div class="-single-tour-plan">
+                    {foreach from=$model->sections item=section}
+                        <div class="-single-tour-section-item">
+                            <div class="-single-tour-section-item__title"><h3>{$section->name}</h3></div>
+                            <div class="-single-tour-section-item__description"><p>{$section->text}</p></div>
+                            <div class="-single-tour-section-item__photos-wrapper">
+                                <button class="-single-tour-section-item__button" id="singleTourSectionPrevPage-{$section->id}"></button>
+                                <div class="-single-tour-section-item__photos" id="singleTourSectionPhotos-{$section->id}"></div>
+                                <button class="-single-tour-section-item__button -single-tour-section-item__button--active" id="singleTourSectionNextPage-{$section->id}"></button>
+                            </div>
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+{/if}
+
+
 <div class="-single-tour-price">
     <div class="-single-tour-price__main">
         <p class="-single-tour-price__person"><strong>Стоимость тура за 1 человека:</strong></p>

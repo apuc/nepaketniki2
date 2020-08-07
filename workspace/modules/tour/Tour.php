@@ -13,7 +13,7 @@ class Tour
         $config['adminLeftMenu'] = [
             [
                 'title' => 'Туры',
-                'url' => '/admin/tour',
+                'url' => '/admin/tour/',
                 'icon' => '<i class="nav-icon fa fa-route"></i>',
             ],
         ];

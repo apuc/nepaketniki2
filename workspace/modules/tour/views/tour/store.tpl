@@ -39,12 +39,12 @@
         </div>
         <div class="form-group">
             <label for="main_description">Описание на странице просмотра тура:</label>
-            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'main_description', 'id' => 'text_editor_main_description'])->run()}
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'main_description', 'id' => 'text_editor_main_description'])->setType('v5_classic')->run()}
             <small id="main_descriptionMessage" class="form-text">{if isset($errors['main_description'])}{$errors['main_description']}{/if}</small>
         </div>
         <div class="form-group">
             <label for="difficulties_and_weather">Сложности и погода:</label>
-            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'difficulties_and_weather', 'id' => 'text_editor_difficulties_and_weather'])->run()}
+            {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'difficulties_and_weather', 'id' => 'text_editor_difficulties_and_weather'])->setType('v5_classic')->run()}
             <small id="difficulties_and_weatherMessage" class="form-text">{if isset($errors['difficulties_and_weather'])}{$errors['difficulties_and_weather']}{/if}</small>
         </div>
         <div class="form-group">

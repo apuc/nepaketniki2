@@ -96,7 +96,7 @@ class IncludedController extends Controller
                 ],
                 'text' => 'Текст',
             ],
-            'baseUri' => 'included',
+            'baseUri' => '/admin/included',
             'pagination' => [
                 'per_page' => 10,
             ],

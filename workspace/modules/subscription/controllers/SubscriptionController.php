@@ -82,6 +82,7 @@ class SubscriptionController extends Controller
             'pagination' => [
                 'per_page' => 10,
             ],
+            'filters' => false
         ];
     }
 }

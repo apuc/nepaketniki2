@@ -14,6 +14,7 @@ App::$collector->any('module-delete', ['workspace\controllers\MainController', '
 App::$collector->any('404', ['workspace\controllers\MainController', 'actionPageNotfound']);
 App::$collector->any('reviews_download', ['workspace\controllers\MainController', 'reviewsDownload']);
 App::$collector->any('tour/plan_photos/{id}', ['workspace\controllers\MainController', 'planPhotosDownload']);
+App::$collector->any('tour/section_photos/{id}', ['workspace\controllers\MainController', 'sectionPhotosDownload']);
 App::$collector->any('tour/reserve/{id}', ['workspace\controllers\MainController', 'actionReserve']);
 App::$collector->any('subscribe', ['workspace\controllers\MainController', 'actionSubscribe']);
 

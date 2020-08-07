@@ -19,6 +19,8 @@ use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\reservation\models\ReservationModel;
 use workspace\modules\reservation\requests\ReservationRequests;
+use workspace\modules\section\models\SectionImages;
+use workspace\modules\section\models\Section;
 use workspace\modules\subscription\models\SubscriptionModel;
 use workspace\modules\subscription\requests\SubscriptionRequest;
 use workspace\modules\tour\models\Tour;
@@ -302,6 +304,29 @@ class MainController extends Controller
                 $temp_arr['image'] = str_replace('\\', '/', $item->image->image);
                 $temp_arr['day'] = $item->plan->day;
                 $json[] = $temp_arr;
+            }
+            echo json_encode($json);
+            die();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function sectionPhotosDownload($id)
+    {
+        try {
+            $json = [];
+            $model = Section::where('tour_id', $id)
+                ->select('id', 'tour_id')
+                ->orderBy('priority', 'DESC')
+                ->get();
+            foreach ($model as $section) {
+                foreach ($section->images as $image) {
+                    $temp_arr = [];
+                    $temp_arr['section_id'] = $section->id;
+                    $temp_arr['image'] = str_replace('\\', '/', $image->image->image);
+                    $json[] = $temp_arr;
+                }
             }
             echo json_encode($json);
             die();

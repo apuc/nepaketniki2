@@ -48,7 +48,10 @@
           <div class="tour-logo__title">
             <h3>{$item->name}</h3>
           </div>
-        </div><img class="tour-logo__image" src="{$item->image->image}" alt="Картинка тура"/>
+        </div>
+        <a href="/tour/{$item->id}">
+          <img class="tour-logo__image" src="{$item->image->image}" alt="Картинка тура"/>
+        </a>
       </div>
       <div class="-tours-info">
           <div class="-tours-info__dates">

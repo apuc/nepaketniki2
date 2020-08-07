@@ -1,0 +1,10 @@
+{
+  "name": "section",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\section\\Section",
+  "description": "admin section module",
+  "configFile": "config/section.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

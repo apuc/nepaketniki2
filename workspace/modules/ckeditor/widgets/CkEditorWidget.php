@@ -29,4 +29,14 @@ class CkEditorWidget extends Widget
         }
         return false;
     }
+
+    public function setType($type)
+    {
+        $conf = require WORKSPACE_DIR . '/modules/ckeditor/config/main.php';
+
+        if (key_exists($type, $conf)) {
+            $this->type = $type;
+        }
+        return $this;
+    }
 }

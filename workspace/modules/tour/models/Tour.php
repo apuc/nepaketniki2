@@ -52,6 +52,11 @@ class Tour extends Model
         return $this->hasMany('workspace\modules\included\models\Included')->orderBy('id', 'asc');
     }
 
+    public function sections()
+    {
+        return $this->hasMany('workspace\modules\section\models\Section')->orderBy('priority', 'desc');;
+    }
+
     public function additional_price()
     {
         return $this->hasMany('workspace\modules\additional_price\models\AdditionalPrice');//->orderBy('id', 'asc');
