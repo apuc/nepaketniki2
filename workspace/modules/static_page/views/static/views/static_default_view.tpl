@@ -52,7 +52,7 @@
         </div>
     </div>
 </div>
-{if isset($content)}{$content}{/if}
+{if isset($content)}{str_replace('&nbsp', ' ', $content)}{/if}
 {workspace\modules\admin_review_main_page\widgets\Slider::widget()->run()}
 <div class="footer">
     <div class="footer__container">

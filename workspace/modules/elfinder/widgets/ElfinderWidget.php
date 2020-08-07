@@ -35,6 +35,9 @@ class ElfinderWidget extends Widget
         $this->view->registerCss('/workspace/modules/elfinder/src/css/theme.css');
         $this->view->registerCss('/workspace/modules/elfinder/src/css/toast.css');
         $this->view->registerCss('/workspace/modules/elfinder/src/css/toolbar.css');
+
+        /* Custom css file */
+        $this->view->registerCss('/workspace/modules/elfinder/src/css/custom.css');
     }
 
     protected function regJs()
@@ -125,6 +128,9 @@ class ElfinderWidget extends Widget
         $this->view->registerJs('/workspace/modules/elfinder/src/js/extras/editors.default.js', [], true);
 
         $this->view->registerJs('/workspace/modules/elfinder/assets/js/elfinder.js', [], true);
+
+        /* Custom js file */
+        $this->view->registerJs('/workspace/modules/elfinder/assets/js/custom.js', [], true);
     }
 
 }

@@ -53,24 +53,16 @@ class MainController extends Controller
     public function actionTours()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Tours');
+        $this->view->setTitle('Туры');
         $model = Tour::all();
 
         return $this->render('nepaketniki/tours.tpl', ['model' => $model]);
     }
 
-    public function actionAbout()
-    {
-        $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('About');
-
-        return $this->render('nepaketniki/about.tpl');
-    }
-
     public function actionBusiness()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Business');
+        $this->view->setTitle('Для бизнеса');
 
         return $this->render('nepaketniki/business.tpl', ['model' => Business::get()->first()]);
     }
@@ -78,7 +70,7 @@ class MainController extends Controller
     public function actionPageNotfound()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Page not found');
+        $this->view->setTitle('Страница не найдена');
 
         return $this->render('errors/404.tpl');
     }
@@ -86,7 +78,7 @@ class MainController extends Controller
     public function actionReviews()
     {
         $this->setLayout('nepaketniki.tpl');
-        $this->view->setTitle('Nepaketniki');
+        $this->view->setTitle('Отзывы');
         $model = MainPageReview::all();
 
         return $this->render('nepaketniki/reviews.tpl', ['model' => $model]);

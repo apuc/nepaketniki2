@@ -38,7 +38,7 @@ class StaticPageController extends Controller
             } else {
                 $view_name = $this->default_static_views;
             }
-            $this->view->setTitle(ucfirst(strtolower($slug)));
+            $this->view->setTitle(ucfirst(strtolower($model->name)));
 
             return strlen($model->content) > 0 ? $this->render("static/views/$view_name", ['content' => $model->content]) : $this->render("static/views/$view_name");
         }
@@ -96,7 +96,7 @@ class StaticPageController extends Controller
 
     protected function init()
     {
-        $this->view->setTitle('Планы туров');
+        $this->view->setTitle('Статические страницы');
         $this->viewPath = '/modules/static_page/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
         App::$breadcrumbs->addItem(['text' => 'Панель администратора', 'url' => 'admin']);
