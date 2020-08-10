@@ -11,8 +11,8 @@
     {$jsHead}
 </head>
 <body>
-{$content}
-{$smarty.capture.js_body}
-{$smarty.capture.js_end_body}
+    {$content}
+    {$smarty.capture.js_body}
+    {$smarty.capture.js_end_body}
 </body>
 </html>

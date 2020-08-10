@@ -19,8 +19,9 @@ use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\reservation\models\ReservationModel;
 use workspace\modules\reservation\requests\ReservationRequests;
-use workspace\modules\section\models\SectionImages;
 use workspace\modules\section\models\Section;
+use workspace\modules\seo\model\Seo;
+use workspace\modules\seo\service\SeoService;
 use workspace\modules\subscription\models\SubscriptionModel;
 use workspace\modules\subscription\requests\SubscriptionRequest;
 use workspace\modules\tour\models\Tour;
@@ -31,12 +32,12 @@ use workspace\widgets\Language;
 
 class MainController extends Controller
 {
-
     public function actionIndex()
     {
         $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle('Nepaketniki');
         $model = Tour::all();
+        SeoService::setMeta($this->view, 'index');
 
         return $this->render('nepaketniki/index.tpl', ['model' => $model]);
     }
@@ -57,6 +58,7 @@ class MainController extends Controller
         $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle('Туры');
         $model = Tour::all();
+        SeoService::setMeta($this->view, 'tours');
 
         return $this->render('nepaketniki/tours.tpl', ['model' => $model]);
     }

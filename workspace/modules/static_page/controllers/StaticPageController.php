@@ -38,7 +38,6 @@ class StaticPageController extends Controller
             } else {
                 $view_name = $this->default_static_views;
             }
-            $this->view->setTitle(ucfirst(strtolower($model->name)));
 
             return strlen($model->content) > 0 ? $this->render("static/views/$view_name", ['content' => $model->content]) : $this->render("static/views/$view_name");
         }

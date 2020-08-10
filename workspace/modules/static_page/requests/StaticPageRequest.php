@@ -14,6 +14,9 @@ class StaticPageRequest extends Request
     public $layout;
     public $view;
     public $status;
+    public $title;
+    public $keywords;
+    public $description;
 
 
     public function rules()
@@ -23,7 +26,10 @@ class StaticPageRequest extends Request
             'slug' => 'required',
             'layout' => 'max:255',
             'view' => 'max:255',
-            'status' => 'required'
+            'status' => 'required',
+            'title' => 'max:255',
+            'keywords' => 'max:255',
+            'description' => 'max:255'
         ];
     }
 }

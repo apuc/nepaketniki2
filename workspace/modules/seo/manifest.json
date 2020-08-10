@@ -1,0 +1,10 @@
+{
+  "name": "seo",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\seo\\Seo",
+  "description": "admin seo module",
+  "configFile": "config/seo.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}

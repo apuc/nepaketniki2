@@ -21,13 +21,11 @@
         <div class="form-group">
             <label for="date">Шаблон:</label>
             <input type="text" name="layout" id="layout" class="form-control"/>
-            {*            {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'layout', 'label' => 'Шаблон:', 'id' => 'layout', 'value' => {$model->layout}])->run()}*}
             <small id="layoutMessage" class="form-text">{if isset($errors['layout'])}{$errors['layout']}{/if}</small>
         </div>
         <div class="form-group">
             <label for="date">Вид:</label>
             <input type="text" name="view" id="view" class="form-control"/>
-            {*            {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'view', 'label' => 'Вид:', 'id' => 'view', 'value' => {$model->view}])->run()}*}
             <small id="viewMessage" class="form-text">{if isset($errors['view'])}{$errors['view']}{/if}</small>
         </div>
         <div class="form-group mt-3">
@@ -43,6 +41,21 @@
                     Не активна
                 </label>
             </div>
+        </div>
+        <div class="form-group">
+            <label for="date">Title:</label>
+            <input type="text" name="title" id="title" class="form-control"/>
+            <small id="titleMessage" class="form-text">{if isset($errors['title'])}{$errors['title']}{/if}</small>
+        </div>
+        <div class="form-group">
+            <label for="date">Keywords:</label>
+            <input type="text" name="keywords" id="keywords" class="form-control"/>
+            <small id="keywordsMessage" class="form-text">{if isset($errors['keywords'])}{$errors['keywords']}{/if}</small>
+        </div>
+        <div class="form-group">
+            <label for="date">Description:</label>
+            <input type="text" name="description" id="title" class="form-control"/>
+            <small id="descriptionMessage" class="form-text">{if isset($errors['description'])}{$errors['description']}{/if}</small>
         </div>
         <div class="form-group">
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
