@@ -49,6 +49,7 @@ class MainController extends Controller
         $this->view->setTitle($model->name);
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
         $plan = Plan::where('tour_id', $id)->get();
+        SeoService::setMeta($this->view, 'tour', ['name' => $model->name]);
 
         return $this->render('nepaketniki/tour.tpl', ['model' => $model, 'activities' => $activities, 'plan' => $plan]);
     }

@@ -16,7 +16,7 @@ class SeoController extends Controller
     public function actionIndex()
     {
         $tags = ['title', 'keywords', 'description'];
-        $pages = ['index', 'tours'];
+        $pages = ['index', 'tours', 'tour'];
 
         $meta_tags = [];
         foreach ($pages as $page) {
@@ -46,6 +46,14 @@ class SeoController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
+                '_title' => [
+                    'label' => 'Title',
+                    'value' => function($model) {
+                        if (isset($model->title)) {
+                            return $model->title;
+                        }
+                    }
+                ],
                 '_keywords' => [
                     'label' => 'Keywords',
                     'value' => function($model) {
@@ -62,21 +70,12 @@ class SeoController extends Controller
                         }
                     }
                 ],
-                '_title' => [
-                    'label' => 'Title',
-                    'value' => function($model) {
-                        if (isset($model->title)) {
-                            return $model->title;
-                        }
-                    }
-                ],
             ],
             'baseUri' => '/admin/seo',
             'pagination' => [
                 'per_page' => 10,
             ],
             'filters' => false,
-            'buttons' => false
         ];
     }
 

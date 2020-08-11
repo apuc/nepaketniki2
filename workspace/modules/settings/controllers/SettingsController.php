@@ -39,7 +39,8 @@ class SettingsController extends Controller
                     'value' => function($model) { return $model->value; }
                 ]
             ],
-            'baseUri' => 'settings'
+            'baseUri' => 'settings',
+            'filters' => false
         ];
 
         return $this->render('settings/settings.tpl', ['h1' => 'Настройки', 'model' => $model, 'options' => $options]);
