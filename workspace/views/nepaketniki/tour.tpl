@@ -63,7 +63,6 @@
 </div>
 <div class="-single-tour-schedule">
     <img src="{$model->bg_image->image}" alt="" class="-single-tour-schedule__bg" />
-{*    <img src="../../../resources/images/-single-tour-schedule-min-bg.png" alt="" class="-single-tour-schedule__bg--min" />*}
     <div class="-single-tour-schedule__column -single-tour-schedule__column--left">
         <div class="-single-tour-schedule__title--mobile">
             {$model->activities_title}
@@ -108,11 +107,11 @@
                     </div>
                 </div>
                 <div class="-single-tour-plan-item__actions">
-                    {$model->plans[$i]->description}
+                    {str_replace('&nbsp;', ' ', $model->plans[$i]->description)}
                 </div>
             </div>
             <div class="-single-tour-plan-item__description">
-                <div class="-single-tour-plan-item__description-item">{$model->plans[$i]->info}</div>
+                <div class="-single-tour-plan-item__description-item"> {str_replace('&nbsp;', ' ', $model->plans[$i]->info)}</div>
             </div>
             <div class="-single-tour-plan-item__photos">
                 {if count($model->plans[$i]->images) neq 0}
@@ -194,12 +193,6 @@
         <ul>
             {foreach from=$model->additional_price item=item}
                 <li>- {$item->text}</li>
-{*            <li>- авиаперелет (из Киева ~210 евро, из Москвы ~380 евро, из других городов поможем найти выгодные*}
-{*                авиабилеты)*}
-{*            </li>*}
-{*            <li>- обеды и ужины (~15-30 евро за день)</li>*}
-{*            <li>- страховка (~5-10 евро)</li>*}
-{*            <li>- личные расходы, шоппинг, сувениры</li>*}
             {/foreach}
         </ul>
         <div class="-single-tour-price__how-to">
@@ -217,40 +210,6 @@
     </div>
 </div>
 {workspace\modules\reservation\widgets\ReservationWidget::widget()->run()}
-{*<div class="-single-tour-form">*}
-{*    <div class="-single-tour-form__column -single-tour-form__column--wide">*}
-{*        <h3 class="-single-tour-form__title">{$model->reservation_title}</h3>*}
-{*        <p class="-single-tour-form__proposition">*}
-{*            Смело заполняйте форму и жмите кнопку*}
-{*            “Забронировать место” или напишите нам*}
-{*            в <strong>Instagram</strong> в Direct (@nepaketniki), или в*}
-{*            <strong>Telegram/WhatsApp/Viber</strong> по номеру*}
-{*        <p class="-single-tour-form__number">+38 099 490 24 54</p>*}
-{*        </p>*}
-{*    </div>*}
-{*    <form name="request-form" id="request-form" method="post">*}
-{*        <div class="-single-tour-form__column -single-tour-form__column--thin">*}
-{*            <div class="-single-tour-form__inputs">*}
-{*                <div class="-single-tour-form__input">*}
-{*                    <input id="name" name="name" type="text" placeholder="Введите имя"/>*}
-{*                    <small id="nameMessage" class="schedule-form__news"></small>*}
-{*                </div>*}
-{*                <div class="-single-tour-form__input">*}
-{*                    <input id="phone" name='phone' type="text" placeholder="Введите телефон"/>*}
-{*                    <small id="phoneMessage" class="schedule-form__news"></small>*}
-{*                </div>*}
-{*                <div class="-single-tour-form__input">*}
-{*                    <input id="email" name="email" type="email" placeholder="Введите емаил"/>*}
-{*                    <small id="emailMessage" class="schedule-form__news"></small>*}
-{*                </div>*}
-{*                <input name="id" type="hidden" value=>*}
-{*                <div class="-single-tour-form__button">*}
-{*                    <button id="submit" name="submit" type="submit">Забронировать место</button>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </form>*}
-{*</div>*}
 {workspace\modules\admin_review_main_page\widgets\Slider::widget()->run()}
 <div class="footer">
     <div class="footer__container">

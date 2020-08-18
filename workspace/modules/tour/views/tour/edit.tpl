@@ -28,7 +28,7 @@
             <small id="front_descriptionMessage" class="form-text">{if isset($errors['front_description'])}{$errors['front_description']}{/if}</small>
         </div>
         <div class="form-group">
-            <label for="front_places_remaining">Отсавшиеся места в туре на главной странице:</label>
+            <label for="front_places_remaining">Оставшиеся места в туре на главной странице:</label>
             <input type="text" name="front_places_remaining" id="front_places_remaining" class="form-control" value="{$model->front_places_remaining}" />
             <small id="front_places_remainingMessage" class="form-text">{if isset($errors['front_places_remaining'])}{$errors['front_places_remaining']}{/if}</small>
         </div>
