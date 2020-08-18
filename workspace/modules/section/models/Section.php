@@ -18,12 +18,14 @@ class Section extends Model
         $this->text = $request->text;
         $this->tour_id = $request->tour_id;
         $this->priority = $request->priority;
+
         $this->save();
     }
 
     public function _save_image_count(int $count)
     {
         $this->count_images = $count;
+
         $this->save();
     }
 

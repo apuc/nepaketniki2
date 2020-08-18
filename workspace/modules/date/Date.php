@@ -13,8 +13,8 @@ class Date
         $config['adminLeftMenu'] = [
             [
                 'title' => 'Даты',
-                'url' => '/admin/date',
-                'icon' => '<i class="nav-icon fa fa-calendar-day"></i>',
+                'url' => '/admin/date/',
+                'icon' => '<i class="nav-icon fa fa-calendar-day"></i>'
             ],
         ];
 

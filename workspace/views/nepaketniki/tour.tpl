@@ -47,7 +47,7 @@
 <div class="-single-tour-info">
     <div class="-single-tour-info__dates">
         {foreach from=$model->dates item=item}
-            <div class="-single-tour-info__date">{$item->dates}</div>
+            <div class="-single-tour-info__date">{$item->tour_dates}</div>
             <div class="-single-tour-info__placesLeft">{$item->remaining_places}</div>
         {/foreach}
     </div>

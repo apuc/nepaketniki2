@@ -18,7 +18,6 @@ return [
     ],
     'error_page_path' => 'workspace/views/errors/',
     'is_allow_register_admin' => false
-//    'admin_email' => 'kanatush.lorraine@gmail.com'
 ];
 /* Пример настройки локальной базы
 return [

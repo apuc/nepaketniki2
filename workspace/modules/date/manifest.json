@@ -3,7 +3,7 @@
   "version": "0.1",
   "type": "module",
   "class": "workspace\\modules\\date\\Date",
-  "description": "date module",
+  "description": "admin date module",
   "configFile": "config/date.php",
   "routFile": "routing/rout.php",
   "migrationPath": "console/migrations"

@@ -55,14 +55,11 @@
       </div>
       <div class="-tours-info">
           <div class="-tours-info__dates">
-{*              {foreach from=$model->dates item=item}*}
-{*                  <p class="-tours-info__date">{$item->dates}</p>*}
-{*              {/foreach}*}
+              {foreach from=$item->dates item=date}
+                  <p class="-tours-info__date">{$date->tour_dates}</p>
+              {/foreach}
           </div>
-
           <p class="-tours-info__price">{$item->price}</p>
-          {*            <p class="-tours-info__price">850 евро + авиаперелёт</p>*}
-{*            <p class="-tours-info__discount-price">825 евро - до 15 июля</p>*}
         <div class="button">
           <button onClick='location.href="/tour/{$item->id}"'>Программа тура</button>
         </div>

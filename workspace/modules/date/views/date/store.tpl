@@ -11,15 +11,17 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="dates">Даты:</label>
-            <input type="text" name="dates" id="dates" class="form-control" />
+            <label for="tour_dates">Даты:</label>
+            <input type="text" name="tour_dates" id="tour_dates" class="form-control" />
+            <small id="tour_datesMessage" class="form-text">{if isset($errors['tour_dates'])}{$errors['tour_dates']}{/if}</small>
         </div>
         <div class="form-group">
             <label for="remaining_places">Оставшиеся места:</label>
             <input type="text" name="remaining_places" id="remaining_places" class="form-control" />
+            <small id="remaining_placesMessage" class="form-text">{if isset($errors['remaining_places'])}{$errors['remaining_places']}{/if}</small>
         </div>
         <div class="form-group">
-            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Submit">
+            <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
 </div>
