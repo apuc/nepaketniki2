@@ -44,8 +44,13 @@ class MainController extends Controller
 
     public function actionTour($id)
     {
-        $this->setLayout('nepaketniki.tpl');
+        if (!Tour::isTourExist($id)) {
+            $this->redirect('404');
+            die();
+        }
+
         $model = Tour::where('id', $id)->first();
+        $this->setLayout('nepaketniki.tpl');
         $this->view->setTitle($model->name);
         $activities = Feature::where('tour_id', $id)->where('type', 'Что сделаем')->get();
         $plan = Plan::where('tour_id', $id)->get();

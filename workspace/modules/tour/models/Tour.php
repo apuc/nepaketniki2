@@ -157,4 +157,15 @@ class Tour extends Model
 
         $this->save();
     }
+
+    public static function isTourExist($id)
+    {
+        $tours_id = Tour::select('id')->get()->toArray();
+        foreach ($tours_id as $tour_id) {
+            if ($tour_id['id'] == $id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
