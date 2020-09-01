@@ -33,7 +33,7 @@ class SettingsController extends Controller
             'serial' => '#',
             'fields' => [
                 'key' => 'Ключ',
-                'label' => 'Label',
+                'label' => 'Метка',
                 'category' => [
                     'label' => 'Значение',
                     'value' => function($model) { return $model->value; }

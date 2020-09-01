@@ -9,7 +9,7 @@
             <input type="text" name="key" id="key" class="form-control" required="required" value="{$model->key}" />
         </div>
         <div class="form-group">
-            <label for="firstname">Подпись:</label>
+            <label for="firstname">Метка:</label>
             <input type="text" name="label" id="key" class="form-control" value="{$model->label}" />
         </div>
         <div class="form-group">

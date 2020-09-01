@@ -8,7 +8,7 @@
             <input type="text" name="key" id="key" class="form-control" required="required" />
         </div>
         <div class="form-group">
-            <label for="firstname">Подпись:</label>
+            <label for="firstname">Метка:</label>
             <input type="text" name="label" id="key" class="form-control" />
         </div>
         <div class="form-group">
