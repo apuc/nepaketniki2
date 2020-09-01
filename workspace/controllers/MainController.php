@@ -20,7 +20,6 @@ use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\reservation\models\ReservationModel;
 use workspace\modules\reservation\requests\ReservationRequests;
 use workspace\modules\section\models\Section;
-use workspace\modules\seo\model\Seo;
 use workspace\modules\seo\service\SeoService;
 use workspace\modules\subscription\models\SubscriptionModel;
 use workspace\modules\subscription\requests\SubscriptionRequest;

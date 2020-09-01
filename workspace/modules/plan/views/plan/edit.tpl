@@ -1,7 +1,6 @@
 {assign var="url" value="{'plan/'}{$model->id}"}
 {assign var="image" value=""}
-{core\App::$breadcrumbs->addItem(['text' => $model->username, 'url' => {$url}])}
-{core\App::$breadcrumbs->addItem(['text' => 'Edit'])}
+{core\App::$breadcrumbs->addItem(['text' => {$model->tour->name|cat: ', день '|cat: $model->day}, 'url' => {$url}])}
 <div class="h1">{$h1} {$model->name}</div>
 
 <div class="container">

@@ -4,15 +4,15 @@
 <div class="container">
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/settings/create">
         <div class="form-group">
-            <label for="firstname">Key:</label>
+            <label for="firstname">Ключ:</label>
             <input type="text" name="key" id="key" class="form-control" required="required" />
         </div>
         <div class="form-group">
-            <label for="firstname">Label:</label>
+            <label for="firstname">Подпись:</label>
             <input type="text" name="label" id="key" class="form-control" />
         </div>
         <div class="form-group">
-            <label for="lastname">Value:</label>
+            <label for="lastname">Значение:</label>
             <textarea rows="7" name="value" id="value" class="form-control" required="required"></textarea>
         </div>
         <div class="form-group">

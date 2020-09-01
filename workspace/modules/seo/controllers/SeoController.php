@@ -16,26 +16,33 @@ class SeoController extends Controller
     public function actionIndex()
     {
         $tags = ['title', 'keywords', 'description'];
-        $pages = ['index', 'tours', 'tour'];
+        $pages = App::$config['seo_pages'];
 
         $meta_tags = [];
         foreach ($pages as $page) {
             $meta = new Meta();
             $meta->page = $page;
+            $isExistMeta = false;
             foreach ($tags as $tag) {
                 $model = Settings::where('key', 'like', "meta_$tag" . '_' . "$page")->first();
                 if ($tag === 'title' AND $model !== null) {
                     $meta->title = $model->value;
+                    $isExistMeta = true;
                 }
                 if ($tag === 'description' AND $model !== null) {
                     $meta->description = $model->value;
+                    $isExistMeta = true;
                 }
                 if ($tag === 'keywords' AND $model !== null) {
                     $meta->keywords = $model->value;
+                    $isExistMeta = true;
                 }
             }
-            $meta_tags[] = $meta;
+            if ($isExistMeta == true) {
+                $meta_tags[] = $meta;
+            }
         }
+
         return $this->render('seo/index.tpl', ['h1' => 'Seo', 'model' => $meta_tags, 'options' => $this->getOptions()]);
     }
 

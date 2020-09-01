@@ -16,7 +16,7 @@ class SubscriptionController extends Controller
         $this->view->setTitle('Подписки');
         $this->viewPath = '/modules/subscription/views/';
         $this->layoutPath = App::$config['adminLayoutPath'];
-        App::$breadcrumbs->addItem(['text' => 'Панел администратора', 'url' => 'admin']);
+        App::$breadcrumbs->addItem(['text' => 'Панель администратора', 'url' => 'admin']);
         App::$breadcrumbs->addItem(['text' => 'Подписки', 'url' => 'admin/subscription']);
     }
 
