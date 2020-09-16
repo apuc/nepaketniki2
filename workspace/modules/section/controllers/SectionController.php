@@ -66,7 +66,9 @@ class SectionController extends Controller
         if ($request->isPost() AND $request->validate()) {
             $model = new Section();
             $model->_save($request);
-            if ($_SESSION['count_images'] === null) $model->_save_image_count($_SESSION['count_images']);
+            if (isset($_SESSION['count_images']) AND $_SESSION['count_images'] === null) {
+                $model->_save_image_count($_SESSION['count_images']);
+            }
 
             foreach ($request->images as $image) {
                 if (strlen($image) !== 0) {

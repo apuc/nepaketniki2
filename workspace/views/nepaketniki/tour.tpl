@@ -113,7 +113,6 @@
             <div class="-single-tour-plan-item__description">
                 <div class="-single-tour-plan-item__description-item"> {str_replace('&nbsp;', ' ', $model->plans[$i]->info)}</div>
             </div>
-            <div class="-single-tour-plan-item__photos">
                 {if count($model->plans[$i]->images) neq 0}
                     <div class="-single-tour-plan-item__photos-wrapper">
                         <button class="-single-tour-plan-item__button" id="singleTourPlanPrevPage-{$model->plans[$i]->day}"></button>
@@ -121,7 +120,6 @@
                         <button class="-single-tour-plan-item__button -single-tour-plan-item__button--active" id="singleTourPlanNextPage-{$model->plans[$i]->day}"></button>
                     </div>
                 {/if}
-            </div>
         </div>
     {/for}
 </div>
@@ -153,14 +151,14 @@
     </div>
 {/if}
 {if count($model->sections) neq 0}
-    <div class="-single-tour-section">
+    <div class="-single-tour-customs">
         <div class="container">
             <div id="singleTourSection">
                 <div class="-single-tour-plan">
                     {foreach from=$model->sections item=section}
-                        <div class="-single-tour-section-item">
-                            <div class="-single-tour-section-item__title"><h3>{$section->name}</h3></div>
-                            <div class="-single-tour-section-item__description"><p>{$section->text}</p></div>
+                        <div class="-single-tour-custom-item">
+                            <div class="-single-tour-custom-item__title"><h3>{$section->name}</h3></div>
+                            <div class="-single-tour-custom-item__description"><p>{$section->text}</p></div>
                             <div class="-single-tour-section-item__photos-wrapper">
                                 <button class="-single-tour-section-item__button" id="singleTourSectionPrevPage-{$section->id}"></button>
                                 <div class="-single-tour-section-item__photos" id="singleTourSectionPhotos-{$section->id}"></div>
