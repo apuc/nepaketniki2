@@ -6,7 +6,7 @@
 
 {capture name=css}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../resources/css/style.css?160920" rel="stylesheet">
+    <link href="../resources/css/style.css?170920" rel="stylesheet">
     <link href="../resources/css/sweetalert2.min.css" rel="stylesheet">
     <script
             src="https://code.jquery.com/jquery-3.5.1.min.js"
