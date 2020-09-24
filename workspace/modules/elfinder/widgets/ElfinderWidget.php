@@ -130,7 +130,7 @@ class ElfinderWidget extends Widget
         $this->view->registerJs('/workspace/modules/elfinder/assets/js/elfinder.js', [], true);
 
         /* Custom js file */
-        $this->view->registerJs('/workspace/modules/elfinder/assets/js/custom.js', [], true);
+        //$this->view->registerJs('/workspace/modules/elfinder/src/js/custom.js', [], true);
     }
 
 }

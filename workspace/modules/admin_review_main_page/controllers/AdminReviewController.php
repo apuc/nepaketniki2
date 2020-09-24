@@ -37,7 +37,7 @@ class AdminReviewController extends Controller
                 '_avatar' => [
                     'label' => 'Аватар',
                     'value' => function($model) {
-                        return '<img style="max-width:18em; max-height:18em" src="' . $model->avatar . '" />';
+                        return '<img style="max-width:18em; max-height:18em" src="' . '/resources/' . $model->avatar . '" />';
                     }
                 ],
                 'text' => 'Отзыв',

@@ -1,4 +1,15 @@
 $(function () {
+    var imgExt = [
+        'png',
+        'jpe',
+        'jpeg',
+        'gif',
+        'bmp',
+        'jpg',
+        'ico',
+        'tiff',
+    ];
+
     $('#elfinder').elfinder(
         // 1st Arg - options
         {
@@ -26,6 +37,16 @@ $(function () {
             destroyOnClose : true,
             getFileCallback : function(files, fm) {
                 $('#file_' + name).val(files.path);
+                $('#__imgPrev_' + name).html('');
+
+                if(imgExt.indexOf(files.path.split('.').pop()) >= 0){
+                    var img = document.createElement('img');
+                    img.setAttribute('src', '/resources/' + files.path);
+                    img.style = "max-width:300px; max-height:300px";
+
+                    $('#__imgPrev_' + name).html(img);
+                }
+
                 console.log(files);
             },
             commandsOptions : {

@@ -150,8 +150,10 @@ $opts = array(
 		array(
 			'driver'        => 'LocalFileSystem',           // driver for accessing file system (REQUIRED)
 			'path'          => RESOURCES_DIR . '/files/',                 // path to files (REQUIRED)
-			'URL'           => dirname($_SERVER['PHP_SELF']) . '/../files/', // URL to files (REQUIRED)
-			'trashHash'     => 't1_Lw',                     // elFinder's hash of trash folder
+            'tmbPath' => RESOURCES_DIR . '/files/.tmb/',
+            'URL'           => \core\App::$config['siteUrl'] . '/resources/files/', // URL to files (REQUIRED)
+            'tmbURL' => \core\App::$config['siteUrl'] . '/resources/files/.tmb/',
+            'trashHash'     => 't1_Lw',                     // elFinder's hash of trash folder
 			'winHashFix'    => DIRECTORY_SEPARATOR !== '/', // to make hash same to Linux one on windows too
 			'uploadDeny'    => array('all'),                // All Mimetypes not allowed to upload
 			'uploadAllow'   => array('image/x-ms-bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/x-icon', 'text/plain'), // Mimetype `image` and `text/plain` allowed to upload

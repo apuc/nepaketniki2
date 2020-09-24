@@ -18,7 +18,7 @@ class MainPageReview extends Model
         $this->name = $request->name;
         $this->tour_id = $request->tour_id;
         $this->instagram_link = $request->instagram_link;
-        if ($request->avatar !== $this->avatar) $this->avatar = '/resources/' . $request->avatar;
+        if ($request->avatar !== $this->avatar) $this->avatar = $request->avatar;
         $this->text = $request->text;
         $this->priority = $request->priority;
 
