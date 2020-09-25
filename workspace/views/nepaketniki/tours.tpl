@@ -50,7 +50,7 @@
           </div>
         </div>
         <a href="/tour/{$item->id}">
-          <img class="tour-logo__image" src="{$item->image->image}" alt="Картинка тура"/>
+          <img class="tour-logo__image" src="/resources/{$item->image->image}" alt="Картинка тура"/>
         </a>
       </div>
       <div class="-tours-info">
