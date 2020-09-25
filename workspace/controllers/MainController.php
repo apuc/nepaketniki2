@@ -291,7 +291,7 @@ class MainController extends Controller
                     ->get();
 
                 foreach ($review_model as $key => $item)
-                    $review_model_not_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
+                    $review_model[$key]->avatar = '/resources/' . $item['avatar'];
 
             } else if (isset($_GET['tour_id']) and $_GET['tour_id'] !== 0) {
                 $tour_id = $_GET['tour_id'];
@@ -301,7 +301,7 @@ class MainController extends Controller
                     ->get()->toArray();
 
                 foreach ($review_model_by_tour as $key => $item)
-                    $review_model_not_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
+                    $review_model_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
 
                 $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'DESC')
                     ->orderBy('updated_at', 'DESC')
