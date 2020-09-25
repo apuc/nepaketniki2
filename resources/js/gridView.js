@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
                 id: id
             },
             success: function () {
-                // window.location.reload();
+                window.location.reload();
             },
             error: function (res) {
                 console.log(res)

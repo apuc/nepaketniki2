@@ -89,7 +89,7 @@ class TourController extends Controller
                 'feature' => 'Особенность',
                 'type' => 'Тип',
             ],
-            'baseUri' => 'feature',
+            'baseUri' => '/admin/feature',
         ];
         $features_options = array_merge($common_options, $features_opt);
 
