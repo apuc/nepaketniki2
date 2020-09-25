@@ -5,16 +5,17 @@
 <div class="container">
     <form class="form-horizontal" name="create_form" id="create_form" method="post" action="/admin/tour/update/{$model->id}">
         <div class="form-group">
-            <label for="tour_id">Тур:</label>
-            <select class="form-control" name="name" id="name">
-                {foreach from=$tours item=item}
-                    {if $item->id eq $model->id}
-                        <option selected value="{$item->name}">{$item->name} {$item->price}</option>
-                    {else}
-                        <option value="{$item->name}">{$item->name} {$item->price}</option>
-                    {/if}
-                {/foreach}
-            </select>
+            <label for="name">Тур:</label>
+            <input type="text" name="name" id="name" class="form-control" value="{$model->name}" />
+{*            <select class="form-control" name="name" id="name">*}
+{*                {foreach from=$tours item=item}*}
+{*                    {if $item->id eq $model->id}*}
+{*                        <option selected value="{$item->name}">{$item->name} {$item->price}</option>*}
+{*                    {else}*}
+{*                        <option value="{$item->name}">{$item->name} {$item->price}</option>*}
+{*                    {/if}*}
+{*                {/foreach}*}
+{*            </select>*}
         </div>
         <div class="form-group">
             <label for="front_date">Даты тура на главной странице:</label>
@@ -90,4 +91,22 @@
             <input type="submit" name="submit" id="submit_button" class="btn btn-dark" value="Подтвердить">
         </div>
     </form>
+
+    <div class="h3">Планы на день <a href="/admin/plan/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($plans, $plans_options)->run()}
+
+    <div class="h3">Особенности тура <a href="/admin/feature/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($features, $features_options)->run()}
+
+    <div class="h3">Включено в тур <a href="/admin/included/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($included, $included_options)->run()}
+
+    <div class="h3">Даты <a href="/admin/date/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($dates, $dates_options)->run()}
+
+    <div class="h3">Доп. оплата <a href="/admin/additional_price/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($additional_prices, $additional_prices_options)->run()}
+
+    <div class="h2">Разделы <a href="/admin/section/create" class="btn btn-outline-dark">Создать</a></div>
+    {core\GridView::widget()->setParams($sections, $sections_options)->run()}
 </div>

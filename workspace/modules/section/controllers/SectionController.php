@@ -79,7 +79,7 @@ class SectionController extends Controller
                     $section_image_model->_save($model->id, $image_model->id);
                 }
             }
-            $this->redirect('admin/section');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
 
         } else {
             $tours = Tour::all();
@@ -142,7 +142,7 @@ class SectionController extends Controller
                 }
             }
 
-            $this->redirect('admin/section');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             $tours = Tour::all();
 

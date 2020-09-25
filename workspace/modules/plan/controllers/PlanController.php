@@ -6,6 +6,7 @@ namespace workspace\modules\plan\controllers;
 
 use core\App;
 use core\Controller;
+use core\Debug;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Contracts\Validation\Validator;
 use workspace\modules\image\models\Image;
@@ -30,12 +31,12 @@ class PlanController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
-                '_tour' => [
-                    'label' => 'Тур',
-                    'value' => function($model) {
-                        return $model->tour->name;
-                    }
-                ],
+//                '_tour' => [
+//                    'label' => 'Тур',
+//                    'value' => function($model) {
+//                        return $model->tour->name;
+//                    }
+//                ],
                 'day' => 'День',
                 'info' => 'Информация',
                 'date' => 'Даты',
@@ -67,7 +68,7 @@ class PlanController extends Controller
                         $plan_image_model->_save($model->id, $image_model->id, $model->tour_id);
                     }
                 }
-                $this->redirect('admin/plan');
+                $this->redirect('admin/tour/update/' . $model->tour_id);
             } else {
                 $tours = Tour::all();
 
@@ -114,7 +115,7 @@ class PlanController extends Controller
                     }
                 }
 
-                $this->redirect('admin/plan');
+                $this->redirect('admin/tour/update/' . $model->tour_id);
             } else {
                 $tours = Tour::all();
 

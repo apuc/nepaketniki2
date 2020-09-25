@@ -4,6 +4,9 @@ jQuery(document).ready(function ($) {
         let id = $(this).attr('data-id');
         let url = $(this).attr('data-url');
 
+        console.log(id);
+        console.log(url);
+
         $.ajax({
             url: url,
             type: 'POST',
@@ -11,7 +14,7 @@ jQuery(document).ready(function ($) {
                 id: id
             },
             success: function () {
-                window.location.reload();
+                // window.location.reload();
             },
             error: function (res) {
                 console.log(res)

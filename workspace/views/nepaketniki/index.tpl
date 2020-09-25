@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <a href="/tour/{$item->id}">
-                                    <img class="tour-logo__image" src="{$item->image->image}" alt=""/>
+                                    <img class="tour-logo__image" src="/resources/{$item->image->image}" alt=""/>
                                 </a>
                             </div>
                         </div>

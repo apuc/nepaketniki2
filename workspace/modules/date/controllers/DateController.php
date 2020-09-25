@@ -49,7 +49,7 @@ class DateController extends Controller
             $model = new Date();
             $model->_save($request);
 
-            $this->redirect('admin/date');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             $tours = Tour::all();
 
@@ -72,7 +72,7 @@ class DateController extends Controller
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
-            $this->redirect('admin/date');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             $tours = Tour::all();
 

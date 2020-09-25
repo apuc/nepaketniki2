@@ -15,7 +15,7 @@ class Image extends Model
     public function _save(string $image)
     {
         if (!stripos($image, 'resource') AND strlen($image) !== 0) {
-            $this->image = '/resources/' . $image;
+            $this->image = $image;
         }
         else $this->image = $image;
         $this->save();

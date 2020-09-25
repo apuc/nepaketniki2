@@ -36,7 +36,7 @@ class UsersController  extends Controller
             ],
         ];
         return $this->render('users/index.tpl',
-            ['models' => $model, 'options' => $options, 'h1' => 'Пользователи']);
+            ['model' => $model, 'options' => $options, 'h1' => 'Пользователи']);
     }
 
     public function actionView($id)

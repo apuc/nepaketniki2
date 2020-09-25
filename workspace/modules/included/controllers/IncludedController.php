@@ -44,7 +44,7 @@ class IncludedController extends Controller
             $model = new Included();
             $model->_save($request);
 
-            $this->redirect('admin/included');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             return $this->render('included/store.tpl', ['tours' => Tour::all(), 'errors' => $request->getMessagesArray()]);
         }
@@ -58,7 +58,7 @@ class IncludedController extends Controller
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
-            $this->redirect('admin/included');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             return $this->render('included/edit.tpl', ['model' => $model, 'tours' => Tour::all(),
                 'h1' => 'Редактировать:', 'errors' => $request->getMessagesArray()]);

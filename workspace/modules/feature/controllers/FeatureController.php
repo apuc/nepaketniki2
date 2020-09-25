@@ -38,7 +38,7 @@ class FeatureController extends Controller
             $model = new Feature();
             $model->_save();
 
-            $this->redirect('admin/feature');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             $tours = Tour::all();
 
@@ -61,7 +61,7 @@ class FeatureController extends Controller
         if($request->isPost() AND $request->validate()) {
             $model->_save();
 
-            $this->redirect('admin/feature');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             $tours = Tour::all();
 

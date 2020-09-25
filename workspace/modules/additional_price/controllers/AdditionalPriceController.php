@@ -27,7 +27,7 @@ class AdditionalPriceController extends Controller
             $model = new AdditionalPrice();
             $model->_save($request);
 
-            $this->redirect('admin/additional_price');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             return $this->render('additional_price/store.tpl', ['tours' => Tour::all()]);
         }
@@ -48,7 +48,7 @@ class AdditionalPriceController extends Controller
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
-            $this->redirect('admin/additional_price');
+            $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
             return $this->render('additional_price/edit.tpl', ['model' => $model, 'tours' => Tour::all(), 'h1' => 'Редактировать:']);
         }

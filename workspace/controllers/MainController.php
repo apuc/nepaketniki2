@@ -7,6 +7,7 @@ use core\component_manager\lib\CM;
 use core\component_manager\lib\Config;
 use core\component_manager\lib\Mod;
 use core\Controller;
+use core\Debug;
 use workspace\classes\Button;
 use workspace\classes\Modules;
 use workspace\classes\ModulesSearchRequest;
@@ -283,15 +284,33 @@ class MainController extends Controller
     {
         $review_model = [];
         try {
-            if (!isset($_GET['tour_id']) OR $_GET['tour_id'] === 0) {
+            if (!isset($_GET['tour_id']) or $_GET['tour_id'] === 0) {
                 $review_model = MainPageReview::orderBy('priority', 'DESC')
                     ->orderBy('updated_at', 'DESC')
                     ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
                     ->get();
-            } else if (isset($_GET['tour_id']) AND $_GET['tour_id'] !== 0) {
+
+                foreach ($review_model as $key => $item)
+                    $review_model_not_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
+
+            } else if (isset($_GET['tour_id']) and $_GET['tour_id'] !== 0) {
                 $tour_id = $_GET['tour_id'];
-                $review_model_by_tour = MainPageReview::where('tour_id', $tour_id)->orderBy('priority', 'DESC')->orderBy('updated_at', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')->get()->toArray();
-                $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'DESC')->orderBy('updated_at', 'DESC')->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')->get()->toArray();
+                $review_model_by_tour = MainPageReview::where('tour_id', $tour_id)->orderBy('priority', 'DESC')
+                    ->orderBy('updated_at', 'DESC')
+                    ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
+                    ->get()->toArray();
+
+                foreach ($review_model_by_tour as $key => $item)
+                    $review_model_not_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
+
+                $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'DESC')
+                    ->orderBy('updated_at', 'DESC')
+                    ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
+                    ->get()->toArray();
+
+                foreach ($review_model_not_by_tour as $key => $item)
+                    $review_model_not_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
+
                 $review_model = array_merge((array)$review_model_by_tour, (array)$review_model_not_by_tour);
             }
             echo json_encode($review_model);
@@ -345,7 +364,7 @@ class MainController extends Controller
     public function actionReserve($id)
     {
         $request = new ReservationRequests();
-        if ($request->validate() AND $request->isPost()) {
+        if ($request->validate() and $request->isPost()) {
             $model = new ReservationModel();
             $model->tour_id = $id;
             $model->_save($request);
@@ -361,7 +380,7 @@ class MainController extends Controller
     public function actionSubscribe()
     {
         $request = new SubscriptionRequest();
-        if ($request->validate() AND $request->isPost()) {
+        if ($request->validate() and $request->isPost()) {
             $model = new SubscriptionModel();
             $model->_save($request);
 
