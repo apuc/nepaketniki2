@@ -4,9 +4,6 @@ jQuery(document).ready(function ($) {
         let id = $(this).attr('data-id');
         let url = $(this).attr('data-url');
 
-        console.log(id);
-        console.log(url);
-
         $.ajax({
             url: url,
             type: 'POST',
