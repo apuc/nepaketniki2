@@ -18,7 +18,7 @@ class Plan extends Model
         $this->tour_id = $request->tour_id;
         $this->day = $request->day;
         $this->info = $request->info;
-        $this->date = $request->date;
+        $this->date = ($request->date) ? $request->date : '';
         $this->description = $request->description;
 
         $this->save();

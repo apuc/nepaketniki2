@@ -52,7 +52,7 @@
         {/foreach}
     </div>
     <div class="-single-tour-info__text">
-        <div class="-tours-visa"><img class="-tours-visa__image" src="../resources/images/visa.png" alt=""/>
+        <div class="-tours-visa"><img class="-tours-visa__image" src="../../../resources/images/visa.png" alt=""/>
             <div class="-tours-visa__text">
                 {$model->visa}
             </div>
@@ -99,9 +99,9 @@
     {for $i=0 to count($plan)-1}
         <div class="-single-tour-plan-item">
             <div class="-single-tour-plan-item__heading">
-                <div class="-single-tour-plan-item__date"><img class=".-single-tour-plan-item__day-logo"
-                                                               src="../../../resources/images/-single-tour-plan-day-{$model->plans[$i]->day}.png"
-                                                               alt=""/>
+                <div class="-single-tour-plan-item__date">
+                    <img class=".-single-tour-plan-item__day-logo"
+                         src="../../../resources/images/-single-tour-plan-day-{$model->plans[$i]->day}.png" alt=""/>
                     <div class="-single-tour-plan-item__date-text">
                         {$model->plans[$i]->date}
                     </div>
@@ -130,9 +130,10 @@
             <div class="-single-tour-includes__column -single-tour-includes__column--left">
                     {foreach from=$model->included item=item}
                         {if $item->column_side eq 0}
-                            <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                                                     src="../resources/images/-single-tour-schedule-point.png"
-                                                                                     alt=""/><span>{$item->text}</span>
+                            <div class="-single-tour-schedule-item">
+                                <img class="-single-tour-schedule__point"
+                                     src="../../../resources/images/-single-tour-schedule-point.png"
+                                     alt=""/><span>{$item->text}</span>
                             </div>
                         {/if}
                     {/foreach}
@@ -140,9 +141,10 @@
             <div class="-single-tour-includes__column -single-tour-includes__column--right">
                 {foreach from=$model->included item=item}
                     {if $item->column_side neq 0}
-                        <div class="-single-tour-schedule-item"><img class="-single-tour-schedule__point"
-                                                             src="../resources/images/-single-tour-schedule-point.png"
-                                                             alt=""/><span>{$item->text}</span>
+                        <div class="-single-tour-schedule-item">
+                            <img class="-single-tour-schedule__point"
+                                 src="../../../resources/images/-single-tour-schedule-point.png"
+                                 alt=""/><span>{$item->text}</span>
                         </div>
                     {/if}
                 {/foreach}

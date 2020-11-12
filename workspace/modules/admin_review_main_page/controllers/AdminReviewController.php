@@ -6,6 +6,7 @@ namespace workspace\modules\admin_review_main_page\controllers;
 
 use core\App;
 use core\Controller;
+use core\Debug;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
 use workspace\modules\tour\models\Tour;
@@ -14,7 +15,7 @@ class AdminReviewController extends Controller
 {
     public function actionIndex()
     {
-        $model = MainPageReview::get();
+        $model = MainPageReview::all();
 
         return $this->render('reviews/index.tpl', ['h1' => 'Отзывы', 'models' => $model, 'options' => $this->getOptions()]);
     }

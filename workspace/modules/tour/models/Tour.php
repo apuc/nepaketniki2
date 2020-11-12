@@ -62,6 +62,11 @@ class Tour extends Model
         return $this->hasMany('workspace\modules\additional_price\models\AdditionalPrice');//->orderBy('id', 'asc');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('workspace\modules\admin_review_main_page\models\MainPageReview');
+    }
+
     /**
      * @param TourSearchRequest $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]

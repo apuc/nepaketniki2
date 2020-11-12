@@ -30,7 +30,6 @@ class PlanSearchRequest extends RequestSearch
         return [
             'tour_id' => 'required',
             'day' => 'required',
-            'date' => 'required',
             'info' => 'required',
             'description' => 'required'
         ];

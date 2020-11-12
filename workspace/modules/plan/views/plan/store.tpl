@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="date">Даты:</label>
-            <input type="text" name="date" id="date" class="form-control" required="required"/>
+            <input type="text" name="date" id="date" class="form-control"/>
             <small id="dateMessage" class="form-text">{if isset($errors['date'])}{$errors['date']}{/if}</small>
         </div>
         <div class="form-group mt-3">

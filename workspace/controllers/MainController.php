@@ -327,7 +327,7 @@ class MainController extends Controller
             $model = PlanImages::where('tour_id', $id)->get();
             foreach ($model as $item) {
                 $temp_arr = [];
-                $temp_arr['image'] = str_replace('\\', '/', $item->image->image);
+                $temp_arr['image'] = '../../../resources/' . str_replace('\\', '/', $item->image->image);
                 $temp_arr['day'] = $item->plan->day;
                 $json[] = $temp_arr;
             }

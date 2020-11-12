@@ -50,7 +50,7 @@
     </div>
   </div>
   <div class="-reviews-instagram">
-    <div class="-reviews-instagram__heading"><img class="-reviews-instagram__icon" src="../resources/images/reviews-icon.png" alt=""/>
+    <div class="-reviews-instagram__heading"><img class="-reviews-instagram__icon" src="../../../resources/images/reviews-icon.png" alt=""/>
       <h3>
         <span>Все отзывы вы можете также посмотреть на</span>
         <img src="../resources/images/reviews-insta-icon.png" />
