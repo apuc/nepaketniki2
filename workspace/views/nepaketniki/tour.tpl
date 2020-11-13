@@ -37,7 +37,7 @@
             <img class="-single-tour-header__balloon" src="../../../resources/images/balloon.png" alt=""/>
         </div>
         <div class="-single-tour-header__logo">
-            <img src="../../../{$model->title_image->image}" alt=""/>
+            <img src="../../../resources/{$model->title_image->image}" alt=""/>
         </div>
         <div class="-single-tour-header__description">
             <p>{$model->main_description}</p>
