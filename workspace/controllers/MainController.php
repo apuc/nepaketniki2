@@ -350,7 +350,7 @@ class MainController extends Controller
                 foreach ($section->images as $image) {
                     $temp_arr = [];
                     $temp_arr['section_id'] = $section->id;
-                    $temp_arr['image'] = str_replace('\\', '/', $image->image->image);
+                    $temp_arr['image'] = '../../../resources/' . str_replace('\\', '/', $image->image->image);
                     $json[] = $temp_arr;
                 }
             }
