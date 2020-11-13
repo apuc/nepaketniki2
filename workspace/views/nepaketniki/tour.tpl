@@ -62,7 +62,7 @@
     </div>
 </div>
 <div class="-single-tour-schedule">
-    <img src="{$model->bg_image->image}" alt="" class="-single-tour-schedule__bg" />
+    <img src="../../../resources/{$model->bg_image->image}" alt="" class="-single-tour-schedule__bg" />
     <div class="-single-tour-schedule__column -single-tour-schedule__column--left">
         <div class="-single-tour-schedule__title--mobile">
             {$model->activities_title}
