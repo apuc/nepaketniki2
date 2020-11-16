@@ -4,6 +4,7 @@
 namespace workspace\modules\admin_review_main_page\models;
 
 
+use core\Debug;
 use Illuminate\Database\Eloquent\Model;
 use workspace\modules\admin_review_main_page\requests\ReviewRequest;
 
@@ -31,5 +32,27 @@ class MainPageReview extends Model
     public function tour()
     {
         return $this->belongsTo('workspace\modules\tour\models\Tour');
+    }
+
+    /**
+     * @param ReviewRequest $request
+     */
+    public static function search(ReviewRequest $request)
+    {
+        $query = self::query();
+
+        if (isset($request->prioritySearch) && $request->prioritySearch)
+            $query->where('priority', 'LIKE', "%$request->prioritySearch%");
+
+        if (isset($request->nameSearch) && $request->nameSearch)
+            $query->where('name', 'LIKE', "%$request->nameSearch%");
+
+        if (isset($request->instagram_linkSearch) && $request->instagram_linkSearch)
+            $query->where('instagram_link', 'LIKE', "$request->instagram_linkSearch");
+
+        if (isset($request->textSearch) && $request->textSearch)
+            $query->where('text', 'LIKE', "$request->textSearch");
+
+        return $query->get();
     }
 }

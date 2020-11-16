@@ -33,6 +33,15 @@
             {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'text', 'id' => 'text_editor', 'text' => {$model->text}])->run()}
             <small id="text" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
+
+        <div>
+            <span>Занятые приоритеты:</span>
+            {foreach from=$priority item=item}
+                <span>{$item['priority']}. </span>
+            {/foreach}
+            <br><br>
+        </div>
+
         <div class="form-group">
             <label for="priority">Приоритет:</label>
             <input type="text" name="priority" id="priority" class="form-control" required="required" value="{$model->priority}" />

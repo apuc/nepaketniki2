@@ -25,12 +25,23 @@
             <input type="text" name="instagram_link" id="instagram_link" class="form-control" required="required"/>
             <small id="instagram_linkMessage" class="form-text">{if isset($errors['instagram_link'])}{$errors['instagram_link']}{/if}</small>
         </div>
+
         {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'avatar', 'label' => 'Аватар:'])->run()}
+
         <div class="form-group mt-3">
             <label for="text">Отзыв:</label>
             {workspace\modules\ckeditor\widgets\CkEditorWidget::widget(['name' => 'text', 'id' => 'text_editor'])->run()}
             <small id="textMessage" class="form-text">{if isset($errors['text'])}{$errors['text']}{/if}</small>
         </div>
+
+        <div>
+            <span>Занятые приоритеты:</span>
+            {foreach from=$priority item=item}
+                <span>{$item['priority']}. </span>
+            {/foreach}
+            <br><br>
+        </div>
+
         <div class="form-group">
             <label for="priority">Приоритет:</label>
             <input type="text" name="priority" id="priority" class="form-control" required="required"/>

@@ -15,7 +15,8 @@ class AdminReviewController extends Controller
 {
     public function actionIndex()
     {
-        $model = MainPageReview::all();
+        $request = new ReviewRequest();
+        $model = MainPageReview::search($request);
 
         return $this->render('reviews/index.tpl', ['h1' => 'Отзывы', 'models' => $model, 'options' => $this->getOptions()]);
     }
@@ -27,12 +28,13 @@ class AdminReviewController extends Controller
             'tr_class' => 'fixed-height',
             'td_class' => 'fixed-height',
             'fields' => [
+                'priority' => 'Приоритет',
                 'name' => 'Имя',
                 '_tour' => [
                     'label' => 'Тур',
                     'value' => function($model) {
                         return $model->tour->name;
-                    }
+                    },
                 ],
                 'instagram_link' => 'Инстаграмм',
                 '_avatar' => [
@@ -42,13 +44,11 @@ class AdminReviewController extends Controller
                     }
                 ],
                 'text' => 'Отзыв',
-                'priority' => 'Приоритет',
             ],
             'baseUri' => '/admin/reviews',
             'pagination' => [
                 'per_page' => 10,
             ],
-            'filters' => false
         ];
     }
 
@@ -61,6 +61,7 @@ class AdminReviewController extends Controller
     public function actionStore()
     {
         $request = new ReviewRequest();
+        $priority = MainPageReview::orderBy('priority', 'ASC')->select('priority')->get()->toArray();
 
         if ($request->isPost() AND $request->validate()) {
             $model = new MainPageReview();
@@ -68,7 +69,10 @@ class AdminReviewController extends Controller
             $this->redirect('admin/reviews');
 
         } else {
-            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ', 'errors' => $request->getMessagesArray(), 'tours' => Tour::select('id', 'name')->get()]);
+            return $this->render('reviews/store.tpl', ['h1' => 'Создать: ',
+                'errors' => $request->getMessagesArray(),
+                'tours' => Tour::select('id', 'name')->get(),
+                'priority' => $priority]);
         }
     }
 
@@ -76,13 +80,17 @@ class AdminReviewController extends Controller
     {
         $model = MainPageReview::where('id', $id)->first();
         $request = new ReviewRequest();
+        $priority = MainPageReview::orderBy('priority', 'ASC')->select('priority')->get()->toArray();
 
         if ($request->isPost() AND $request->validate()) {
             $model->_save($request);
 
             $this->redirect('admin/reviews');
         } else {
-            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model, 'errors' => $request->getMessagesArray(), 'tours' => Tour::select('id', 'name')->get()]);
+            return $this->render('reviews/edit.tpl', ['h1' => 'Редактировать: ', 'model' => $model,
+                'errors' => $request->getMessagesArray(),
+                'tours' => Tour::select('id', 'name')->get(),
+                'priority' => $priority]);
         }
     }
 
