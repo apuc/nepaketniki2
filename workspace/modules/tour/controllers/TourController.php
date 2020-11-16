@@ -4,11 +4,14 @@ namespace workspace\modules\tour\controllers;
 use core\App;
 use core\Controller;
 use workspace\modules\additional_price\models\AdditionalPrice;
+use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\date\models\Date;
 use workspace\modules\feature\models\Feature;
 use workspace\modules\image\models\Image;
 use workspace\modules\included\models\Included;
 use workspace\modules\plan\models\Plan;
+use workspace\modules\plan_images\models\PlanImages;
+use workspace\modules\reservation\Reservation;
 use workspace\modules\section\models\Section;
 use workspace\modules\tour\models\Tour;
 use workspace\modules\tour\requests\TourSearchRequest;
@@ -240,7 +243,18 @@ class TourController extends Controller
 
     public function actionDelete()
     {
+        AdditionalPrice::where('tour_id',$_POST['id'])->delete();
+        Date::where('tour_id',$_POST['id'])->delete();
+        Feature::where('tour_id',$_POST['id'])->delete();
+        Included::where('tour_id',$_POST['id'])->delete();
+        PlanImages::where('tour_id',$_POST['id'])->delete();
+        Plan::where('tour_id',$_POST['id'])->delete();
+        MainPageReview::where('tour_id',$_POST['id'])->delete();
+        Reservation::where('tour_id',$_POST['id'])->delete();
+        Section::where('tour_id',$_POST['id'])->delete();
         Tour::destroy($_POST['id']);
+        Reservation::where('tour_id',$_POST['id'])->delete();
+
         $this->redirect('admin/tour');
     }
 

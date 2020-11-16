@@ -285,7 +285,7 @@ class MainController extends Controller
         $review_model = [];
         try {
             if (!isset($_GET['tour_id']) or $_GET['tour_id'] === 0) {
-                $review_model = MainPageReview::orderBy('priority', 'DESC')
+                $review_model = MainPageReview::orderBy('priority', 'ASC')
                     ->orderBy('updated_at', 'DESC')
                     ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
                     ->get();
@@ -295,7 +295,7 @@ class MainController extends Controller
 
             } else if (isset($_GET['tour_id']) and $_GET['tour_id'] !== 0) {
                 $tour_id = $_GET['tour_id'];
-                $review_model_by_tour = MainPageReview::where('tour_id', $tour_id)->orderBy('priority', 'DESC')
+                $review_model_by_tour = MainPageReview::where('tour_id', $tour_id)->orderBy('priority', 'ASC')
                     ->orderBy('updated_at', 'DESC')
                     ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
                     ->get()->toArray();
@@ -303,7 +303,7 @@ class MainController extends Controller
                 foreach ($review_model_by_tour as $key => $item)
                     $review_model_by_tour[$key]['avatar'] = '/resources/' . $item['avatar'];
 
-                $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'DESC')
+                $review_model_not_by_tour = MainPageReview::where('tour_id', '<>', $tour_id)->orderBy('priority', 'ASC')
                     ->orderBy('updated_at', 'DESC')
                     ->select('priority', 'tour_id', 'instagram_link as instagramLinks', 'text', 'avatar', 'name', 'id', 'updated_at')
                     ->get()->toArray();
