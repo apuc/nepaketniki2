@@ -1,4 +1,7 @@
 $(document).ready(function() {
+ /*   $(function() {
+        $("#phone").mask("+7(999) 999-99-99");
+    });*/
     $('#submit').on('click', function (e) {
         e.preventDefault();
         const URL = window.location.href;
@@ -8,9 +11,11 @@ $(document).ready(function() {
             url:      '/tour/reserve/' + tourId,
             type:     'POST',
             data: $("#request-form").serialize(),
+
             beforeSend: function() {
-                $('#submit').prop('disabled', true);
+                $('#submit').prop('', true); //Убрал disabled
             },
+
             success: function(response) {
                 console.log(response);
                 if (response.length !== 0) {
@@ -33,6 +38,7 @@ $(document).ready(function() {
                     }
                     $('#submit').prop('disabled', false);
                 }
+
                 else {
                     Swal.fire({
                         position: 'top-end',
@@ -47,7 +53,7 @@ $(document).ready(function() {
                     $('#phoneMessage').html('');
                     $('#nameMessage').html('');
                     $('#emailMessage').html('');
-                    $('#submit').prop('disabled', true);
+                    $('#submit').prop('enabled', true); //Поставил enabled
                 }
             },
         });

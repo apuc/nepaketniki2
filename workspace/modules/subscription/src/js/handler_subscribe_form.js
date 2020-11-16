@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    $(function() {
+        $("#phone").mask("+7(999)999-99-99");       //Плагин маск
+    });
+
     $('#submit').on('click', function (e) {
         e.preventDefault();
         $.ajax({
@@ -6,7 +10,7 @@ $(document).ready(function() {
             type:     'POST',
             data: $("#request-form").serialize(),
             beforeSend: function() {
-                $('#submit').prop('disabled', true);
+                $('#submit').prop('', true);  //Убрал disabled
             },
             success: function(response) {
                 if (response.length !== 0) {
@@ -34,7 +38,7 @@ $(document).ready(function() {
                     $('#name').val('');
                     $('#nameMessage').html('');
                     $('#phoneMessage').html('');
-                    $('#submit').prop('disabled', true);
+                    $('#submit').prop('enabled', true);//Поставил enabled
                 }
             },
         });

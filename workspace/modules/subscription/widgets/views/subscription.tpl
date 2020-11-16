@@ -1,8 +1,10 @@
+{*Не уверен можно ли так *}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <div class="schedule-form">
     <div class="circle medium">
     </div>
     <div class="schedule-form__content">
-        <h3 class="schedule-form__title">Обязательно <br />подпишись!</h3>
+        <h3 class="schedule-form__title">Обязательно <br/>подпишись!</h3>
         <p class="schedule-form__news">Получай новости о наших новых турах, скидках первым! Это важно!</p>
         <form class="schedule-form__feedback" name="request-form" id="request-form" method="post">
             <div class="form-group">
