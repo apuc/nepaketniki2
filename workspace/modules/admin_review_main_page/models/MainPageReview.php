@@ -51,7 +51,7 @@ class MainPageReview extends Model
             $query->where('instagram_link', 'LIKE', "$request->instagram_linkSearch");
 
         if (isset($request->textSearch) && $request->textSearch)
-            $query->where('text', 'LIKE', "$request->textSearch");
+            $query->where('tour.name', 'LIKE', "$request->textSearch");
 
         return $query->get();
     }
