@@ -3,6 +3,7 @@ namespace workspace\modules\tour\controllers;
 
 use core\App;
 use core\Controller;
+use core\Debug;
 use workspace\modules\additional_price\models\AdditionalPrice;
 use workspace\modules\admin_review_main_page\models\MainPageReview;
 use workspace\modules\date\models\Date;
@@ -11,8 +12,9 @@ use workspace\modules\image\models\Image;
 use workspace\modules\included\models\Included;
 use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
-use workspace\modules\reservation\Reservation;
+use workspace\modules\reservation\models\ReservationModel;
 use workspace\modules\section\models\Section;
+use workspace\modules\section\models\SectionImages;
 use workspace\modules\tour\models\Tour;
 use workspace\modules\tour\requests\TourSearchRequest;
 
@@ -250,10 +252,14 @@ class TourController extends Controller
         PlanImages::where('tour_id',$_POST['id'])->delete();
         Plan::where('tour_id',$_POST['id'])->delete();
         MainPageReview::where('tour_id',$_POST['id'])->delete();
-        Reservation::where('tour_id',$_POST['id'])->delete();
+        ReservationModel::where('tour_id',$_POST['id'])->delete();
+
+        $sections = Section::where('tour_id',$_POST['id'])->get();
+        foreach ($sections as $section)
+            SectionImages::where('section_id',$section->id)->delete();
         Section::where('tour_id',$_POST['id'])->delete();
+
         Tour::destroy($_POST['id']);
-        Reservation::where('tour_id',$_POST['id'])->delete();
 
         $this->redirect('admin/tour');
     }

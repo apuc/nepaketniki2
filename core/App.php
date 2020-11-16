@@ -118,6 +118,7 @@ class App
         /* Catch error pages */
         try {
             $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+            echo $response;
         } catch (HttpMethodNotAllowedException $ex) {
            // $this->setError(403);
         } catch (HttpRouteNotFoundException $ex) {
@@ -127,7 +128,6 @@ class App
         }*/
         header('Content-Type: ' . App::$responseType);
         App::$header->set();
-        echo $response;
     }
 
     private function setError($error)
