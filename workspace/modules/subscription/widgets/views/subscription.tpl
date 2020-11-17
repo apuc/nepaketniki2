@@ -1,5 +1,3 @@
-{*Не уверен можно ли так *}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <div class="schedule-form">
     <div class="circle medium">
     </div>
@@ -12,7 +10,7 @@
                 <small id="nameMessage" class="schedule-form__news"></small>
             </div>
             <div class="form-group">
-                <input id="phone" name="phone" type="text" placeholder="Введите телефон"/>
+                <input id="phone" name="phone" type="number" placeholder="Введите телефон"/>
                 <small id="phoneMessage" class="schedule-form__news"></small>
             </div>
             <button id="submit" name="submit" type="submit">Подписаться</button>

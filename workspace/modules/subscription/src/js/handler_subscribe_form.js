@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    $(function() {
-        $("#phone").mask("+7(999)999-99-99");       //Плагин маск
-    });
-
     $('#submit').on('click', function (e) {
         e.preventDefault();
         $.ajax({

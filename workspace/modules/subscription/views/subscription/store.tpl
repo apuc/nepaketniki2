@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label for="phone">Номер телефона:</label>
-            <input type="text" name="phone" id="phone" class="form-control" required="required" />
+            <input type="number" name="phone" id="phone"   class="form-control" required="required" />
             <small id="phoneMessage" class="form-text">{if isset($errors['phone'])}{$errors['phone']}{/if}</small>
         </div>
         <div class="form-group">

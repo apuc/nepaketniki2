@@ -1,7 +1,4 @@
 $(document).ready(function() {
- /*   $(function() {
-        $("#phone").mask("+7(999) 999-99-99");
-    });*/
     $('#submit').on('click', function (e) {
         e.preventDefault();
         const URL = window.location.href;

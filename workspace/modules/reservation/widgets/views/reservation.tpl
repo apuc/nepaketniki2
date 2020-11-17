@@ -17,7 +17,7 @@
                     <small id="nameMessage" class="schedule-form__news"></small>
                 </div>
                 <div class="-single-tour-form__input">
-                    <input id="phone" name='phone' type="text" placeholder="Введите телефон"/>
+                    <input id="phone" name='phone' type="number" placeholder="Введите телефон"/>
                     <small id="phoneMessage" class="schedule-form__news"></small>
                 </div>
                 <div class="-single-tour-form__input">
