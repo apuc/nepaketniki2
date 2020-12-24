@@ -42,6 +42,11 @@
             {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'image_id', 'label' => "Картинка тура на главной странице:", 'id' => "image_id", 'value' => $model->image->image])->run()}
         </div>
         <div class="form-group">
+            <label for="title_text">Текст над картинкой заголовка тура:</label>
+            <input type="text" name="title_text" id="title_text" class="form-control" value="{$model->title_text}" />
+            <small id="priceMessage" class="form-text">{if isset($errors['title_text'])}{$errors['title_text']}{/if}</small>
+        </div>
+        <div class="form-group">
             {workspace\modules\elfinder\widgets\ElfinderBtnWidget::widget(['name' => 'title_image_id', 'label' => "Картинка заголовка тура:", 'id' => "title_image_id", 'value' => $model->title_image->image])->run()}
         </div>
         <div class="form-group">

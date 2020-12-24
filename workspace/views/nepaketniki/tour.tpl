@@ -33,7 +33,7 @@
                             class="fa fa-times"></i></span><i class="fa fa-search"></i>
                 <div class="triangle"></div>
             </div>
-            <h2 class="-single-tour-header__title">Там где детская мечта может стать явью</h2>
+            <h2 class="-single-tour-header__title">{$model->title_text}</h2>
             <img class="-single-tour-header__balloon" src="../../../resources/images/balloon.png" alt=""/>
         </div>
         <div class="-single-tour-header__logo">

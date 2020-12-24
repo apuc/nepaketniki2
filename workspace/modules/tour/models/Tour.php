@@ -12,9 +12,12 @@ class Tour extends Model
 {
     protected $table = "tour";
 
-    public $fillable = ['name', 'main_description', 'front_description', 'front_date', 'front_places_remaining',
+    /**
+     * @var string[]
+     */
+    protected $fillable = ['name', 'main_description', 'front_description', 'front_date', 'front_places_remaining',
         'price', 'difficulties_and_weather', 'amount_of_places', 'reservation_title', 'visa', 'image_id',
-        'title_image_id', 'activities_title', 'amount_activities_items_1', 'amount_activities_items_2', 'bg_image_id'];
+        'title_image_id', 'activities_title', 'amount_activities_items_1', 'amount_activities_items_2', 'bg_image_id', 'title_text'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
@@ -144,6 +147,7 @@ class Tour extends Model
         $this->activities_title = $request->activities_title;
         $this->reservation_title = $request->reservation_title;
         $this->image_id = $request->image_id;
+        $this->title_text = $request->title_text;
 
         $image_id = new Image();
         $image_id->_save($request->image_id);

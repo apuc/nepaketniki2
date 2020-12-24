@@ -49,6 +49,7 @@ class TourSearchRequest extends RequestSearch
     public $bg_image_id;
     public $amount_activities_items_1;
     public $amount_activities_items_2;
+    public $title_text;
 
 
     public function rules()
