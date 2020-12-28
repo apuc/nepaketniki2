@@ -63,9 +63,12 @@
 </div>
 <div class="-single-tour-schedule">
     <img src="../../../resources/{$model->bg_image->image}" alt="" class="-single-tour-schedule__bg" />
+    <div class="-single-tour-schedule__title">
+        <h3>{$model->activities_title}</h3>
+    </div>
     <div class="-single-tour-schedule__column -single-tour-schedule__column--left">
         <div class="-single-tour-schedule__title--mobile">
-            {$model->activities_title}
+            <h3> {$model->activities_title} </h3>
         </div>
         {for $i=0 to $model->amount_activities_items_1 - 1}
             {if isset($activities[$i]->feature)}
@@ -78,9 +81,6 @@
         {/for}
     </div>
     <div class="-single-tour-schedule__column -single-tour-schedule__column--right">
-        <div class="-single-tour-schedule__title">
-            <h3>{$model->activities_title}</h3>
-        </div>
         {for $i=$model->amount_activities_items_1 to $model->amount_activities_items_1 + $model->amount_activities_items_2 - 1}
             {if isset($activities[$i]->feature)}
                 <div class="-single-tour-schedule-item baselined">
