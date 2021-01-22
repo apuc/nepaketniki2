@@ -7,7 +7,7 @@
             <label for="tour_id">Тур:</label>
             <select class="form-control" name="tour_id" id="tour_id">
                 {foreach from=$tours item=item}
-                    <option value="{$item->id}">{$item->name} {$item->price}</option>
+                    <option value="{$item->id}" {if $selectedTour == $item->id}selected{/if}>{$item->name} {$item->price}</option>
                 {/foreach}
             </select>
         </div>

@@ -70,6 +70,11 @@ class Tour extends Model
         return $this->hasMany('workspace\modules\admin_review_main_page\models\MainPageReview');
     }
 
+    public function payments_tour()
+    {
+        return $this->hasOne('workspace\modules\payments_tour\models\PaymentTour');
+    }
+
     /**
      * @param TourSearchRequest $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]

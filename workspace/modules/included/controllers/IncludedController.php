@@ -39,14 +39,17 @@ class IncludedController extends Controller
     public function actionStore()
     {
         $request = new IncludedRequest();
-
         if ($request->isPost() AND $request->validate()) {
             $model = new Included();
             $model->_save($request);
 
             $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
-            return $this->render('included/store.tpl', ['tours' => Tour::all(), 'errors' => $request->getMessagesArray()]);
+            return $this->render('included/store.tpl', [
+                'tours' => Tour::all(),
+                'errors' => $request->getMessagesArray(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 

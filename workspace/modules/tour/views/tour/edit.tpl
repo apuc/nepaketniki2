@@ -97,21 +97,29 @@
         </div>
     </form>
 
-    <div class="h3">Планы на день <a href="/admin/plan/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">Планы на день <a href="/admin/plan/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($plans, $plans_options)->run()}
 
-    <div class="h3">Особенности тура <a href="/admin/feature/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">Особенности тура <a href="/admin/feature/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($features, $features_options)->run()}
 
-    <div class="h3">Включено в тур <a href="/admin/included/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">Включено в тур <a href="/admin/included/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($included, $included_options)->run()}
 
-    <div class="h3">Даты <a href="/admin/date/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">Даты <a href="/admin/date/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($dates, $dates_options)->run()}
 
-    <div class="h3">Доп. оплата <a href="/admin/additional_price/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">Доп. оплата <a href="/admin/additional_price/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($additional_prices, $additional_prices_options)->run()}
 
-    <div class="h2">Разделы <a href="/admin/section/create" class="btn btn-outline-dark">Создать</a></div>
+    <div class="h3">
+        Описание оплаты тура
+        {if count($payments_tour) == 0}
+        <a href="/admin/payments_tour/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a>
+        {/if}
+    </div>
+    {core\GridView::widget()->setParams($payments_tour, $payments_tour_options)->run()}
+
+    <div class="h2">Разделы <a href="/admin/section/create?tour={$model->id}" class="btn btn-outline-dark">Создать</a></div>
     {core\GridView::widget()->setParams($sections, $sections_options)->run()}
 </div>

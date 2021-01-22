@@ -29,7 +29,10 @@ class AdditionalPriceController extends Controller
 
             $this->redirect('admin/tour/update/' . $model->tour_id);
         } else {
-            return $this->render('additional_price/store.tpl', ['tours' => Tour::all()]);
+            return $this->render('additional_price/store.tpl', [
+                'tours' => Tour::all(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 

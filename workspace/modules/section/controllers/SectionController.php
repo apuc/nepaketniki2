@@ -54,11 +54,20 @@ class SectionController extends Controller
         if ($requestImage->isPost() AND $requestImage->validate() AND isset($requestImage->data["submit_count_images"])) {
             if ($requestImage->count_images >= 0) {
                 $_SESSION['count_images'] = $requestImage->count_images;
-                return $this->render('section/store.tpl', ['h1' => 'Создание: ', 'new_count_images' => $requestImage->count_images,
-                    'tours' => Tour::all(), 'options' => $this->getOptions()]);
+                return $this->render('section/store.tpl', [
+                    'h1' => 'Создание: ',
+                    'new_count_images' => $requestImage->count_images,
+                    'tours' => Tour::all(),
+                    'options' => $this->getOptions(),
+                    'selectedTour' => (int)($_GET['tour'] ?? 0),
+                ]);
             } else {
-                return $this->render('section/store.tpl', ['h1' => 'Создание: ',
-                    'errors' => 'Количество картинок не может быть отрицательным', 'options' => $this->getOptions()]);
+                return $this->render('section/store.tpl', [
+                    'h1' => 'Создание: ',
+                    'errors' => 'Количество картинок не может быть отрицательным',
+                    'options' => $this->getOptions(),
+                    'selectedTour' => (int)($_GET['tour'] ?? 0),
+                ]);
             }
         }
 
@@ -84,8 +93,13 @@ class SectionController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('section/store.tpl', ['h1' => 'Создать:', 'options' => $this->getOptions(),
-                'tours' => $tours, 'errors' => $request->getMessagesArray()]);
+            return $this->render('section/store.tpl', [
+                'h1' => 'Создать:',
+                'options' => $this->getOptions(),
+                'tours' => $tours,
+                'errors' => $request->getMessagesArray(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 

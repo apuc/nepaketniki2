@@ -42,7 +42,11 @@ class FeatureController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('feature/store.tpl', ['tours' => $tours, 'errors' => $request->getMessagesArray()]);
+            return $this->render('feature/store.tpl', [
+                'tours' => $tours,
+                'errors' => $request->getMessagesArray(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 

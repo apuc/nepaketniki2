@@ -53,7 +53,11 @@ class DateController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('date/store.tpl', ['tours' => $tours, 'errors' => $request->getMessagesArray()]);
+            return $this->render('date/store.tpl', [
+                'tours' => $tours,
+                'errors' => $request->getMessagesArray(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 

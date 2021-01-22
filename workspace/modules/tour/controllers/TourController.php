@@ -10,6 +10,7 @@ use workspace\modules\date\models\Date;
 use workspace\modules\feature\models\Feature;
 use workspace\modules\image\models\Image;
 use workspace\modules\included\models\Included;
+use workspace\modules\payments_tour\models\PaymentTour;
 use workspace\modules\plan\models\Plan;
 use workspace\modules\plan_images\models\PlanImages;
 use workspace\modules\reservation\models\ReservationModel;
@@ -216,6 +217,18 @@ class TourController extends Controller
         ];
         $additional_prices_options = array_merge($common_options, $additional_prices_opt);
 
+        $payments_tour = PaymentTour::where('tour_id', $model->id)->get();
+
+        $payments_tour_opt = [
+            'fields' => [
+                'id' => 'ID',
+                'title' => 'Заголовок',
+                'description' => 'Описание',
+            ],
+            'baseUri' => '/admin/payments_tour',
+        ];
+        $payments_tour_options = array_merge($common_options, $payments_tour_opt);
+
         $sections = Section::where('tour_id', $model->id)->get();
         $sections_opt = [
             'fields' => [
@@ -239,7 +252,8 @@ class TourController extends Controller
                 'plans' => $plans, 'plans_options' => $plans_options, 'features' => $features, 'features_options' => $features_options,
                 'included' => $included, 'included_options' => $included_options, 'dates' => $dates, 'dates_options' => $dates_options,
                 'additional_prices' => $additional_prices, 'additional_prices_options' => $additional_prices_options,
-                'sections' => $sections, 'sections_options' => $sections_options]);
+                'sections' => $sections, 'sections_options' => $sections_options, 'payments_tour' => $payments_tour,
+                'payments_tour_options' => $payments_tour_options]);
         }
     }
 

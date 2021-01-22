@@ -77,8 +77,13 @@ class PlanController extends Controller
         } else {
             $tours = Tour::all();
 
-            return $this->render('plan/store.tpl', ['h1' => 'Создать:', 'options' => $this->getOptions(),
-                'tours' => $tours, 'errors' => $request->getMessagesArray()]);
+            return $this->render('plan/store.tpl', [
+                'h1' => 'Создать:',
+                'options' => $this->getOptions(),
+                'tours' => $tours,
+                'errors' => $request->getMessagesArray(),
+                'selectedTour' => (int)($_GET['tour'] ?? 0),
+            ]);
         }
     }
 
