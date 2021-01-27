@@ -1,0 +1,10 @@
+{
+  "name": "plan",
+  "version": "0.1",
+  "type": "module",
+  "class": "workspace\\modules\\payments_tour\\PaymentsTour",
+  "description": "Описание оплаты тура",
+  "configFile": "config/payments_tour.php",
+  "routFile": "routing/rout.php",
+  "migrationPath": "console/migrations"
+}
